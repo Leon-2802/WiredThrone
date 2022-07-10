@@ -7,7 +7,7 @@ public class ClickMovement : MonoBehaviour
 {
     [SerializeField] private PlayerControls playerControls;
     [SerializeField] private Rigidbody rb;
-    private float moveSpeed = 5f;
+    //private float moveSpeed = 5f;
 
     private InputAction clickMove;
 
