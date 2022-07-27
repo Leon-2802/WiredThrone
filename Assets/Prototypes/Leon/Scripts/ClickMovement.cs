@@ -12,6 +12,7 @@ public class ClickMovement : MonoBehaviour
     [SerializeField] private ParticleSystem clickEffect;
     private InputAction clickMove;
     private InputAction mousePosition;
+    private Vector3 moveDirection;
 
     private void Awake() 
     {
@@ -38,6 +39,9 @@ public class ClickMovement : MonoBehaviour
 
     private void RightClickOnScene(InputAction.CallbackContext context)
     {
+        if(InteractableManager.Instance.isInteracting)
+            return;
+
         Ray ray = cam.ScreenPointToRay(mousePosition.ReadValue<Vector2>());
         RaycastHit hit;
 
@@ -46,6 +50,8 @@ public class ClickMovement : MonoBehaviour
             clickEffect.transform.position = new Vector3(hit.point.x, (hit.point.y + 0.2f), hit.point.z);
             clickEffect.Play();
             agent.SetDestination(hit.point);
+
+            // transform.forward = hit.point;
         }
     }
 
