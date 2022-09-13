@@ -9,6 +9,7 @@ public class ClickMovement : MonoBehaviour
     [SerializeField] private PlayerControls playerControls;
     [SerializeField] private Camera cam;
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem clickEffect;
     private InputAction clickMove;
     private InputAction mousePosition;
@@ -20,7 +21,7 @@ public class ClickMovement : MonoBehaviour
     }
     private void Start() 
     {
-        agent.updateRotation = false;
+        // agent.updateRotation = false;
     }
     private void OnEnable() 
     {
@@ -34,7 +35,17 @@ public class ClickMovement : MonoBehaviour
 
     void Update()
     {
-
+        // Check if we've reached the destination
+        if (!agent.pathPending)
+        {
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    animator.SetBool("Running", false);
+                }
+            }
+        }
     }
 
     private void RightClickOnScene(InputAction.CallbackContext context)
@@ -51,6 +62,7 @@ public class ClickMovement : MonoBehaviour
             clickEffect.Play();
             agent.SetDestination(hit.point);
 
+            animator.SetBool("Running", true);
             // transform.forward = hit.point;
         }
     }

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EInteractionType {Decoration, Computer, Log, Secret};
+
 public class InteractableManager : MonoBehaviour
 {
-    public enum InteractionType {Decoration, Computer, Log, Secret};
     public static InteractableManager Instance;
     public bool interactionAvailable = false;
     public bool isInteracting = false;
@@ -16,7 +17,7 @@ public class InteractableManager : MonoBehaviour
         else
             Instance = this;
     }
-    public void EnterInteractionZone(InteractionType interactionType)
+    public void EnterInteractionZone(EInteractionType interactionType)
     {
         if(interactionAvailable)
             return;
