@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +11,7 @@ public class PlayerInteractions : MonoBehaviour
 
     private void Awake() 
     {
-        playerControls = new PlayerControls(); 
+        playerControls = GameManager.Instance.playerControls;
     }
     void Start()
     {

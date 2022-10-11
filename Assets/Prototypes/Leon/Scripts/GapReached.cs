@@ -8,7 +8,7 @@ public class GapReached : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.gameObject.GetComponent<Player>())
+        if(other.gameObject.GetComponent<MovingCharacter>())
         {
             playerAnimator.SetBool("Jump", true);
         }
@@ -16,7 +16,7 @@ public class GapReached : MonoBehaviour
 
     private void OnTriggerExit(Collider other) 
     {
-        if(other.gameObject.GetComponent<Player>())
+        if(other.gameObject.GetComponent<MovingCharacter>())
         {
             playerAnimator.SetBool("Jump", false);
         }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
@@ -9,7 +7,7 @@ public class InteractableObject : MonoBehaviour
     [SerializeField] protected int materialNumber;
     protected Material initialMat;
 
-    protected void Start() 
+    protected virtual void Start() 
     {
         initialMat = new Material(meshToHighlight.materials[materialNumber]);
     }

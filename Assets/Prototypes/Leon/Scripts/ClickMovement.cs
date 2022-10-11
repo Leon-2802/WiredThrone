@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.AI;
@@ -17,7 +15,7 @@ public class ClickMovement : MonoBehaviour
 
     private void Awake() 
     {
-        playerControls = new PlayerControls(); 
+        playerControls = GameManager.Instance.playerControls;
     }
     private void Start() 
     {
@@ -40,6 +38,7 @@ public class ClickMovement : MonoBehaviour
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
+                // animator.speed = agent.velocity.sqrMagnitude;
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
                     animator.SetBool("Running", false);
