@@ -1,0 +1,56 @@
+_Info_
+	- Hier Infos rein packen, zb. zu einem neuen Modell, wenn evtl. Animationen nicht ganz klar sind
+
+
+_Bugs_
+	- Wenn Bugs gefunden werden hier ein neues .txt file hinzufügen und Beschreibung + Ort + Konsolenoutput des Bugs reinpacken
+
+
+_Story_
+	- Hier gerne Story-ideen hinzufügen
+	- Sonst kommen hier fertige Skripte zu den Storyabschnitten rein und auch Dialoge, Logbucheinträge usw...
+
+
+Animation
+	- In Unity erstellte Animationen kommen hier rein
+	- Animationen von 3D-Modellen sollten im .fbx file enthalten sein und daher in den Models Ordner kommen
+
+
+Audio
+	- Musik + Sfx
+
+
+Imported
+	- Wenn Modelle, Skripte oder Libraries importiert werden bitte hier rein machen, da sonst der Asset-Ordner unübersichtlich wird
+
+
+MaTex
+	- Jedes Material + Texture kommt hier rein !Immer Material u. Texture zusammen in einen Ordner packen
+	- Mit Shader-Graph erstellte Materiale hier rein, !Auch hier Material + Texture + Shader Graph in einen gemeinsamen Unterordner 
+
+
+Models
+	- 3D-Modelle im .fbx Format so wie sie in Blender exportiert wurden
+
+
+Prefabs
+	- Komplette wiederverwendbare Unity-Objekte kommen hier rein -> Mitsamt Transform, Rb, Animator, Collider, Script usw..
+	- !Prefabs nur im Models Ordner bearbeiten, wenn Änderungen global gelten sollen
+
+
+Protoypes
+	- Hier darf sich gerne jeder einen Ordner mit seinem Namen erstellen und rumskripten, Gameobjects bauen und Testszenen machen
+	- Hier kann nichts kaputt gemacht werden, solange keine Prefabs aus dem Prefab Ordner verändert werden (-> fertige Prefabs immer entpacken!)
+
+
+Scenes
+	- Hier kommen alle Szenen rein die am Ende im Game gebraucht werden (zb. Menü.scene)
+
+
+Scripts
+	- Alle fertigen, getesten Skripte hier rein packen (inkl. Kommentaren)
+	- !Bitte Skripte in Unterordner sortieren (zb. Player, Combat, UI, usw...)
+
+
+
+Die restlichen Ordner unter Scripts sind egal (automatisch erstell von Unity)
