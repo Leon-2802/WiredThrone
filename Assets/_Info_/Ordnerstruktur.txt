@@ -6,6 +6,11 @@ _Bugs_
 	- Wenn Bugs gefunden werden hier ein neues .txt file hinzufügen und Beschreibung + Ort + Konsolenoutput des Bugs reinpacken
 
 
+_DesignIdeas_
+	- UI Wireframes, Mockups, Modelle und Farbpaletten können gerne hier reinpacken 
+	-> Ein Sammelort für Design Ideen
+
+
 _Story_
 	- Hier gerne Story-ideen hinzufügen
 	- Sonst kommen hier fertige Skripte zu den Storyabschnitten rein und auch Dialoge, Logbucheinträge usw...
@@ -50,6 +55,10 @@ Scenes
 Scripts
 	- Alle fertigen, getesten Skripte hier rein packen (inkl. Kommentaren)
 	- !Bitte Skripte in Unterordner sortieren (zb. Player, Combat, UI, usw...)
+
+
+UI
+	- Hier kommen fertige UI-Designs im .png Format rein
 
 
 
