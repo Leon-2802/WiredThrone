@@ -12,6 +12,7 @@ public class ClickMovement : MonoBehaviour
     private InputAction clickMove;
     private InputAction mousePosition;
     private Vector3 moveDirection;
+    private Quaternion lastRot;
 
     private void Awake() 
     {
@@ -19,7 +20,7 @@ public class ClickMovement : MonoBehaviour
     }
     private void Start() 
     {
-        // agent.updateRotation = false;
+        agent.updateRotation = false;
     }
     private void OnEnable() 
     {
@@ -39,11 +40,25 @@ public class ClickMovement : MonoBehaviour
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 // animator.speed = agent.velocity.sqrMagnitude;
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                if (!agent.hasPath || agent.velocity.sqrMagnitude <= Mathf.Epsilon)
                 {
                     animator.SetBool("Running", false);
+                    GameManager.Instance.playerIsRunning = false;
                 }
             }
+        }
+    }
+    
+    void LateUpdate() 
+    {
+        transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
+        if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
+        {
+            transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
+            lastRot = transform.rotation;
+        }
+        else {
+            transform.rotation = lastRot;
         }
     }
 
@@ -62,6 +77,7 @@ public class ClickMovement : MonoBehaviour
             agent.SetDestination(hit.point);
 
             animator.SetBool("Running", true);
+            GameManager.Instance.playerIsRunning = true;
             // transform.forward = hit.point;
         }
     }

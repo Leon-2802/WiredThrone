@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public PlayerControls playerControls;
+    public bool playerIsRunning = false;
 
     private void Awake() 
     {
