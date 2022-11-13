@@ -12,6 +12,7 @@ public class CompanionMovement : MonoBehaviour
     private bool playerIsRunning;
     private bool movedBackToPlayer;
 
+
     void Start()
     {
         initialDistanceToParent = Vector3.Distance(transform.position, pivotPoint.position);
@@ -25,7 +26,7 @@ public class CompanionMovement : MonoBehaviour
         playerIsRunning = GameManager.Instance.playerIsRunning;
 
         if(movedBackToPlayer)
-            RotateAroundPlayer();
+            RotateAroundPlayer();   
 
         if(playerIsRunning || !movedBackToPlayer)
             MoveTowardsTarget(pivotPoint.position, initialDistanceToParent);
@@ -46,7 +47,9 @@ public class CompanionMovement : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, target, moveStepsPerCall);
             transform.position = new Vector3(transform.position.x, initialPos.y, transform.position.z);
-            transform.rotation = pivotPoint.rotation;
+
+            if(playerIsRunning)
+                transform.rotation = pivotPoint.rotation; //update rotation to player rotation while he is moving
         }
         
         else
