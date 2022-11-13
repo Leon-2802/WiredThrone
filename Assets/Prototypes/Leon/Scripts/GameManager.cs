@@ -16,4 +16,9 @@ public class GameManager : MonoBehaviour
 
         playerControls = new PlayerControls();
     }
+
+    private void Start() 
+    {
+    }
+
 }

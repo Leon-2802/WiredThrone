@@ -169,7 +169,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9367284, y: 1}
+    m_SensorSize: {x: 2.4321706, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3334,9 +3334,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e62abb5a7aa73428754129b792cc39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetObj: {fileID: 5049753517927686088}
   rotSpeed: 80
-  pivotPoint: {fileID: 5049753517927686088}
   moveStepsPerCall: 0.01
+  rotateAroundOwnAxisSpeed: 100
 --- !u!114 &1256734969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5106,7 +5107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863102504}
   m_LocalRotation: {x: -0, y: -0, z: 1.1641531e-10, w: 1}
-  m_LocalPosition: {x: 18.851952, y: 2.50879, z: 2.4805279}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10710,6 +10711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shoulderCam: {fileID: 1822409133}
+  debugCompanionEventTarget: {fileID: 1486199862}
 --- !u!114 &5575320812164711798
 MonoBehaviour:
   m_ObjectHideFlags: 0
