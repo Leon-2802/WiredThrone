@@ -5,7 +5,7 @@ public class CompanionMovement : MonoBehaviour
     
     [SerializeField] private Transform targetObj;
     [SerializeField] private float rotSpeed;
-    [SerializeField] private float moveStepsPerCall = 0.01f;
+    [SerializeField] private float moveSpeed = 0.01f;
     [SerializeField] private float rotateAroundOwnAxisSpeed = 20f;
     private Transform eventTarget;
     private Vector3 initialPos;
@@ -19,6 +19,7 @@ public class CompanionMovement : MonoBehaviour
     void Start()
     {
         EventManager.instance.SubscribeToCompanionFlyEvent(FlyToEventObj);
+        EventManager.instance.Subscribe(EEvents.CompanionFlyBack, FlyBackToPlayer);
 
         initialDistanceToParent = Vector3.Distance(transform.position, targetObj.position);
         initialPos = transform.position;
@@ -59,7 +60,7 @@ public class CompanionMovement : MonoBehaviour
 
         if(currentDistanceToParent > stopDistance)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, moveStepsPerCall);
+            transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
             transform.position = new Vector3(transform.position.x, initialPos.y, transform.position.z);
         }
         
@@ -76,5 +77,11 @@ public class CompanionMovement : MonoBehaviour
     {
         eventTarget = obj;
         disableFollowPlayer = true;
+    }
+
+    void FlyBackToPlayer()
+    {
+        movedBackToPlayer = false;
+        disableFollowPlayer = false;
     }
 }

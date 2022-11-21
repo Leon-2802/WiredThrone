@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum EEvents {CompanionFlyToObj, CompanionHint}
+public enum EEvents {CompanionFlyToObj, CompanionHint, CompanionFlyBack}
 public class EventManager : MonoBehaviour
 {
     public static EventManager instance;
     public List<UnityAction<Transform>> companionFlyToObjectCallbacks = new List<UnityAction<Transform>>();
     public List<UnityAction> companionHintCallbacks = new List<UnityAction>();
+    public List<UnityAction> companionBackToPlayerCallbacks = new List<UnityAction>();
 
     private void Awake() 
     {
@@ -17,6 +18,15 @@ public class EventManager : MonoBehaviour
             instance = this;
     }
 
+    public void Subscribe(EEvents eventType, UnityAction func)
+    {
+        switch(eventType)
+        {
+            case EEvents.CompanionFlyBack:
+                companionBackToPlayerCallbacks.Add(func);
+                break;
+        }
+    }
     public void SubscribeToCompanionFlyEvent(UnityAction<Transform> func) 
     {
         companionFlyToObjectCallbacks.Add(func);
@@ -27,6 +37,13 @@ public class EventManager : MonoBehaviour
         foreach(UnityAction<Transform> cb in companionFlyToObjectCallbacks)
         {
             cb(target);
+        }
+    }
+    public void CompanionFlyBackToPlayerEvent()
+    {
+        foreach(UnityAction cb in companionBackToPlayerCallbacks)
+        {
+            cb();
         }
     }
 

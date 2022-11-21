@@ -5,10 +5,8 @@ public class PlayerInteractions : MonoBehaviour
 {
     [SerializeField] private PlayerControls playerControls;
     [SerializeField] private GameObject shoulderCam;
-    [SerializeField] private Transform debugCompanionEventTarget;
     private InputAction interact;
     private InputAction leaveInteraction;
-    private InputAction debug;
     private Vector3 moveDirection;
 
     private void Awake() 
@@ -24,10 +22,6 @@ public class PlayerInteractions : MonoBehaviour
         leaveInteraction = playerControls.Player.Back;
         leaveInteraction.Enable();
         leaveInteraction.performed += LeaveInteraction;
-
-        debug = playerControls.Player.Debug;
-        debug.Enable();
-        debug.performed += CallDebugEvent;
     }
 
     private void Interact(InputAction.CallbackContext context)
@@ -48,15 +42,9 @@ public class PlayerInteractions : MonoBehaviour
         InteractableManager.Instance.endInteraction();
     }
 
-    private void CallDebugEvent(InputAction.CallbackContext context)
-    {
-        EventManager.instance.CompanionFlyToObjEvent(debugCompanionEventTarget);
-    }
-
     private void OnDisable() 
     {
         interact.Disable();
         leaveInteraction.Disable();
-        debug.Disable();
     }
 }
