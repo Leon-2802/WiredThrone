@@ -29,8 +29,11 @@ public class PlayerInteractions : MonoBehaviour
         if(InteractableManager.Instance.isInteracting || InteractableManager.Instance.interactionAvailable == false)
             return;
 
+        InteractableManager.Instance.StartInteraction();
+    }
+    public void ActivateShoulderCam()
+    {
         shoulderCam.SetActive(true);
-        InteractableManager.Instance.startInteraction();
     }
 
     private void LeaveInteraction(InputAction.CallbackContext context)
@@ -39,7 +42,7 @@ public class PlayerInteractions : MonoBehaviour
             return;
 
         shoulderCam.SetActive(false);
-        InteractableManager.Instance.endInteraction();
+        InteractableManager.Instance.EndInteraction();
     }
 
     private void OnDisable() 

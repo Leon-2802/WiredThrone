@@ -7,11 +7,13 @@ public class CompanionMovement : MonoBehaviour
     [SerializeField] private float rotSpeed;
     [SerializeField] private float moveSpeed = 0.01f;
     [SerializeField] private float rotateAroundOwnAxisSpeed = 20f;
+    [SerializeField] private float maxDistanceToPlayer = 1f;
     private Transform eventTarget;
     private Vector3 initialPos;
     private float initialDistanceToParent;
     private float currentDistanceToParent;
     private bool disableFollowPlayer;
+    private bool checkDistanceToPlayer;
     private bool playerIsRunning;
     private bool movedBackToPlayer;
 
@@ -25,6 +27,7 @@ public class CompanionMovement : MonoBehaviour
         initialPos = transform.position;
         movedBackToPlayer = true;
         disableFollowPlayer = false;
+        checkDistanceToPlayer = false;
     }
 
 
@@ -44,6 +47,10 @@ public class CompanionMovement : MonoBehaviour
         if(disableFollowPlayer)
         {
             MoveTowardsTarget(eventTarget.position, initialDistanceToParent, true);
+            if(checkDistanceToPlayer)
+            {
+                CheckIfPlayerTooFar();
+            }
         }
     }
 
@@ -73,15 +80,36 @@ public class CompanionMovement : MonoBehaviour
         }
     }
 
+    void CheckIfPlayerTooFar()
+    {
+        float currentDistanceToPlayer = Vector3.Distance(transform.position, targetObj.position);
+
+        if(currentDistanceToPlayer > maxDistanceToPlayer)
+        {
+            EventManager.instance.CompanionFlyBackToPlayerEvent();
+            checkDistanceToPlayer = false;
+        }
+    }
+
     void FlyToEventObj(Transform obj)
     {
         eventTarget = obj;
         disableFollowPlayer = true;
+
+        foreach(Transform target in GameManager.Instance.optionalCompanionTargets)
+        {
+            if(target == obj)
+            {
+                checkDistanceToPlayer = true;
+                Debug.Log("optional Object");
+            }
+        }
     }
 
     void FlyBackToPlayer()
     {
         movedBackToPlayer = false;
         disableFollowPlayer = false;
+        checkDistanceToPlayer = false;
     }
 }

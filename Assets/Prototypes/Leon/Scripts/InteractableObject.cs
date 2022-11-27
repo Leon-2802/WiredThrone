@@ -32,7 +32,7 @@ public class InteractableObject : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Player>())
         {
-            InteractableManager.Instance.EnterInteractionZone(interactionType);
+            InteractableManager.Instance.EnterInteractionZone(interactionType, this.gameObject);
             ChangeMat(ThemeManager.instance.interactionAvailable);
 
             if(isCompanionTarget)

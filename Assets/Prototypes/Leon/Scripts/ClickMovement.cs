@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class ClickMovement : MonoBehaviour
 {
     [SerializeField] private PlayerControls playerControls;
+    [SerializeField] private PlayerInteractions playerInteractions;
     [SerializeField] private Camera cam;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator animator;
@@ -13,6 +14,8 @@ public class ClickMovement : MonoBehaviour
     private InputAction mousePosition;
     private Vector3 moveDirection;
     private Quaternion lastRot;
+    private Transform forcedDestination;
+    private bool forcedDest;
 
     private void Awake() 
     {
@@ -21,6 +24,7 @@ public class ClickMovement : MonoBehaviour
     private void Start() 
     {
         agent.updateRotation = false;
+        forcedDest = false;
     }
     private void OnEnable() 
     {
@@ -44,6 +48,11 @@ public class ClickMovement : MonoBehaviour
                 {
                     animator.SetBool("Running", false);
                     GameManager.Instance.playerIsRunning = false;
+                    if(forcedDest) 
+                    {
+                        forcedDest = false;
+                        playerInteractions.ActivateShoulderCam();
+                    }
                 }
             }
         }
@@ -72,14 +81,25 @@ public class ClickMovement : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit))
         {
-            clickEffect.transform.position = new Vector3(hit.point.x, (hit.point.y + 0.2f), hit.point.z);
+            // if(hit.point.y > 0.5f)
+            //     return;
+
+            clickEffect.transform.position = new Vector3(hit.point.x, (0.2f), hit.point.z);
             clickEffect.Play();
             agent.SetDestination(hit.point);
 
             animator.SetBool("Running", true);
             GameManager.Instance.playerIsRunning = true;
-            // transform.forward = hit.point;
         }
+    }
+
+    public void ForceDestination(Transform dest)
+    {
+        agent.SetDestination(dest.position);
+        animator.SetBool("Running", true);
+
+        forcedDest = true; 
+        forcedDestination = dest;
     }
 
     private void OnDisable() 

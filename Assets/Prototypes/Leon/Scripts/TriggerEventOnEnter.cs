@@ -6,7 +6,7 @@ public class TriggerEventOnEnter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.gameObject.GetComponent<Player>())
+        if(other.gameObject.GetComponent<Player>() && !EventManager.instance.companionOnTarget)
         {
             EventManager.instance.CompanionFlyToObjEvent(target);
             Destroy(this.gameObject);

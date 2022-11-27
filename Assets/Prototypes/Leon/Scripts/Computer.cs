@@ -14,9 +14,12 @@ public class Computer : InteractableObject
     {
         if(other.gameObject.GetComponent<Player>())
         {
-            InteractableManager.Instance.EnterInteractionZone(interactionType);
+            InteractableManager.Instance.EnterInteractionZone(interactionType, this.gameObject);
             ChangeMat(ThemeManager.instance.interactionAvailable);
             interacting = true;
+
+            if(isCompanionTarget)
+                InteractableManager.Instance.isInteractingWithCompanionTarget = true;
         }
     }
     protected override void OnTriggerExit(Collider other)
@@ -26,6 +29,9 @@ public class Computer : InteractableObject
             InteractableManager.Instance.LeaveInteractionZone();
             ChangeMat(initialMat);
             interacting = false;
+
+            if(isCompanionTarget)
+                InteractableManager.Instance.isInteractingWithCompanionTarget = false;
         }
     }
 }
