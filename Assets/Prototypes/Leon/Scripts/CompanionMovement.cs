@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CompanionMovement : MonoBehaviour
 {
-    
+    [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Transform targetObj;
     [SerializeField] private float rotSpeed;
     [SerializeField] private float moveSpeed = 0.01f;
@@ -10,7 +11,7 @@ public class CompanionMovement : MonoBehaviour
     [SerializeField] private float maxDistanceToPlayer = 1f;
     private Transform eventTarget;
     private Vector3 initialPos;
-    private float initialDistanceToParent;
+    private float initalStoppingDist;
     private float currentDistanceToParent;
     private bool disableFollowPlayer;
     private bool checkDistanceToPlayer;
@@ -20,11 +21,12 @@ public class CompanionMovement : MonoBehaviour
 
     void Start()
     {
+        agent.updateRotation = false;
+
         EventManager.instance.SubscribeToCompanionFlyEvent(FlyToEventObj);
         EventManager.instance.Subscribe(EEvents.CompanionFlyBack, FlyBackToPlayer);
 
-        initialDistanceToParent = Vector3.Distance(transform.position, targetObj.position);
-        initialPos = transform.position;
+        initalStoppingDist = agent.stoppingDistance;
         movedBackToPlayer = true;
         disableFollowPlayer = false;
         checkDistanceToPlayer = false;
@@ -38,15 +40,15 @@ public class CompanionMovement : MonoBehaviour
         playerIsRunning = GameManager.Instance.playerIsRunning;
 
 
-        if(movedBackToPlayer && !disableFollowPlayer)
+        if(movedBackToPlayer && !disableFollowPlayer && !InteractableManager.Instance.isInteracting)
             RotateAroundPlayer();   
 
         if(playerIsRunning && !disableFollowPlayer || !movedBackToPlayer && !disableFollowPlayer)
-            MoveTowardsTarget(targetObj.position, initialDistanceToParent, false);
+            MoveTowardsTarget(targetObj.position, initalStoppingDist, false);
 
         if(disableFollowPlayer)
         {
-            MoveTowardsTarget(eventTarget.position, initialDistanceToParent, true);
+            MoveTowardsTarget(eventTarget.position, 0, true);
             if(checkDistanceToPlayer)
             {
                 CheckIfPlayerTooFar();
@@ -63,15 +65,18 @@ public class CompanionMovement : MonoBehaviour
     {
         movedBackToPlayer = false;
 
-        currentDistanceToParent = Vector3.Distance(transform.position, target);
+        // currentDistanceToParent = Vector3.Distance(transform.position, target);
 
-        if(currentDistanceToParent > stopDistance)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-            transform.position = new Vector3(transform.position.x, initialPos.y, transform.position.z);
-        }
-        
-        else
+        // if(currentDistanceToParent > stopDistance)
+        // {
+        //     transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+        //     transform.position = new Vector3(transform.position.x, initialPos.y, transform.position.z);
+        // }
+        agent.stoppingDistance = stopDistance;
+
+        agent.SetDestination(target);
+
+        if(agent.remainingDistance <= agent.stoppingDistance)
         {
             if(!eventTargeted)
                 movedBackToPlayer = true;

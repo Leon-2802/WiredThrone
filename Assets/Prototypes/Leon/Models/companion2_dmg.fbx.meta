@@ -3,7 +3,31 @@ guid: a561aa94ff8537941bfe3687eeafae32
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 6098924145076851180, guid: 20f20cd642e4b974988e79f36148a8d0,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Front
+    second: {fileID: -736938290813285100, guid: 1b9f43aaba2a17242bc4f74f4a3eae2d,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glow
+    second: {fileID: -7848952084472943420, guid: 1b9f43aaba2a17242bc4f74f4a3eae2d,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rust
+    second: {fileID: 2170618935181097553, guid: 1b9f43aaba2a17242bc4f74f4a3eae2d,
+      type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

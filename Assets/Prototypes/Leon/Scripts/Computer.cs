@@ -12,26 +12,18 @@ public class Computer : InteractableObject
     }
     protected override void OnTriggerEnter(Collider other)
     {
+        base.OnTriggerEnter(other);
         if(other.gameObject.GetComponent<Player>())
         {
-            InteractableManager.Instance.EnterInteractionZone(interactionType, this.gameObject);
-            ChangeMat(ThemeManager.instance.interactionAvailable);
             interacting = true;
-
-            if(isCompanionTarget)
-                InteractableManager.Instance.isInteractingWithCompanionTarget = true;
         }
     }
     protected override void OnTriggerExit(Collider other)
     {
-         if(other.gameObject.GetComponent<Player>())
+        base.OnTriggerExit(other);
+        if(other.gameObject.GetComponent<Player>())
         {
-            InteractableManager.Instance.LeaveInteractionZone();
-            ChangeMat(initialMat);
             interacting = false;
-
-            if(isCompanionTarget)
-                InteractableManager.Instance.isInteractingWithCompanionTarget = false;
         }
     }
 }

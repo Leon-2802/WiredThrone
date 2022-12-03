@@ -3,8 +3,10 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour
 {
     [SerializeField] protected EInteractionType interactionType;
+    [SerializeField] protected float playerStoppingDistance;
     [SerializeField] protected MeshRenderer meshToHighlight;
     [SerializeField] protected int materialNumber;
+    [SerializeField] protected Transform companionStopPos;
     protected Material initialMat;
     protected bool isCompanionTarget;
 
@@ -19,7 +21,7 @@ public class InteractableObject : MonoBehaviour
 
     protected virtual void OnCompanionFlyToTarget(Transform target)
     {
-        if(target == this .gameObject.transform)
+        if(target == this.companionStopPos)
             isCompanionTarget = true;
     }
     protected virtual void OnCompanionFlyToPlayer()
@@ -32,7 +34,8 @@ public class InteractableObject : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Player>())
         {
-            InteractableManager.Instance.EnterInteractionZone(interactionType, this.gameObject);
+            InteractableManager.Instance.EnterInteractionZone(interactionType, 
+                this.gameObject, playerStoppingDistance);
             ChangeMat(ThemeManager.instance.interactionAvailable);
 
             if(isCompanionTarget)

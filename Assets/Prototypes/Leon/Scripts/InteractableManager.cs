@@ -5,13 +5,15 @@ public enum EInteractionType {Decoration, Computer, Log, Secret};
 public class InteractableManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] interactableObjects;
+    [SerializeField] private Transform[] standingPositions;
     public static InteractableManager Instance;
     public bool interactionAvailable = false;
     public bool isInteracting = false;
     public bool isInteractingWithCompanionTarget = false;
     [SerializeField] private MovePlayerToInteraction movePlayerToInteraction;
     [SerializeField] private ClickMovement clickMovement;
-    private GameObject currentObj;
+    private Transform playerTarget;
+    private float stoppingDistToInteractable;
 
     private void Awake() 
     {
@@ -22,30 +24,34 @@ public class InteractableManager : MonoBehaviour
     }
 
 
-    public void EnterInteractionZone(EInteractionType interactionType, GameObject enteredObj)
+    public void EnterInteractionZone(EInteractionType interactionType, GameObject enteredObj, float stopDist)
     {
         if(interactionAvailable)
             return;
 
         interactionAvailable = true;
-        foreach(GameObject obj in interactableObjects)
+        for(int i = 0; i < interactableObjects.Length; i++)
         {
-            if(obj == enteredObj)
+            if(interactableObjects[i] == enteredObj)
             {
-                currentObj = obj;
+                playerTarget = standingPositions[i];
+                Debug.Log(playerTarget);
             }
         }
+        stoppingDistToInteractable = stopDist;
         Debug.Log("Press 'E' to interact");
     }
     public void StartInteraction()
     {
         isInteracting = true;
         Debug.Log("Press 'esc' to exit");
-        clickMovement.ForceDestination(currentObj.transform);
+        clickMovement.ForceDestination(playerTarget, stoppingDistToInteractable);
     }
     public void EndInteraction()
     {
         isInteracting = false;
+        clickMovement.SetStoppingDistance(0);
+        clickMovement.forcedDest = false;
 
         if(isInteractingWithCompanionTarget)
         {
@@ -56,6 +62,5 @@ public class InteractableManager : MonoBehaviour
     public void LeaveInteractionZone()
     {
         interactionAvailable = false;
-        currentObj = null;
     }
 }

@@ -15,7 +15,8 @@ public class ClickMovement : MonoBehaviour
     private Vector3 moveDirection;
     private Quaternion lastRot;
     private Transform forcedDestination;
-    private bool forcedDest;
+    public bool forcedDest;
+    private float initalStoppingDistance;
 
     private void Awake() 
     {
@@ -25,6 +26,7 @@ public class ClickMovement : MonoBehaviour
     {
         agent.updateRotation = false;
         forcedDest = false;
+        initalStoppingDistance = agent.stoppingDistance;
     }
     private void OnEnable() 
     {
@@ -50,8 +52,12 @@ public class ClickMovement : MonoBehaviour
                     GameManager.Instance.playerIsRunning = false;
                     if(forcedDest) 
                     {
-                        forcedDest = false;
                         playerInteractions.ActivateShoulderCam();
+                        Vector3 finalRot = new Vector3(forcedDestination.eulerAngles.x, forcedDestination.eulerAngles.y, 
+                            forcedDestination.eulerAngles.z);
+                        Debug.Log(finalRot);
+                        transform.rotation = Quaternion.Euler(finalRot);
+                        Debug.Log(transform.rotation);
                     }
                 }
             }
@@ -67,7 +73,8 @@ public class ClickMovement : MonoBehaviour
             lastRot = transform.rotation;
         }
         else {
-            transform.rotation = lastRot;
+            if(!forcedDest)
+                transform.rotation = lastRot;
         }
     }
 
@@ -93,13 +100,19 @@ public class ClickMovement : MonoBehaviour
         }
     }
 
-    public void ForceDestination(Transform dest)
+    public void ForceDestination(Transform dest, float stoppingDist)
     {
         agent.SetDestination(dest.position);
         animator.SetBool("Running", true);
 
-        forcedDest = true; 
+        forcedDest = true;  //Will be reset in InteractableManager.EndInteraction()
         forcedDestination = dest;
+        agent.stoppingDistance = stoppingDist;
+    }
+    public void SetStoppingDistance(float value)
+    {
+        agent.stoppingDistance = value;
+        agent.ResetPath();
     }
 
     private void OnDisable() 
