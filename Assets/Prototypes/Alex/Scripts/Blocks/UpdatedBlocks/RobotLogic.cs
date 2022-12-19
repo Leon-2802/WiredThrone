@@ -43,7 +43,22 @@ public class RobotLogic : MonoBehaviour
                     Debug.Log(boolblock.Value);
                     break;
                 case Block<Action> actionBlock:
-                    //GetComponent<Robot>().Move(actionBlock.MoveVector);
+                    Robot component = gameObject.GetComponent<Robot>();
+                    switch (actionBlock.Value)
+                    {
+                        case Action.AttackLeft:
+                            component.AttackLeft();
+                            break;
+                        case Action.AttackRight:
+                            component.AttackRight();
+                            break;
+                        case Action.Move:
+                            component.Move();
+                            break;
+                        case Action.Heal:
+                            component.Heal();
+                            break;
+                    }
                     break;
             }
         }
