@@ -9,6 +9,8 @@ TagManager:
   - IfRight
   - MainCanvas
   - Robot
+  - Decoration
+  - Wall
   layers:
   - Default
   - TransparentFX
