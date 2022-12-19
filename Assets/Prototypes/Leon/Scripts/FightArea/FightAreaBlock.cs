@@ -15,5 +15,9 @@ public class FightAreaBlock : MonoBehaviour
         {
             ManagePositions.instance.robotPosition = coordinates;
         }
+        else if(other.gameObject.GetComponent<EnemyRobot>())
+        {
+            ManagePositions.instance.enemyPosition = coordinates;
+        }
     }
 }

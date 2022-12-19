@@ -4,6 +4,8 @@ public class ManagePositions : MonoBehaviour
 {
     public static ManagePositions instance;
     public Vector2 robotPosition;
+    public Vector2 enemyPosition;
+
     private void Awake() 
     {
         if(instance != null && instance != this)
@@ -15,5 +17,6 @@ public class ManagePositions : MonoBehaviour
     private void Start() 
     {
         robotPosition = new Vector2(0, 0);    
+        enemyPosition = new Vector2(0, 0);
     }
 }
