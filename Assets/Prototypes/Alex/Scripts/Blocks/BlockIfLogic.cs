@@ -1,15 +1,20 @@
+#nullable enable
+
 using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
-public class BlockIf<T> : Block<bool>
+public class BlockIfLogic<T>
 {
-
     [SerializeField] private BlockInfo<T>? _left, _right;
     [SerializeField] private Operator? _operator;
+    [SerializeField] private InputField _leftInput;
+    [SerializeField] private InputField _rightInput;
 
-    public BlockIf(BlockInfo<T>? left, Operator? op, BlockInfo<T>? right)
+    public BlockIfLogic(BlockInfo<T>? left, Operator? op, BlockInfo<T>? right)
     {
         _left = left;
         _operator = op;
@@ -26,12 +31,44 @@ public class BlockIf<T> : Block<bool>
         _right = block;
     }
 
-    public void SetOperator(Operator op) {
+    public void SetOperator(Operator op)
+    {
         _operator = op;
     }
 
-    public bool IsSet() {
-        if (_left != null && _operator != null && _right != null ) {
+    public string GetOperator {
+        get {return _operator.ToString();}
+    }
+
+    public void SetOperatorFromString(string op)
+    {
+        switch (op)
+        {
+            case "==":
+                _operator = Operator.Equal;
+                break;
+            case "!=":
+                _operator = Operator.NotEqual;
+                break;
+            case "<":
+                _operator = Operator.LessThan;
+                break;
+            case "<=":
+                _operator = Operator.LessOrEqual;
+                break;
+            case ">":
+                _operator = Operator.MoreThan;
+                break;
+            case ">=":
+                _operator = Operator.MoreOrEqual;
+                break;
+        }
+    }
+
+    public bool IsSet()
+    {
+        if (_left != null && _operator != null && _right != null)
+        {
             return true;
         }
         return false;
@@ -57,7 +94,10 @@ public class BlockIf<T> : Block<bool>
                     {
                         result = true;
                     }
-                    result = false;
+                    else
+                    {
+                        result = false;
+                    }
                     break;
 
                 // >
@@ -71,7 +111,10 @@ public class BlockIf<T> : Block<bool>
                     {
                         result = true;
                     }
-                    result = false;
+                    else
+                    {
+                        result = false;
+                    }
                     break;
 
                 // ==

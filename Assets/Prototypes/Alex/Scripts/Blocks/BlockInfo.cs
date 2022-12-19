@@ -9,6 +9,7 @@ public class BlockInfo<T>
     public T Value
     {
         get { return _value; }
+        set { _value = value; }
     }
 
     private Blockinfotype _type;

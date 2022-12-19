@@ -4,12 +4,12 @@ using UnityEngine;
 
 public enum Operator
 {
+    Equal,  // ==
+    NotEqual,  // !=
     LessThan,  // <
     LessOrEqual,  // <=
     MoreThan,  // >
     MoreOrEqual,  // >=
-    Equal,  // ==
-    NotEqual,  // !=
 }
 
 public enum Blockinfotype
