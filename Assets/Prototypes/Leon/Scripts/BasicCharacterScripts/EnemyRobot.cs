@@ -1,9 +1,11 @@
+using UnityEngine;
+
 public class EnemyRobot : MovingNPC
 {
-    // Start is called before the first frame update
+    public int enemyIndex;
     void Start()
     {
-        
+        ManagePositions.instance.enemyPositions.Add(new Vector2(0,0));
     }
 
     // Update is called once per frame

@@ -13,11 +13,11 @@ public class FightAreaBlock : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Robot>())
         {
-            ManagePositions.instance.robotPosition = coordinates;
+            ManagePositions.instance.robotPositions[other.gameObject.GetComponent<Robot>().robotIndex] = coordinates;
         }
         else if(other.gameObject.GetComponent<EnemyRobot>())
         {
-            ManagePositions.instance.enemyPosition = coordinates;
+            ManagePositions.instance.enemyPositions[other.gameObject.GetComponent<EnemyRobot>().enemyIndex] = coordinates;
         }
     }
 }

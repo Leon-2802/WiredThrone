@@ -6330,8 +6330,8 @@ GameObject:
   - component: {fileID: 597350801}
   - component: {fileID: 597350800}
   - component: {fileID: 597350799}
-  - component: {fileID: 597350798}
   - component: {fileID: 597350797}
+  - component: {fileID: 597350803}
   m_Layer: 0
   m_Name: TestRobot
   m_TagString: Untagged
@@ -6351,22 +6351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa627b2a2b564747b1aa894c0c8b2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &597350798
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597350796}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  robotIndex: 0
 --- !u!65 &597350799
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6400,7 +6385,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 17f26aa8c01b1b04cb5bd4dd4e8e2558, type: 2}
+  - {fileID: 5561349426305759274, guid: c5bd6502f642dfd448848a99fc7ef97b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6438,13 +6423,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597350796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 0.88, z: -13.977}
+  m_LocalPosition: {x: 8, y: 0.868, z: -13.977}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &597350803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597350796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103a84d1c1fff504c8c693031558b2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &613281327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7403,8 +7400,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e24ac8136951ef48ba78c1efda5573f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robotPosition: {x: 0, y: 0}
-  enemyPosition: {x: 0, y: 0}
+  robotPositions: []
+  enemyPositions: []
+  moveSpeed: 0.2
 --- !u!1001 &715175841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9125,6 +9123,132 @@ Transform:
   - {fileID: 1892136054}
   m_Father: {fileID: 400702754}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &870776431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 870776437}
+  - component: {fileID: 870776436}
+  - component: {fileID: 870776435}
+  - component: {fileID: 870776434}
+  - component: {fileID: 870776433}
+  - component: {fileID: 870776432}
+  m_Layer: 0
+  m_Name: TestRobot02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &870776432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870776431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a7e131cdec51345b9a892da49683f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdown: 2
+  robot: {fileID: 870776433}
+--- !u!114 &870776433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870776431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa627b2a2b564747b1aa894c0c8b2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotIndex: 1
+--- !u!65 &870776434
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870776431}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &870776435
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870776431}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 17924ee7f7cb04f43a1f948b067f9216, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &870776436
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870776431}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &870776437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870776431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 0.868, z: -13.977}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &874088744
 PrefabInstance:
@@ -17432,7 +17556,6 @@ GameObject:
   - component: {fileID: 1657100092}
   - component: {fileID: 1657100091}
   - component: {fileID: 1657100090}
-  - component: {fileID: 1657100089}
   - component: {fileID: 1657100088}
   m_Layer: 0
   m_Name: EnemyRobot
@@ -17453,22 +17576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0af1689bb8294e4c99c3519c5d7b61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &1657100089
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657100087}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  enemyIndex: 0
 --- !u!65 &1657100090
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17480,8 +17588,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.4977704, z: 1}
+  m_Center: {x: 0, y: -0.24888478, z: 0}
 --- !u!23 &1657100091
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17502,7 +17610,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 17f26aa8c01b1b04cb5bd4dd4e8e2558, type: 2}
+  - {fileID: 2100000, guid: c4e5fb34d08f07c48b15678cbbbaf3f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17540,12 +17648,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657100087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 1.21, z: -0.97700024}
+  m_LocalPosition: {x: 11, y: 1.21, z: -4.977}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1657755854
 PrefabInstance:

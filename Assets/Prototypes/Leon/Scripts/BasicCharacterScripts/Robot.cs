@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Robot : MovingCharacter
 {
-    // Start is called before the first frame update
+    public int robotIndex;
     void Start()
     {
-
+        ManagePositions.instance.robotPositions.Add(new Vector2(0,0));
     }
 
     // Update is called once per frame
