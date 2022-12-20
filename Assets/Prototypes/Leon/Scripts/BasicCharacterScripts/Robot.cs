@@ -6,7 +6,7 @@ public class Robot : MovingCharacter
     private WeaponModule _leftAttackModule;
     private WeaponModule _rightAttackModule;
     private MoveModule _moveModule;
-
+    public int robotIndex;
 
     // Start is called before the first frame update
     void Start()
