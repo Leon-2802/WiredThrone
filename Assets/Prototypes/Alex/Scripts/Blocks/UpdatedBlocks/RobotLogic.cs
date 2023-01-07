@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary> 
+/// Class which contains the connected logic blocks of the respective robot
+/// </summary>
 public class RobotLogic : MonoBehaviour
 {
     private Block[] _blocks;
@@ -10,8 +11,10 @@ public class RobotLogic : MonoBehaviour
     void Start()
     {
         Block<Action> block1 = new Block<Action>("actionenum", Action.Move, new Vector2(0, -1));
+        Block<int> block2 = new Block<int>("int", 2);
         _blocks = new Block[] {
-            block1
+            block1,
+            block2
         };
     }
 

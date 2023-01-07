@@ -6332,6 +6332,7 @@ GameObject:
   - component: {fileID: 597350799}
   - component: {fileID: 597350797}
   - component: {fileID: 597350803}
+  - component: {fileID: 597350804}
   m_Layer: 0
   m_Name: TestRobot
   m_TagString: Untagged
@@ -6439,7 +6440,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 597350796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 103a84d1c1fff504c8c693031558b2d1, type: 3}
+  m_Script: {fileID: 11500000, guid: eb2224c315a6e8443b7624914d37814d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &597350804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597350796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20b6f9ae09e45b34e91f6ce5eabab0dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &613281327
@@ -7397,12 +7410,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 713797874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e24ac8136951ef48ba78c1efda5573f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c58958c6eeec7a4db606647017af2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   robotPositions: []
   enemyPositions: []
-  moveSpeed: 0.2
+  moveSpeed: 0.4
 --- !u!1001 &715175841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9154,7 +9167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 870776431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a7e131cdec51345b9a892da49683f3, type: 3}
+  m_Script: {fileID: 11500000, guid: e4cb93515dde43b4096791612c9a2bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   countdown: 2
