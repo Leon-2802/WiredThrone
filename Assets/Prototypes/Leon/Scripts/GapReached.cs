@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GapReached : MonoBehaviour
@@ -8,17 +6,10 @@ public class GapReached : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.gameObject.GetComponent<MovingCharacter>())
+        if(other.gameObject.GetComponent<Player>())
         {
-            playerAnimator.SetBool("Jump", true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other) 
-    {
-        if(other.gameObject.GetComponent<MovingCharacter>())
-        {
-            playerAnimator.SetBool("Jump", false);
+            bool jumpState = playerAnimator.GetBool("Jump");
+            playerAnimator.SetBool("Jump", !jumpState);
         }
     }
 }

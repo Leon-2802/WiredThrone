@@ -24,7 +24,6 @@ public class ClickMovement : MonoBehaviour
     }
     private void Start() 
     {
-        agent.updateRotation = false;
         forcedDest = false;
         initalStoppingDistance = agent.stoppingDistance;
     }
@@ -66,16 +65,18 @@ public class ClickMovement : MonoBehaviour
     
     void LateUpdate() 
     {
-        transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
-        if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
-        {
-            transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
-            lastRot = transform.rotation;
-        }
-        else {
-            if(!forcedDest)
-                transform.rotation = lastRot;
-        }
+        // Old roation code, when I was not using agent.updateRotation:
+
+        // transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
+        // if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
+        // {
+        //     transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
+        //     lastRot = transform.rotation;
+        // }
+        // else {
+        //     if(!forcedDest)
+        //         transform.rotation = lastRot;
+        // }
     }
 
     private void RightClickOnScene(InputAction.CallbackContext context)
@@ -88,9 +89,6 @@ public class ClickMovement : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit))
         {
-            // if(hit.point.y > 0.5f)
-            //     return;
-
             clickEffect.transform.position = new Vector3(hit.point.x, (0.2f), hit.point.z);
             clickEffect.Play();
             agent.SetDestination(hit.point);
