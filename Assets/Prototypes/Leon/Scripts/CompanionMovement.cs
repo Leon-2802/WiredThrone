@@ -58,7 +58,7 @@ public class CompanionMovement : MonoBehaviour
 
     void RotateAroundPlayer()
     {
-        transform.RotateAround(targetObj.position, transform.up, -rotSpeed * Time.deltaTime);
+        // transform.RotateAround(targetObj.position, transform.up, -rotSpeed * Time.deltaTime);
     }
 
     void MoveTowardsTarget(Vector3 target, float stopDistance, bool eventTargeted)
