@@ -1,7 +1,8 @@
 public enum Action
 {
     Move,
-    Attack,
+    AttackLeft,
+    AttackRight,
     Heal
 }
 

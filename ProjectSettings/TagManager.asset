@@ -11,6 +11,7 @@ TagManager:
   - Robot
   - Decoration
   - Wall
+  - Block
   layers:
   - Default
   - TransparentFX
