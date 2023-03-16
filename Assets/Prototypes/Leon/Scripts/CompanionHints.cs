@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class CompanionHints : MonoBehaviour
@@ -9,15 +10,15 @@ public class CompanionHints : MonoBehaviour
 
     void Start()
     {
-        EventManager.instance.SubscribeToCompanionFlyEvent(GetHintToShow);
-        EventManager.instance.Subscribe(EEvents.CompanionFlyBack, HideTextfield);
+        EventManager.instance.Subscribe<UnityAction>(EEvents.CompanionFlyBack, HideTextfield);
+        EventManager.instance.Subscribe<UnityAction<Transform>>(EEvents.CompanionFlyToObj, GetHintToShow);
     }
 
     private void GetHintToShow(Transform target)
     {
-        for(int i = 0; i < targets.Length; i++)
+        for (int i = 0; i < targets.Length; i++)
         {
-            if(targets[i] == target)
+            if (targets[i] == target)
             {
                 ShowHint(targetHints[i]);
             }
@@ -27,11 +28,19 @@ public class CompanionHints : MonoBehaviour
     private void ShowHint(string hint)
     {
         textfield.enabled = true;
+
         textfield.text = hint;
     }
 
     private void HideTextfield()
     {
         textfield.enabled = false;
+    }
+
+
+    private void OnDestroy()
+    {
+        EventManager.instance.UnSubscribe<UnityAction>(EEvents.CompanionFlyBack, HideTextfield);
+        EventManager.instance.UnSubscribe<UnityAction<Transform>>(EEvents.CompanionFlyToObj, GetHintToShow);
     }
 }

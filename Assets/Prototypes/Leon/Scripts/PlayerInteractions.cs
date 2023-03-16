@@ -9,12 +9,10 @@ public class PlayerInteractions : MonoBehaviour
     private InputAction leaveInteraction;
     private Vector3 moveDirection;
 
-    private void Awake() 
-    {
-        playerControls = GameManager.Instance.playerControls;
-    }
     void Start()
     {
+        playerControls = GameManager.Instance.playerControls;
+
         interact = playerControls.Player.Interact;
         interact.Enable();
         interact.performed += Interact;
@@ -26,7 +24,7 @@ public class PlayerInteractions : MonoBehaviour
 
     private void Interact(InputAction.CallbackContext context)
     {
-        if(InteractableManager.Instance.isInteracting || InteractableManager.Instance.interactionAvailable == false)
+        if (InteractableManager.Instance.isInteracting || InteractableManager.Instance.interactionAvailable == false)
             return;
 
         InteractableManager.Instance.StartInteraction();
@@ -38,14 +36,14 @@ public class PlayerInteractions : MonoBehaviour
 
     private void LeaveInteraction(InputAction.CallbackContext context)
     {
-        if(InteractableManager.Instance.isInteracting == false || InteractableManager.Instance.interactionAvailable == false)
+        if (InteractableManager.Instance.isInteracting == false || InteractableManager.Instance.interactionAvailable == false)
             return;
 
         shoulderCam.SetActive(false);
         InteractableManager.Instance.EndInteraction();
     }
 
-    private void OnDisable() 
+    private void OnDisable()
     {
         interact.Disable();
         leaveInteraction.Disable();

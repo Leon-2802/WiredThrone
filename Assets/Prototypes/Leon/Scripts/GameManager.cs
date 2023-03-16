@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum ECharacterTypes {Character, MovingCharacter, NPC, Player, Robot};
+public enum ECharacterTypes { Character, MovingCharacter, NPC, Player, Robot };
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
     public Transform[] companionTargets;
     public Transform[] optionalCompanionTargets;
 
-    private void Awake() 
+    private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
             Destroy(this);
         else
             Instance = this;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         playerControls = new PlayerControls();
     }
 
-    private void Start() 
+    private void Start()
     {
     }
 

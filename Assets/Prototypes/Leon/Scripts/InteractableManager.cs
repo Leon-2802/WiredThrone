@@ -1,23 +1,22 @@
 using UnityEngine;
 
-public enum EInteractionType {Decoration, Computer, Log, Secret};
+public enum EInteractionType { Decoration, Computer, Log, Secret };
 
 public class InteractableManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] interactableObjects;
-    [SerializeField] private Transform[] standingPositions;
     public static InteractableManager Instance;
     public bool interactionAvailable = false;
     public bool isInteracting = false;
-    public bool isInteractingWithCompanionTarget = false;
-    [SerializeField] private MovePlayerToInteraction movePlayerToInteraction;
+    public bool isInteractingWithCompanionTarget = false; //set to true by InteractableObject that is CompanionTarget
+    [SerializeField] private GameObject[] interactableObjects; //Maybe change this to a List<InteractableObject>, and add an enum with the name to compare this below
+    [SerializeField] private Transform[] standingPositions;
     [SerializeField] private ClickMovement clickMovement;
-    private Transform playerTarget;
-    private float stoppingDistToInteractable;
+    private Transform playerTarget; //Used to store playerTarget Transfom and use it as parameter later for ForceDestination() of Player Agent
+    private float stoppingDistToInteractable; //Used to store stoppingDistance of Player Agent and use it as parameter later for ForceDestination() of Player Agent
 
-    private void Awake() 
+    private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
             Destroy(this);
         else
             Instance = this;
@@ -26,36 +25,35 @@ public class InteractableManager : MonoBehaviour
 
     public void EnterInteractionZone(EInteractionType interactionType, GameObject enteredObj, float stopDist)
     {
-        if(interactionAvailable)
+        if (interactionAvailable)
             return;
 
         interactionAvailable = true;
-        for(int i = 0; i < interactableObjects.Length; i++)
+        for (int i = 0; i < interactableObjects.Length; i++)
         {
-            if(interactableObjects[i] == enteredObj)
+            if (interactableObjects[i] == enteredObj) //better change it to comparing enums
             {
-                playerTarget = standingPositions[i];
-                Debug.Log(playerTarget);
+                playerTarget = standingPositions[i]; //used to set forceDestination in StartInteraction()
             }
         }
-        stoppingDistToInteractable = stopDist;
+        stoppingDistToInteractable = stopDist; //used to set forceDestination in StartInteraction()
         Debug.Log("Press 'E' to interact");
     }
     public void StartInteraction()
     {
         isInteracting = true;
         Debug.Log("Press 'esc' to exit");
-        clickMovement.ForceDestination(playerTarget, stoppingDistToInteractable);
+        clickMovement.ForceDestination(playerTarget, stoppingDistToInteractable); //Make player move to desired Pos
     }
     public void EndInteraction()
     {
         isInteracting = false;
-        clickMovement.SetStoppingDistance(0);
-        clickMovement.forcedDest = false;
+        clickMovement.SetStoppingDistance(0); //Reset Values to let Player be moved by clicking again
+        clickMovement.forcedDest = false; //Reset Values to let Player be moved by clicking again
 
-        if(isInteractingWithCompanionTarget)
+        if (isInteractingWithCompanionTarget)
         {
-            EventManager.instance.CompanionFlyBackToPlayerEvent();
+            EventManager.instance.CompanionFlyBackToPlayerEvent(); //Let Companion Fly to Player and Follow him again
             isInteractingWithCompanionTarget = false;
         }
     }

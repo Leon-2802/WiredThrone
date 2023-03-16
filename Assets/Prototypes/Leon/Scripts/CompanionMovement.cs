@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class CompanionMovement : MonoBehaviour
 {
+    public bool movedBackToPlayer;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Transform targetObj;
     [SerializeField] private float rotSpeed;
@@ -16,15 +18,14 @@ public class CompanionMovement : MonoBehaviour
     private bool disableFollowPlayer;
     private bool checkDistanceToPlayer;
     private bool playerIsRunning;
-    private bool movedBackToPlayer;
 
 
     void Start()
     {
         agent.updateRotation = false;
 
-        EventManager.instance.SubscribeToCompanionFlyEvent(FlyToEventObj);
-        EventManager.instance.Subscribe(EEvents.CompanionFlyBack, FlyBackToPlayer);
+        EventManager.instance.Subscribe<UnityAction>(EEvents.CompanionFlyBack, FlyBackToPlayer);
+        EventManager.instance.Subscribe<UnityAction<Transform>>(EEvents.CompanionFlyToObj, FlyToEventObj);
 
         initalStoppingDist = agent.stoppingDistance;
         movedBackToPlayer = true;
@@ -40,45 +41,39 @@ public class CompanionMovement : MonoBehaviour
         playerIsRunning = GameManager.Instance.playerIsRunning;
 
 
-        if(movedBackToPlayer && !disableFollowPlayer && !InteractableManager.Instance.isInteracting)
-            RotateAroundPlayer();   
+        // if (movedBackToPlayer && !disableFollowPlayer && !InteractableManager.Instance.isInteracting)
+        //     RotateAroundPlayer();
 
-        if(playerIsRunning && !disableFollowPlayer || !movedBackToPlayer && !disableFollowPlayer)
+        if (playerIsRunning && !disableFollowPlayer || !movedBackToPlayer && !disableFollowPlayer)
             MoveTowardsTarget(targetObj.position, initalStoppingDist, false);
 
-        if(disableFollowPlayer)
+        if (disableFollowPlayer)
         {
             MoveTowardsTarget(eventTarget.position, 0, true);
-            if(checkDistanceToPlayer)
+            if (checkDistanceToPlayer)
             {
                 CheckIfPlayerTooFar();
             }
         }
     }
 
-    void RotateAroundPlayer()
-    {
-        // transform.RotateAround(targetObj.position, transform.up, -rotSpeed * Time.deltaTime);
-    }
+    //Not in use for now, bc seems to look better without
+    // void RotateAroundPlayer()
+    // {
+    //     transform.RotateAround(targetObj.position, transform.up, -rotSpeed * Time.deltaTime);
+    // }
 
     void MoveTowardsTarget(Vector3 target, float stopDistance, bool eventTargeted)
     {
         movedBackToPlayer = false;
 
-        // currentDistanceToParent = Vector3.Distance(transform.position, target);
-
-        // if(currentDistanceToParent > stopDistance)
-        // {
-        //     transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-        //     transform.position = new Vector3(transform.position.x, initialPos.y, transform.position.z);
-        // }
         agent.stoppingDistance = stopDistance;
 
         agent.SetDestination(target);
 
-        if(agent.remainingDistance <= agent.stoppingDistance)
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
-            if(!eventTargeted)
+            if (!eventTargeted)
                 movedBackToPlayer = true;
             else
                 EventManager.instance.EventActionDone(EEvents.CompanionFlyToObj);
@@ -89,7 +84,7 @@ public class CompanionMovement : MonoBehaviour
     {
         float currentDistanceToPlayer = Vector3.Distance(transform.position, targetObj.position);
 
-        if(currentDistanceToPlayer > maxDistanceToPlayer)
+        if (currentDistanceToPlayer > maxDistanceToPlayer)
         {
             EventManager.instance.CompanionFlyBackToPlayerEvent();
             checkDistanceToPlayer = false;
@@ -101,9 +96,9 @@ public class CompanionMovement : MonoBehaviour
         eventTarget = obj;
         disableFollowPlayer = true;
 
-        foreach(Transform target in GameManager.Instance.optionalCompanionTargets)
+        foreach (Transform target in GameManager.Instance.optionalCompanionTargets)
         {
-            if(target == obj)
+            if (target == obj)
             {
                 checkDistanceToPlayer = true;
                 Debug.Log("optional Object");
@@ -116,5 +111,12 @@ public class CompanionMovement : MonoBehaviour
         movedBackToPlayer = false;
         disableFollowPlayer = false;
         checkDistanceToPlayer = false;
+    }
+
+
+    private void OnDestroy()
+    {
+        EventManager.instance.UnSubscribe<UnityAction>(EEvents.CompanionFlyBack, FlyBackToPlayer);
+        EventManager.instance.UnSubscribe<UnityAction<Transform>>(EEvents.CompanionFlyToObj, FlyToEventObj);
     }
 }

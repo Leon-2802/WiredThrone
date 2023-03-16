@@ -18,16 +18,16 @@ public class ClickMovement : MonoBehaviour
     public bool forcedDest;
     private float initalStoppingDistance;
 
-    private void Awake() 
+    private void Awake()
     {
         playerControls = GameManager.Instance.playerControls;
     }
-    private void Start() 
+    private void Start()
     {
         forcedDest = false;
         initalStoppingDistance = agent.stoppingDistance;
     }
-    private void OnEnable() 
+    private void OnEnable()
     {
         clickMove = playerControls.Player.ClickMove;
         clickMove.Enable();
@@ -49,45 +49,27 @@ public class ClickMovement : MonoBehaviour
                 {
                     animator.SetBool("Running", false);
                     GameManager.Instance.playerIsRunning = false;
-                    if(forcedDest) 
+                    if (forcedDest)
                     {
                         playerInteractions.ActivateShoulderCam();
-                        Vector3 finalRot = new Vector3(forcedDestination.eulerAngles.x, forcedDestination.eulerAngles.y, 
+                        Vector3 finalRot = new Vector3(forcedDestination.eulerAngles.x, forcedDestination.eulerAngles.y,
                             forcedDestination.eulerAngles.z);
-                        Debug.Log(finalRot);
                         transform.rotation = Quaternion.Euler(finalRot);
-                        Debug.Log(transform.rotation);
                     }
                 }
             }
         }
     }
-    
-    void LateUpdate() 
-    {
-        // Old roation code, when I was not using agent.updateRotation:
-
-        // transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
-        // if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
-        // {
-        //     transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
-        //     lastRot = transform.rotation;
-        // }
-        // else {
-        //     if(!forcedDest)
-        //         transform.rotation = lastRot;
-        // }
-    }
 
     private void RightClickOnScene(InputAction.CallbackContext context)
     {
-        if(InteractableManager.Instance.isInteracting)
+        if (InteractableManager.Instance.isInteracting)
             return;
 
         Ray ray = cam.ScreenPointToRay(mousePosition.ReadValue<Vector2>());
         RaycastHit hit;
 
-        if(Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
             clickEffect.transform.position = new Vector3(hit.point.x, (0.2f), hit.point.z);
             clickEffect.Play();
@@ -113,7 +95,7 @@ public class ClickMovement : MonoBehaviour
         agent.ResetPath();
     }
 
-    private void OnDisable() 
+    private void OnDisable()
     {
         clickMove.Disable();
         mousePosition.Disable();
