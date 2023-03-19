@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+//Class manages the look of the particle systems depending if the companion is moving or not
 public class CompanionParticleFX : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;

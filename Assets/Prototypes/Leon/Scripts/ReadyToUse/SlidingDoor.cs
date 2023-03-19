@@ -8,7 +8,7 @@ public class SlidingDoor : MonoBehaviour
 
     private void Start() 
     {
-        timesOpened = 0;
+        timesOpened = 0; //if several characters pass the door, it should only close as soon as all of them left the door area
     }
     
     private void OnTriggerEnter(Collider other) 

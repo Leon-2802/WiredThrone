@@ -24,8 +24,8 @@ public class ClickMovement : MonoBehaviour
     }
     private void Start()
     {
-        forcedDest = false;
-        initalStoppingDistance = agent.stoppingDistance;
+        forcedDest = false; //only true when player is moved towards an object
+        initalStoppingDistance = agent.stoppingDistance; //stopping distance will be changed later when player is moved towards an object
     }
     private void OnEnable()
     {
@@ -39,18 +39,17 @@ public class ClickMovement : MonoBehaviour
 
     void Update()
     {
-        // Check if we've reached the destination
-        if (!agent.pathPending)
+        if (!agent.pathPending) // Check if we've reached the destination
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                // animator.speed = agent.velocity.sqrMagnitude;
-                if (!agent.hasPath || agent.velocity.sqrMagnitude <= Mathf.Epsilon)
+                if (!agent.hasPath || agent.velocity.sqrMagnitude <= Mathf.Epsilon) //no path active and velocity beflow a very small amount
                 {
                     animator.SetBool("Running", false);
                     GameManager.Instance.playerIsRunning = false;
                     if (forcedDest)
                     {
+                        //Switch to shoulder cam and rotate player according to the rotation of the destination the player was forced towards
                         playerInteractions.ActivateShoulderCam();
                         Vector3 finalRot = new Vector3(forcedDestination.eulerAngles.x, forcedDestination.eulerAngles.y,
                             forcedDestination.eulerAngles.z);
