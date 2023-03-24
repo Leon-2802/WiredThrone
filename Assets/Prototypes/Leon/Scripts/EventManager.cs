@@ -7,7 +7,7 @@ public enum EEvents { CompanionFlyToObj, CompanionHint, CompanionFlyBack }
 public class EventManager : MonoBehaviour
 {
     public static EventManager instance;
-    public bool companionOnTarget = false;
+    private bool companionOnTarget = false;
     public List<UnityAction<Transform>> companionFlyToObjectCallbacks = new List<UnityAction<Transform>>();
     public List<UnityAction> companionHintCallbacks = new List<UnityAction>();
     public List<UnityAction> companionBackToPlayerCallbacks = new List<UnityAction>();
@@ -61,10 +61,14 @@ public class EventManager : MonoBehaviour
 
     public void CompanionFlyToObjEvent(Transform target)
     {
+        if (companionOnTarget)
+            return;
+
         foreach (UnityAction<Transform> cb in companionFlyToObjectCallbacks)
         {
             cb(target);
         }
+
         companionOnTarget = true;
     }
     public void CompanionFlyBackToPlayerEvent()
