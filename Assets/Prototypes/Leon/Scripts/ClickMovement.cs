@@ -18,23 +18,22 @@ public class ClickMovement : MonoBehaviour
     public bool forcedDest;
     private float initalStoppingDistance;
 
-    private void Awake()
-    {
-        playerControls = GameManager.Instance.playerControls;
-    }
     private void Start()
     {
-        forcedDest = false; //only true when player is moved towards an object
-        initalStoppingDistance = agent.stoppingDistance; //stopping distance will be changed later when player is moved towards an object
-    }
-    private void OnEnable()
-    {
+        /*<------ enable controls*/
+        playerControls = GameManager.Instance.playerControls;
+
         clickMove = playerControls.Player.ClickMove;
         clickMove.Enable();
         clickMove.performed += RightClickOnScene;
 
         mousePosition = playerControls.Player.MousePosition;
         mousePosition.Enable();
+        /*-------->*/
+
+
+        forcedDest = false; //only true when player is moved towards an object
+        initalStoppingDistance = agent.stoppingDistance; //stopping distance will be changed later when player is moved towards an object
     }
 
     void Update()
