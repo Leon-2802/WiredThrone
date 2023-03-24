@@ -5,26 +5,26 @@ using System.Collections.Generic;
 public class ManagePositions : MonoBehaviour
 {
     public static ManagePositions instance;
-    public List<Vector2> robotPositions = new List<Vector2>();
-    public List<Vector2> enemyPositions = new List<Vector2>();
+    public List<Vector3> robotPositions = new List<Vector3>();
+    public List<Vector3> enemyPositions = new List<Vector3>();
     [SerializeField] private float moveSpeed = 0.5f;
-    private void Awake() 
+    private void Awake()
     {
-        if(instance != null && instance != this)
+        if (instance != null && instance != this)
             Destroy(this.gameObject);
-        else    
+        else
             instance = this;
     }
 
-    private void Start() 
-    { 
+    private void Start()
+    {
     }
-    
+
     public bool EnemyOnBlock(Vector2 position)
     {
-        foreach(Vector2 v2 in enemyPositions)
+        foreach (Vector2 v2 in enemyPositions)
         {
-            if(v2 == position)
+            if (v2 == position)
                 return true;
         }
 
@@ -33,10 +33,10 @@ public class ManagePositions : MonoBehaviour
 
     public void SetTranslationTarget(GameObject obj, int robotIndex, int enemyIndex)
     {
-        if(obj.GetComponent<Robot>()) 
+        if (obj.GetComponent<Robot>())
         {
-            Vector2 translation = new Vector2(enemyPositions[enemyIndex].x - robotPositions[robotIndex].x, 
-                enemyPositions[enemyIndex].y- robotPositions[robotIndex].y);
+            Vector2 translation = new Vector2(enemyPositions[enemyIndex].x - robotPositions[robotIndex].x,
+                enemyPositions[enemyIndex].y - robotPositions[robotIndex].y);
             TranslatePosition(obj, translation);
         }
     }
@@ -48,17 +48,17 @@ public class ManagePositions : MonoBehaviour
 
     IEnumerator TranslationSteps(GameObject obj, Vector2 translation)
     {
-        if(translation.x > 0)
+        if (translation.x > 0)
         {
-            for(int i = 1; i < translation.x; i++)
+            for (int i = 1; i < translation.x; i++)
             {
                 yield return new WaitForSeconds(moveSpeed);
                 Move(obj, new Vector2(1, 0));
             }
         }
-        else 
+        else
         {
-            for(int i = -1; i > translation.x; i--)
+            for (int i = -1; i > translation.x; i--)
             {
                 yield return new WaitForSeconds(moveSpeed);
                 Move(obj, new Vector2(-1, 0));
@@ -66,17 +66,17 @@ public class ManagePositions : MonoBehaviour
         }
 
 
-        if(translation.y > 0)
+        if (translation.y > 0)
         {
-            for(int i = 1; i < translation.y; i++)
+            for (int i = 1; i < translation.y; i++)
             {
                 yield return new WaitForSeconds(moveSpeed);
                 Move(obj, new Vector2(0, 1));
             }
         }
-        else 
+        else
         {
-            for(int i = -1; i > translation.y; i--)
+            for (int i = -1; i > translation.y; i--)
             {
                 yield return new WaitForSeconds(moveSpeed);
                 Move(obj, new Vector2(0, -1));

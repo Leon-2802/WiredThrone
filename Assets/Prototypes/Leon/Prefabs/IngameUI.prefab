@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4574770104546132349}
   - component: {fileID: 4574770104546132338}
   - component: {fileID: 4574770104546132339}
-  - component: {fileID: 4574770104546132348}
+  - component: {fileID: 6815500706666067657}
   m_Layer: 5
   m_Name: CompanionHints
   m_TagString: Untagged
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4574770104546132348
+--- !u!114 &6815500706666067657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,16 +145,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4574770104546132350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5084789e2b7a9b34eb22ac0920150f72, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b3f117e078d7466a8d7160f2cb2f4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textfield: {fileID: 4574770104546132339}
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  targetHints:
-  - Schau mal, ein Hologram!
-  - Ein Arcade Automat!
 --- !u!1 &4574770105585281370
 GameObject:
   m_ObjectHideFlags: 0

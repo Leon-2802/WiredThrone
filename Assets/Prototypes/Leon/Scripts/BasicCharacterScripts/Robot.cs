@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 public class Robot : MovingCharacter
 {
     private WeaponModule _leftAttackModule;
@@ -11,7 +8,8 @@ public class Robot : MovingCharacter
     // Start is called before the first frame update
     void Start()
     {
-        
+        robotIndex = ManagePositions.instance.robotPositions.Count;
+        ManagePositions.instance.robotPositions.Add(this.transform.position);
     }
 
     // Update is called once per frame

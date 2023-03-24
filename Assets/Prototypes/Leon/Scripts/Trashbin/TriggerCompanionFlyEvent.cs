@@ -7,7 +7,7 @@ public class TriggerCompanionFlyEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Player>() && !EventManager.instance.companionOnTarget)
+        if (other.gameObject.GetComponent<Player>())
         {
             EventManager.instance.CompanionFlyToObjEvent(target); //Trigger the CompanionFlyToObjectEvent -> leeds to all subscribed methods being called as well
             Destroy(this.gameObject); //Destroy the object, bc event should only be called once
