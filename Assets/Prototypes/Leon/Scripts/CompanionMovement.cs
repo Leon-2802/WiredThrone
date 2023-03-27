@@ -1,6 +1,6 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 
 public class CompanionMovement : MonoBehaviour
 {
@@ -22,8 +22,8 @@ public class CompanionMovement : MonoBehaviour
     {
         agent.updateRotation = false; // Companion rotates around himself all the time, so no need to rotate him in the movement direction
 
-        EventManager.instance.Subscribe<UnityAction>(EEvents.CompanionFlyBack, FlyBackToPlayer);
-        EventManager.instance.Subscribe<UnityAction<Transform>>(EEvents.CompanionFlyToObj, FlyToEventObj);
+        CompanionEvents.instance.flyToObject += FlyToEventObj;
+        CompanionEvents.instance.flyBackToPlayer += FlyBackToPlayer;
 
         initalStoppingDist = agent.stoppingDistance;
         movedBackToPlayer = true; //sits next to player on start
@@ -35,10 +35,6 @@ public class CompanionMovement : MonoBehaviour
     void Update()
     {
         transform.Rotate(Vector3.up, rotateAroundOwnAxisSpeed * Time.deltaTime, Space.Self); //rotate around y axis
-
-        //was in use, made companion rotate around the player when idling:
-        // if (movedBackToPlayer && !disableFollowPlayer && !InteractableManager.Instance.isInteracting)
-        //     RotateAroundPlayer();
 
         if (GameManager.Instance.playerIsRunning && !disableFollowPlayer || !movedBackToPlayer && !disableFollowPlayer) //means, that if player is running and is not close to player, if statement is excuted
         {
@@ -55,11 +51,6 @@ public class CompanionMovement : MonoBehaviour
         }
     }
 
-    //Not in use for now, bc seems to look better without
-    // void RotateAroundPlayer()
-    // {
-    //     transform.RotateAround(targetObj.position, transform.up, -rotSpeed * Time.deltaTime);
-    // }
 
     void MoveTowardsTarget(Vector3 target, float stopDistance, bool eventTargeted)
     {
@@ -75,10 +66,7 @@ public class CompanionMovement : MonoBehaviour
             {
                 movedBackToPlayer = true;
             }
-            else
-            {
-                EventManager.instance.EventActionDone(EEvents.CompanionFlyToObj); //notify the EventManager that FlyToObj Action is done
-            }
+            //maybe call an Event for EventActionDone here
         }
     }
 
@@ -89,30 +77,27 @@ public class CompanionMovement : MonoBehaviour
 
         if (currentDistanceToPlayer > maxDistanceToPlayer) //if the player is too far, call event to revert back to follwowing the player
         {
-            EventManager.instance.CompanionFlyBackToPlayerEvent();
+            CompanionEvents.instance.CallFlyBackToPlayer();
             checkDistanceToPlayer = false;
         }
     }
 
     //called the the CompanionFlyToObject event occurs
-    void FlyToEventObj(Transform obj)
+    void FlyToEventObj(object sender, CompanionEvents.FlyToObjectEventArgs e)
     {
-        eventTarget = obj;
+        eventTarget = e._target;
         disableFollowPlayer = true; //don't follow the player for time being
 
         //check if optional object 
-        foreach (Transform target in GameManager.Instance.optionalCompanionTargets) 
+        if (e._target.gameObject.GetComponent<CompanionTarget>().optionalTarget == true)
         {
-            if (target == obj)
-            {
-                checkDistanceToPlayer = true; //if optional -> set to true -> goes back to player, if he doesn't go to the optional target
-                Debug.Log("optional Object");
-            }
+            checkDistanceToPlayer = true; //if optional -> set to true -> goes back to player, if he doesn't go to the optional target
+            Debug.Log("optional Object");
         }
     }
 
     //resets all arguments to default values -> follow player
-    void FlyBackToPlayer()
+    void FlyBackToPlayer(object sender, EventArgs e)
     {
         movedBackToPlayer = false;
         disableFollowPlayer = false;
@@ -122,7 +107,7 @@ public class CompanionMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.instance.UnSubscribe<UnityAction>(EEvents.CompanionFlyBack, FlyBackToPlayer);
-        EventManager.instance.UnSubscribe<UnityAction<Transform>>(EEvents.CompanionFlyToObj, FlyToEventObj);
+        CompanionEvents.instance.flyToObject -= FlyToEventObj;
+        CompanionEvents.instance.flyBackToPlayer -= FlyBackToPlayer;
     }
 }

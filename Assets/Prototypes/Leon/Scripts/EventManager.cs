@@ -73,9 +73,11 @@ public class EventManager : MonoBehaviour
     }
     public void CompanionFlyBackToPlayerEvent()
     {
+        Debug.Log("Enter FlyBackToPlayerEvent");
         foreach (UnityAction cb in companionBackToPlayerCallbacks)
         {
             cb();
+            Debug.Log("Called Callbacks");
         }
         companionOnTarget = false;
     }
