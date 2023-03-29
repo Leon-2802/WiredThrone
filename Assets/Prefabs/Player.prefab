@@ -4310,7 +4310,6 @@ GameObject:
   - component: {fileID: 8346756045701794006}
   - component: {fileID: 8346756045701794011}
   - component: {fileID: 8346756045701794010}
-  - component: {fileID: 8346756045701794005}
   - component: {fileID: 8346756045701794009}
   - component: {fileID: 8346756045701794008}
   - component: {fileID: 8346756045701794015}
@@ -4413,18 +4412,6 @@ MonoBehaviour:
   animator: {fileID: 3350218658254931998}
   clickEffect: {fileID: 0}
   forcedDest: 0
---- !u!114 &8346756045701794005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8346756045701794014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34de19ccf5a6e104b86f4b4a0dafe178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8346756045701794009
 MonoBehaviour:
   m_ObjectHideFlags: 0
