@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum EInteractionType { Decoration, Computer, Log, Secret };
+public enum EInteractionType { Decoration, Computer, Log, Secret, Gatherable, NoInteraction };
 
 public class InteractableManager : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class InteractableManager : MonoBehaviour
     [SerializeField] private GameObject[] interactableObjects; //Maybe change this to a List<InteractableObject>, and add an enum with the name to compare this below
     [SerializeField] private Transform[] standingPositions;
     [SerializeField] private ClickMovement clickMovement;
+    [SerializeField] private InteractionUIHandler interactionUIHandler;
     private Transform playerTarget; //Used to store playerTarget Transfom and use it as parameter later for ForceDestination() of Player Agent
     private float stoppingDistToInteractable; //Used to store stoppingDistance of Player Agent and use it as parameter later for ForceDestination() of Player Agent
 
@@ -25,7 +26,7 @@ public class InteractableManager : MonoBehaviour
 
     public void EnterInteractionZone(EInteractionType interactionType, GameObject enteredObj, float stopDist)
     {
-        if (interactionAvailable)
+        if (interactionAvailable || interactionType == EInteractionType.NoInteraction)
             return;
 
         interactionAvailable = true;
@@ -37,17 +38,17 @@ public class InteractableManager : MonoBehaviour
             }
         }
         stoppingDistToInteractable = stopDist; //used to set forceDestination in StartInteraction()
-        Debug.Log("Press 'E' to interact");
     }
     public void StartInteraction()
     {
         isInteracting = true;
-        Debug.Log("Press 'esc' to exit");
+        interactionUIHandler.OpenInputInfo("ESC");
         clickMovement.ForceDestination(playerTarget, stoppingDistToInteractable); //Make player move to desired Pos
     }
     public void EndInteraction()
     {
         isInteracting = false;
+        interactionUIHandler.OpenInputInfo("E");
         clickMovement.SetStoppingDistance(0); //Reset Values to let Player be moved by clicking again
         clickMovement.forcedDest = false; //Reset Values to let Player be moved by clicking again
 

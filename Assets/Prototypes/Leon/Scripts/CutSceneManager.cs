@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-//no cutscenes filned yet -> just has placeholder behaviour for now
+//no cutscenes filmed yet -> just has placeholder behaviour for now
 public class CutSceneManager : MonoBehaviour
 {
     [SerializeField] private Animator playerAnim;
@@ -11,6 +11,7 @@ public class CutSceneManager : MonoBehaviour
     void Start()
     {
         playerAnim.SetBool("Unconscious", true);
+        StartCoroutine(WakeUp());
     }
 
     IEnumerator WakeUp()
