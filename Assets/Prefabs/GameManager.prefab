@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9ef73def2f6f14cb333e0b60eb546f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerDestinationWhenInactive: {fileID: 6037198984749865105}
 --- !u!1 &2267782559207439893
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,10 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsRunning: 0
-  companionTargets:
-  - {fileID: 0}
-  optionalCompanionTargets:
-  - {fileID: 0}
 --- !u!1 &2862587369540324012
 GameObject:
   m_ObjectHideFlags: 0

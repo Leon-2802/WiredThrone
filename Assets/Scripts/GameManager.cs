@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        LevelManager.instance.PlayerWakeUp();
     }
 
 }
