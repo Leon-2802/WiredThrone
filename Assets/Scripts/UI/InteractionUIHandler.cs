@@ -15,6 +15,7 @@ public class InteractionUIHandler : MonoBehaviour
     private void Start()
     {
         GeneralUIHandler.instance.openInspector += OpenItemInspector;
+        GeneralUIHandler.instance.openInteractionInfo += SetInteractionInfo;
         GeneralUIHandler.instance.closeInspector += CloseItemInspector;
     }
 
@@ -22,13 +23,13 @@ public class InteractionUIHandler : MonoBehaviour
     {
         itemImage.sprite = e._itemSprite;
         itemTextfield.text = e._itemText;
-        inputTextfield.text = e._interactionInfo;
         itemInspector.SetActive(true);
-        inputInfo.SetActive(true);
-    }
-    private void ToggleInputInfoButton(object sender, EventArgs e)
-    {
 
+    }
+    private void SetInteractionInfo(object sender, GeneralUIHandler.ItemInteractionEventArgs e)
+    {
+        inputTextfield.text = e._inputText;
+        inputInfo.SetActive(true);
     }
     private void CloseItemInspector(object sender, EventArgs e)
     {
@@ -39,6 +40,7 @@ public class InteractionUIHandler : MonoBehaviour
     private void OnDestroy()
     {
         GeneralUIHandler.instance.openInspector -= OpenItemInspector;
+        GeneralUIHandler.instance.openInteractionInfo -= SetInteractionInfo;
         GeneralUIHandler.instance.closeInspector -= CloseItemInspector;
     }
 }

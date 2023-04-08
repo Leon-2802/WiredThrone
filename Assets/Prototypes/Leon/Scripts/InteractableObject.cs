@@ -1,16 +1,12 @@
 using System;
 using UnityEngine;
 
-public class InteractableObject : MonoBehaviour
+public class InteractableObject : InspectableObject
 {
     protected EInteractionType interactionType;
+    [SerializeField] protected string interactionInfo;
     [SerializeField] protected float playerStoppingDistance;
     [SerializeField] protected Transform companionStopPos;
-    [SerializeField] private Sprite objectImage;
-    [SerializeField] private string objectInfo;
-    [SerializeField] private string interactionInfo;
-
-    protected Material initialMat;
     protected bool isCompanionTarget;
 
     protected virtual void Start()
@@ -32,25 +28,27 @@ public class InteractableObject : MonoBehaviour
             isCompanionTarget = false;
     }
 
-    protected virtual void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
+        base.OnTriggerEnter(other);
+
         if (other.gameObject.GetComponent<Player>())
         {
-            GeneralUIHandler.instance.InvokeOpenInspector(objectImage, objectInfo, interactionInfo);
-
             InteractableManager.Instance.EnterInteractionZone(interactionType,
                 this.gameObject, playerStoppingDistance);
+
+            GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionInfo);
 
             if (isCompanionTarget)
                 InteractableManager.Instance.isInteractingWithCompanionTarget = true;
         }
     }
-    protected virtual void OnTriggerExit(Collider other)
+    protected override void OnTriggerExit(Collider other)
     {
+        base.OnTriggerExit(other);
+
         if (other.gameObject.GetComponent<Player>())
         {
-            GeneralUIHandler.instance.InvokeCloseInspector();
-
             InteractableManager.Instance.LeaveInteractionZone();
 
             if (isCompanionTarget)
