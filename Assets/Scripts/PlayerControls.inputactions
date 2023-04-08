@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
-                    "type": "Value",
-                    "id": "2062c2c0-6585-42a2-a07b-47391187de6e",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Fire",
                     "type": "Button",
                     "id": "bfe03be0-2b16-463b-90c5-bca602585d3c",
@@ -78,9 +69,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Debug",
+                    "name": "ToggleQuestUI",
                     "type": "Button",
-                    "id": "87559bc8-e712-453a-9272-af5d45ad402e",
+                    "id": "38b86373-e00e-49b7-a6ad-dd5be5795f07",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -222,39 +213,6 @@
                 },
                 {
                     "name": "",
-                    "id": "c1f7a91b-d0fd-4a62-997e-7fb9b69bf235",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8c8e490b-c610-4785-884f-f04217b23ca4",
-                    "path": "<Pointer>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse;Touch",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3e5f5442-8668-4b27-a940-df99bad7e831",
-                    "path": "<Joystick>/{Hatswitch}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
@@ -322,7 +280,7 @@
                 {
                     "name": "",
                     "id": "be4f3643-fd57-452e-8c95-b1efdb7d6c9c",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/#(E)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -365,12 +323,12 @@
                 },
                 {
                     "name": "",
-                    "id": "9d3e4405-4cd4-496a-9c8c-2cd1e4659263",
-                    "path": "<Keyboard>/leftCtrl",
+                    "id": "99e4f568-b8f6-48b1-9060-9f6aae7e58b1",
+                    "path": "<Keyboard>/#(Y)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Debug",
+                    "action": "ToggleQuestUI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

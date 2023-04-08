@@ -1,14 +1,14 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
-    [SerializeField] protected EInteractionType interactionType;
+    protected EInteractionType interactionType;
     [SerializeField] protected float playerStoppingDistance;
     [SerializeField] protected Transform companionStopPos;
-    [SerializeField] private UnityEvent enteredInteractionZone;
-    [SerializeField] private UnityEvent leftInteractionZone;
+    [SerializeField] private Sprite objectImage;
+    [SerializeField] private string objectInfo;
+    [SerializeField] private string interactionInfo;
 
     protected Material initialMat;
     protected bool isCompanionTarget;
@@ -36,7 +36,7 @@ public class InteractableObject : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Player>())
         {
-            enteredInteractionZone.Invoke();
+            GeneralUIHandler.instance.InvokeOpenInspector(objectImage, objectInfo, interactionInfo);
 
             InteractableManager.Instance.EnterInteractionZone(interactionType,
                 this.gameObject, playerStoppingDistance);
@@ -49,7 +49,7 @@ public class InteractableObject : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Player>())
         {
-            leftInteractionZone.Invoke();
+            GeneralUIHandler.instance.InvokeCloseInspector();
 
             InteractableManager.Instance.LeaveInteractionZone();
 

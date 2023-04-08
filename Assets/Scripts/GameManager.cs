@@ -14,12 +14,13 @@ public class GameManager : MonoBehaviour
         else
             Instance = this;
 
+        DontDestroyOnLoad(this);
         playerControls = new PlayerControls();
     }
 
     private void Start()
     {
-        LevelManager.instance.PlayerWakeUp();
+        QuestManager.instance.InitStory();
     }
 
 }

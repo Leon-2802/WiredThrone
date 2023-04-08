@@ -7,6 +7,7 @@ public class PlayerInteractions : MonoBehaviour
     [SerializeField] private GameObject shoulderCam;
     private InputAction interact;
     private InputAction leaveInteraction;
+    private InputAction toggleQuestUI;
     private Vector3 moveDirection;
 
     void Start()
@@ -20,6 +21,10 @@ public class PlayerInteractions : MonoBehaviour
         leaveInteraction = playerControls.Player.Back;
         leaveInteraction.Enable();
         leaveInteraction.performed += LeaveInteraction;
+
+        toggleQuestUI = playerControls.Player.ToggleQuestUI;
+        toggleQuestUI.Enable();
+        toggleQuestUI.performed += ToggleQuestUI;
     }
 
     private void Interact(InputAction.CallbackContext context)
@@ -43,9 +48,15 @@ public class PlayerInteractions : MonoBehaviour
         InteractableManager.Instance.EndInteraction();
     }
 
+    private void ToggleQuestUI(InputAction.CallbackContext context)
+    {
+        GeneralUIHandler.instance.ToggleQuestView();
+    }
+
     private void OnDisable()
     {
         interact.Disable();
         leaveInteraction.Disable();
+        toggleQuestUI.Disable();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -11,27 +12,33 @@ public class InteractionUIHandler : MonoBehaviour
     [SerializeField] private TMP_Text inputTextfield;
 
 
+    private void Start()
+    {
+        GeneralUIHandler.instance.openInspector += OpenItemInspector;
+        GeneralUIHandler.instance.closeInspector += CloseItemInspector;
+    }
 
-    public void SetItemInspectorImage(Sprite itemSprite)
+    private void OpenItemInspector(object sender, GeneralUIHandler.InspectorEventArgs e)
     {
-        itemImage.sprite = itemSprite;
-    }
-    public void OpenItemInspector(string text)
-    {
-        itemTextfield.text = text;
+        itemImage.sprite = e._itemSprite;
+        itemTextfield.text = e._itemText;
+        inputTextfield.text = e._interactionInfo;
         itemInspector.SetActive(true);
-    }
-    public void CloseItemInspector()
-    {
-        itemInspector.SetActive(false);
-    }
-    public void OpenInputInfo(string buttonToPress)
-    {
-        inputTextfield.text = buttonToPress;
         inputInfo.SetActive(true);
     }
-    public void CloseInputInfo()
+    private void ToggleInputInfoButton(object sender, EventArgs e)
     {
+
+    }
+    private void CloseItemInspector(object sender, EventArgs e)
+    {
+        itemInspector.SetActive(false);
         inputInfo.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        GeneralUIHandler.instance.openInspector -= OpenItemInspector;
+        GeneralUIHandler.instance.closeInspector -= CloseItemInspector;
     }
 }

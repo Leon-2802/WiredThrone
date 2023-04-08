@@ -29,7 +29,9 @@ public class InteractableManager : MonoBehaviour
         if (interactionAvailable || interactionType == EInteractionType.NoInteraction)
             return;
 
+        // leave only this part when reworking ------
         interactionAvailable = true;
+        //---------------------------------------------------------------->
         for (int i = 0; i < interactableObjects.Length; i++)
         {
             if (interactableObjects[i] == enteredObj) //better change it to comparing enums
@@ -42,19 +44,21 @@ public class InteractableManager : MonoBehaviour
     public void StartInteraction()
     {
         isInteracting = true;
-        interactionUIHandler.OpenInputInfo("ESC");
         clickMovement.ForceDestination(playerTarget, stoppingDistToInteractable); //Make player move to desired Pos
     }
     public void EndInteraction()
     {
         isInteracting = false;
-        interactionUIHandler.OpenInputInfo("E");
+        //should happen locally in ClickMovement
         clickMovement.SetStoppingDistance(0); //Reset Values to let Player be moved by clicking again
         clickMovement.forcedDest = false; //Reset Values to let Player be moved by clicking again
+        //--------------------------------------->
 
         if (isInteractingWithCompanionTarget)
         {
+            //Call companionEvents instead!
             EventManager.instance.CompanionFlyBackToPlayerEvent(); //Let Companion Fly to Player and Follow him again
+            //----------------------------->
             isInteractingWithCompanionTarget = false;
         }
     }
