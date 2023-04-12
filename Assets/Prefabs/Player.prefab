@@ -4419,9 +4419,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8346756045701794014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4edd52a7ca49b6145a03604ee34f7a89, type: 3}
+  m_Script: {fileID: 11500000, guid: 34d251b550ac74974823e0550f0fa735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shoulderCam: {fileID: 4506457101921553409}

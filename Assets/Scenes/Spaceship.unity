@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18105747, g: 0.2266306, b: 0.30728957, a: 1}
+  m_IndirectSpecularColor: {r: 0.18105814, g: 0.22663158, b: 0.3072914, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1657,11 +1657,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8346756045701794009, guid: 77a47b22c7b76894e9492b9d365fa246,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346756045701794009, guid: 77a47b22c7b76894e9492b9d365fa246,
-        type: 3}
       propertyPath: generalUIHandler
       value: 
       objectReference: {fileID: 1075921532}
@@ -2985,17 +2980,17 @@ PrefabInstance:
     - target: {fileID: 6956836780122126777, guid: 72a900e61395ef04cb07214ff8c0fae4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.078743
+      value: -13.078744
       objectReference: {fileID: 0}
     - target: {fileID: 6956836780122126777, guid: 72a900e61395ef04cb07214ff8c0fae4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.532527
+      value: 15.532526
       objectReference: {fileID: 0}
     - target: {fileID: 6956836780122126777, guid: 72a900e61395ef04cb07214ff8c0fae4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.560819
+      value: -8.560818
       objectReference: {fileID: 0}
     - target: {fileID: 6956836780122126777, guid: 72a900e61395ef04cb07214ff8c0fae4,
         type: 3}
@@ -3557,7 +3552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318253403}
   m_LocalRotation: {x: 0.5467015, y: -0.0033210814, z: 0.0021683993, w: 0.83731824}
-  m_LocalPosition: {x: -13.078743, y: 15.532527, z: -8.560819}
+  m_LocalPosition: {x: -13.078744, y: 15.532526, z: -8.560818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8590,7 +8585,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1475443061}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4edd52a7ca49b6145a03604ee34f7a89, type: 3}
+  m_Script: {fileID: 11500000, guid: 34d251b550ac74974823e0550f0fa735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &1475443068 stripped
@@ -11191,7 +11186,7 @@ GameObject:
   - component: {fileID: 2457972413374627099}
   - component: {fileID: 4115309926946495696}
   - component: {fileID: 4115309926946495697}
-  - component: {fileID: 4115309926946495695}
+  - component: {fileID: 4115309926946495699}
   - component: {fileID: 4115309926946495698}
   m_Layer: 2
   m_Name: DamagedCompanion
@@ -11200,27 +11195,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4115309926946495695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4115309926946495694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef7dcfa8ce736504d9035b0751893bc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectImage: {fileID: 21300000, guid: 407495bcdd3d5374d83282a72c78a9b8, type: 3}
-  objectInfo: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut
-  interactionStartInfo: E
-  interactionEndInfo: ESC
-  companionStopPos: {fileID: 0}
-  playerStandingPos: {fileID: 449976060}
-  playerStoppingDistance: 1
-  clickMovement: {fileID: 1267684555}
 --- !u!135 &4115309926946495696
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11262,6 +11236,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfeb9126d0fa284aa200e7a127b8d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4115309926946495699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4115309926946495694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12c64e677f2b4761b4c367e670c9230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectImage: {fileID: 21300000, guid: 407495bcdd3d5374d83282a72c78a9b8, type: 3}
+  objectInfo: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    At vero
+  interactionStartInfo: E
+  interactionEndInfo: ESC
+  companionStopPos: {fileID: 0}
+  playerStandingPos: {fileID: 449976060}
+  playerStoppingDistance: 1
+  clickMovement: {fileID: 1267684555}
 --- !u!33 &4137245452427845065
 MeshFilter:
   m_ObjectHideFlags: 0

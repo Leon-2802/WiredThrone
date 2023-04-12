@@ -41,12 +41,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2168862746254407500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c798475879ed6c242967530c14f0d47e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f7683a5098484134b10582d6cfa3783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interactionAvailable: 0
   isInteracting: 0
-  isInteractingWithCompanionTarget: 0
-  interactableObjects: []
-  standingPositions: []
-  clickMovement: {fileID: 0}
