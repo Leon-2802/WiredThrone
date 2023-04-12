@@ -6,7 +6,7 @@ public class CompanionMovement : MonoBehaviour
 {
     public bool movedBackToPlayer;
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Transform targetObj;
+    [SerializeField] private Transform player;
     [SerializeField] private float rotSpeed;
     [SerializeField] private float moveSpeed = 0.01f;
     [SerializeField] private float rotateAroundOwnAxisSpeed = 20f;
@@ -38,7 +38,7 @@ public class CompanionMovement : MonoBehaviour
 
         if (GameManager.Instance.playerIsRunning && !disableFollowPlayer || !movedBackToPlayer && !disableFollowPlayer) //means, that if player is running and is not close to player, if statement is excuted
         {
-            MoveTowardsTarget(targetObj.position, initalStoppingDist, false);
+            MoveTowardsTarget(player.position, initalStoppingDist, false);
         }
 
         if (disableFollowPlayer) //if companion should move to another target than the player
@@ -73,7 +73,7 @@ public class CompanionMovement : MonoBehaviour
     //checks how the player is, after companion moved to another object
     void CheckIfPlayerTooFar()
     {
-        float currentDistanceToPlayer = Vector3.Distance(transform.position, targetObj.position);
+        float currentDistanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (currentDistanceToPlayer > maxDistanceToPlayer) //if the player is too far, call event to revert back to follwowing the player
         {
