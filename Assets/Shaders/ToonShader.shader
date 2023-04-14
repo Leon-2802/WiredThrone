@@ -7,6 +7,8 @@ Shader "Unlit/ToonShader"
         _Strength("Strength", Range(0,1)) = 0.5
         _Color("Color", COLOR) = (1, 1, 1, 1)
         _Detail("Detail", Range(0,1)) = 0.3
+        _OutlineColor("OutlineColor", Color) = (0, 0, 0, 0)
+        _OutlineSize("OutlineSize", float) = 1.0
     }
     SubShader
     {
@@ -67,6 +69,53 @@ Shader "Unlit/ToonShader"
             }
             ENDCG 
         }
+
+        //Outline rendering
+        Pass
+        {
+            Name "Outline"
+            Tags {"LightMode" = "Outline"}
+
+            Cull Front
+
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #include "UnityCG.cginc"
+
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+            };
+
+            struct v2f
+            {
+                float4 vertex : SV_POSITION;
+            };
+
+            float4 _OutlineColor;
+            float _OutlineSize;
+
+            //vertex shader
+            v2f vert (appdata v)
+            {
+                v2f o;
+                //Translate the vertex along the normal vector, this will increase the size of the model
+                o.vertex = UnityObjectToClipPos(v.vertex + (_OutlineSize*0.01) * v.normal);
+                return o;
+            }
+
+            //fragment shader
+            fixed4 frag (v2f i) : SV_Target
+            {
+                return _OutlineColor;
+            }
+            ENDCG 
+        }
+
+
         //Pass for Casting Shadows 
         Pass 
         {
