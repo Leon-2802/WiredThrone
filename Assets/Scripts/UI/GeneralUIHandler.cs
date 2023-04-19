@@ -22,7 +22,7 @@ public class GeneralUIHandler : MonoBehaviour
     [SerializeField] private GameObject hideQuestText;
     [SerializeField] private GameObject showQuestText;
     private string taskText;
-    private int taskCount;
+    private int taskIterations;
     private bool questViewActive = false;
 
     private void Awake()
@@ -35,19 +35,22 @@ public class GeneralUIHandler : MonoBehaviour
 
     private void Start()
     {
-        QuestManager.instance.companionFound += FirstQuestUI;
+        QuestManager.instance.setQuest += SetQuestText;
+        QuestManager.instance.taskStepDone += OnTaskStepDone;
     }
 
-    public void SetQuestText(string text, int iterations)
+    public void SetQuestText(object sender, QuestManager.SetQuestText e)
     {
-        taskText = text;
+        taskText = e._text;
         taskTextField.text = taskText;
-        if (iterations > 0)
+        if (e._taskIterations > 0)
         {
-            taskCount = iterations;
-            taskTextField.text = taskText + " (0/" + iterations + ")";
+            taskIterations = e._taskIterations;
+            taskTextField.text = taskText + " (" + 0 + "/" + taskIterations + ")";
         }
-        ToggleQuestView();
+
+        if (!questViewActive)
+            ToggleQuestView();
     }
     public void ToggleQuestView()
     {
@@ -86,15 +89,14 @@ public class GeneralUIHandler : MonoBehaviour
         });
     }
 
-    private void FirstQuestUI(object sender, QuestManager.SetFirstQuest e)
+    private void OnTaskStepDone(object sender, QuestManager.TaskSteps e)
     {
-        SetQuestText(e._text, e._taskIterations);
-        QuestManager.instance.companionFound -= FirstQuestUI;
+        taskTextField.text = taskText + " (" + e._stepCount + "/" + taskIterations + ")";
     }
-
 
     private void OnDestroy()
     {
-        QuestManager.instance.companionFound -= FirstQuestUI;
+        QuestManager.instance.setQuest -= SetQuestText;
+        QuestManager.instance.taskStepDone -= OnTaskStepDone;
     }
 }

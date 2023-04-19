@@ -39,6 +39,7 @@ public class InteractableManager : MonoBehaviour
     }
     public void LeaveInteractionZone()
     {
+        isInteracting = false;
         interactionAvailable = false;
     }
 }

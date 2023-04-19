@@ -10,6 +10,9 @@ public class InspectableObject : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
+        if (!this.isActiveAndEnabled)
+            return;
+
         if (other.gameObject.GetComponent<Player>())
         {
             GeneralUIHandler.instance.InvokeOpenInspector(objectImage, objectInfo);
@@ -23,6 +26,9 @@ public class InspectableObject : MonoBehaviour
 
     protected virtual void OnTriggerExit(Collider other)
     {
+        if (!this.isActiveAndEnabled)
+            return;
+
         if (other.gameObject.GetComponent<Player>())
         {
             GeneralUIHandler.instance.InvokeCloseInspector();
