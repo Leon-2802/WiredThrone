@@ -5,10 +5,10 @@ public class PlayerInteractions : MonoBehaviour
 {
     [SerializeField] private PlayerControls playerControls;
     [SerializeField] private GameObject shoulderCam;
+    [SerializeField] private GameObject inGameMenu;
     private InputAction interact;
-    private InputAction leaveInteraction;
+    private InputAction openMenu;
     private InputAction toggleQuestUI;
-    private Vector3 moveDirection;
 
     void Start()
     {
@@ -18,9 +18,9 @@ public class PlayerInteractions : MonoBehaviour
         interact.Enable();
         interact.performed += Interact;
 
-        leaveInteraction = playerControls.Player.Back;
-        leaveInteraction.Enable();
-        leaveInteraction.performed += LeaveInteraction;
+        openMenu = playerControls.Player.Back;
+        openMenu.Enable();
+        openMenu.performed += OpenInGameMenu;
 
         toggleQuestUI = playerControls.Player.ToggleQuestUI;
         toggleQuestUI.Enable();
@@ -29,23 +29,27 @@ public class PlayerInteractions : MonoBehaviour
 
     private void Interact(InputAction.CallbackContext context)
     {
-        if (InteractableManager.Instance.isInteracting || InteractableManager.Instance.interactionAvailable == false)
+        if (InteractableManager.Instance.interactionAvailable == false)
             return;
 
-        InteractableManager.Instance.StartInteraction();
+        if (!InteractableManager.Instance.isInteracting)
+        {
+            InteractableManager.Instance.StartInteraction();
+        }
+        else
+        {
+            shoulderCam.SetActive(false);
+            InteractableManager.Instance.EndInteraction();
+        }
     }
     public void ActivateShoulderCam()
     {
         shoulderCam.SetActive(true);
     }
 
-    private void LeaveInteraction(InputAction.CallbackContext context)
+    private void OpenInGameMenu(InputAction.CallbackContext context)
     {
-        if (InteractableManager.Instance.isInteracting == false || InteractableManager.Instance.interactionAvailable == false)
-            return;
-
-        shoulderCam.SetActive(false);
-        InteractableManager.Instance.EndInteraction();
+        inGameMenu.SetActive(!inGameMenu.activeInHierarchy);
     }
 
     private void ToggleQuestUI(InputAction.CallbackContext context)
@@ -56,7 +60,7 @@ public class PlayerInteractions : MonoBehaviour
     private void OnDisable()
     {
         interact.Disable();
-        leaveInteraction.Disable();
+        openMenu.Disable();
         toggleQuestUI.Disable();
     }
 }

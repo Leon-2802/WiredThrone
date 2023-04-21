@@ -15,7 +15,9 @@ public class GeneralUIHandler : MonoBehaviour
     public event EventHandler<ItemInteractionEventArgs> openInteractionInfo;
     public class ItemInteractionEventArgs : EventArgs
     {
-        public string _inputText;
+        public Sprite _interactionSprite;
+        public string _interactionButton;
+        public string _interactionText;
     }
     [SerializeField] private GameObject taskField;
     [SerializeField] private TMP_Text taskTextField;
@@ -23,7 +25,7 @@ public class GeneralUIHandler : MonoBehaviour
     [SerializeField] private GameObject showQuestText;
     private string taskText;
     private int taskIterations;
-    private bool questViewActive = false;
+    private bool questViewActive;
 
     private void Awake()
     {
@@ -35,6 +37,7 @@ public class GeneralUIHandler : MonoBehaviour
 
     private void Start()
     {
+        questViewActive = false;
         QuestManager.instance.setQuest += SetQuestText;
         QuestManager.instance.taskStepDone += OnTaskStepDone;
     }
@@ -81,11 +84,13 @@ public class GeneralUIHandler : MonoBehaviour
     {
         closeInspector.Invoke(this, EventArgs.Empty);
     }
-    public void InvokeOpenInteractionInfo(string interactionInfo)
+    public void InvokeOpenInteractionInfo(Sprite interactionIcon, string interactionButton, string interactionInfo)
     {
         openInteractionInfo.Invoke(this, new ItemInteractionEventArgs
         {
-            _inputText = interactionInfo
+            _interactionSprite = interactionIcon,
+            _interactionButton = interactionButton,
+            _interactionText = interactionInfo
         });
     }
 

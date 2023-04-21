@@ -127,10 +127,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030c17706a06eb544a87fb50c98fa5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 8389329812971565885}
+  rendererRef: {fileID: 8389329812971565885}
   objectImage: {fileID: 21300000, guid: ec547896a73b65040b0cdf07d41ed280, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
-  interactionStartInfo: E
+  isOneShotInteraction: 1
+  interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
+  interactionButton: E
+  interactionText: to pick up
   companionStopPos: {fileID: 5559688658988021774}
   destroyOnCollect: 1
 --- !u!1 &1144040293863161753
@@ -408,10 +411,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030c17706a06eb544a87fb50c98fa5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 7558119607007805286}
+  rendererRef: {fileID: 7558119607007805286}
   objectImage: {fileID: 21300000, guid: ec547896a73b65040b0cdf07d41ed280, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
-  interactionStartInfo: E
+  isOneShotInteraction: 1
+  interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
+  interactionButton: E
+  interactionText: to pick up
   companionStopPos: {fileID: 5559688658988021774}
   destroyOnCollect: 1
 --- !u!1 &2110682257784359554
@@ -648,6 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsRunning: 0
+  menuAccessible: 0
   saveLoadManager: {fileID: 1440596825858743889}
 --- !u!114 &1440596825858743889
 MonoBehaviour:
@@ -664,6 +671,8 @@ MonoBehaviour:
   loadCheckpoint01:
     m_PersistentCalls:
       m_Calls: []
+  player: {fileID: 0}
+  companion: {fileID: 0}
   loadSymbol: {fileID: 0}
 --- !u!1 &2401338551534808718
 GameObject:
@@ -792,10 +801,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030c17706a06eb544a87fb50c98fa5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 9111226179276861036}
+  rendererRef: {fileID: 9111226179276861036}
   objectImage: {fileID: 21300000, guid: ec547896a73b65040b0cdf07d41ed280, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
-  interactionStartInfo: E
+  isOneShotInteraction: 1
+  interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
+  interactionButton: E
+  interactionText: to pick up
   companionStopPos: {fileID: 5559688658988021774}
   destroyOnCollect: 1
 --- !u!1 &2862587369540324012
@@ -989,10 +1001,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030c17706a06eb544a87fb50c98fa5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 7520401811197779341}
+  rendererRef: {fileID: 7520401811197779341}
   objectImage: {fileID: 21300000, guid: ec547896a73b65040b0cdf07d41ed280, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
-  interactionStartInfo: E
+  isOneShotInteraction: 1
+  interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
+  interactionButton: E
+  interactionText: to pick up
   companionStopPos: {fileID: 5559688658988021774}
   destroyOnCollect: 1
 --- !u!1 &6230516389484225761
@@ -1040,6 +1055,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1a868c21edaef48af0fbbc095d9954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quests:
+  - Repair the damaged robot
+  - Reach the ship's terminal
+  finishedQuests: 0
   playerAwake:
     m_PersistentCalls:
       m_Calls: []
@@ -1065,7 +1084,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   cutSceneManager: {fileID: 0}
-  findingCompanion: {fileID: 0}
 --- !u!1 &8405311458741848125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,10 +1211,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030c17706a06eb544a87fb50c98fa5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 325255776350966689}
+  rendererRef: {fileID: 325255776350966689}
   objectImage: {fileID: 21300000, guid: ec547896a73b65040b0cdf07d41ed280, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
-  interactionStartInfo: E
+  isOneShotInteraction: 1
+  interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
+  interactionButton: E
+  interactionText: to pick up
   companionStopPos: {fileID: 5559688658988021774}
   destroyOnCollect: 1
 --- !u!1001 &7394718041691470710

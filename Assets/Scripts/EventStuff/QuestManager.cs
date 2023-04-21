@@ -5,6 +5,8 @@ using UnityEngine.Events;
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
+    public string[] quests;
+    public int finishedQuests = 0;
     public UnityEvent playerAwake;
     public UnityEvent enableScrapParts;
     public UnityEvent scrapCollected;
@@ -38,11 +40,7 @@ public class QuestManager : MonoBehaviour
 
     public void FoundCompanion()
     {
-        setQuest?.Invoke(this, new SetQuestText
-        {
-            _text = "Find 5 scrap parts",
-            _taskIterations = 5
-        });
+        InvokeSetQuest("Find 5 scrap parts", 5);
         enableScrapParts.Invoke();
     }
 
@@ -56,17 +54,14 @@ public class QuestManager : MonoBehaviour
 
         if (scrapPartsCollected >= 5)
         {
-            setQuest.Invoke(this, new SetQuestText
-            {
-                _text = "Go back to the companion and repair it",
-                _taskIterations = 0
-            });
+            InvokeSetQuest("Go back to the damaged robot and repair it", 0);
             scrapCollected.Invoke();
         }
     }
 
     public void RepairedCompanion()
     {
+        finishedQuests++;
         repairedCompanion.Invoke();
         InvokeSetQuest("New Quest", 5);
     }

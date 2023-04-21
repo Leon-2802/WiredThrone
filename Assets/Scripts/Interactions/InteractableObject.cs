@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class InteractableObject : InspectableObject
 {
-    protected EInteractionType interactionType;
-    [SerializeField] protected string interactionStartInfo;
+    [SerializeField] protected bool isOneShotInteraction;
+    [SerializeField] protected Sprite interactionIcon;
+    [SerializeField] protected string interactionButton;
+    [SerializeField] protected string interactionText;
     [SerializeField] protected Transform companionStopPos;
     protected bool isCompanionTarget;
 
@@ -36,9 +38,9 @@ public class InteractableObject : InspectableObject
 
         if (other.gameObject.GetComponent<Player>())
         {
-            InteractableManager.Instance.EnterInteractionZone();
+            InteractableManager.Instance.EnterInteractionZone(isOneShotInteraction);
             InteractableManager.Instance.startInteraction += OnStartInteraction;
-            GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionStartInfo);
+            GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionIcon, interactionButton, interactionText);
         }
     }
     protected override void OnTriggerExit(Collider other)

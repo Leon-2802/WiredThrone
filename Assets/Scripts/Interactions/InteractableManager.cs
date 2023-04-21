@@ -7,6 +7,7 @@ public class InteractableManager : MonoBehaviour
 {
     public static InteractableManager Instance;
     public bool interactionAvailable = false;
+    public bool isOneShotInteraction = false;
     public bool isInteracting = false;
     public event EventHandler startInteraction;
     public event EventHandler endInteraction;
@@ -20,21 +21,24 @@ public class InteractableManager : MonoBehaviour
     }
 
 
-    public void EnterInteractionZone()
+    public void EnterInteractionZone(bool isOneShotInteraction)
     {
         if (interactionAvailable)
             return;
 
+        this.isOneShotInteraction = isOneShotInteraction;
         interactionAvailable = true;
     }
     public void StartInteraction()
     {
-        isInteracting = true;
+        if (!isOneShotInteraction) //One Shot Interactions have no duration, so no need to set the bool
+            isInteracting = true;
         startInteraction?.Invoke(this, EventArgs.Empty);
     }
     public void EndInteraction()
     {
-        isInteracting = false;
+        if (!isOneShotInteraction)
+            isInteracting = false;
         endInteraction?.Invoke(this, EventArgs.Empty);
     }
     public void LeaveInteractionZone()

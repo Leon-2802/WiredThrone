@@ -29,12 +29,12 @@ public class Decoration : InteractableObject
     {
         base.OnStartInteraction(sender, e);
 
-        GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionEndInfo);
+        GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionIcon, interactionButton, interactionEndInfo);
         clickMovement.ForceDestination(playerStandingPos, playerStoppingDistance); //Make player move to desired Pos
     }
     protected virtual void OnEndInteraction(object sender, EventArgs e)
     {
-        GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionStartInfo);
+        GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionIcon, interactionButton, interactionText);
 
 
         clickMovement.SetStoppingDistance(0); //Reset Values to let Player be moved by clicking again
