@@ -8,7 +8,6 @@ public class CompanionMovement : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Transform player;
     [SerializeField] private float rotSpeed;
-    [SerializeField] private float moveSpeed = 0.01f;
     [SerializeField] private float rotateAroundOwnAxisSpeed = 20f;
     [SerializeField] private float maxDistanceToPlayer = 1f;
     private Transform eventTarget;

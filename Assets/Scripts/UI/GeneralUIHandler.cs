@@ -15,15 +15,17 @@ public class GeneralUIHandler : MonoBehaviour
     public event EventHandler<ItemInteractionEventArgs> openInteractionInfo;
     public class ItemInteractionEventArgs : EventArgs
     {
-        public string _inputText;
+        public Sprite _interactionSprite;
+        public string _interactionButton;
+        public string _interactionText;
     }
     [SerializeField] private GameObject taskField;
     [SerializeField] private TMP_Text taskTextField;
     [SerializeField] private GameObject hideQuestText;
     [SerializeField] private GameObject showQuestText;
     private string taskText;
-    private int taskCount;
-    private bool questViewActive = false;
+    private int taskIterations;
+    private bool questViewActive;
 
     private void Awake()
     {
@@ -35,19 +37,23 @@ public class GeneralUIHandler : MonoBehaviour
 
     private void Start()
     {
-        QuestManager.instance.companionFound += FirstQuestUI;
+        questViewActive = false;
+        QuestManager.instance.setQuest += SetQuestText;
+        QuestManager.instance.taskStepDone += OnTaskStepDone;
     }
 
-    public void SetQuestText(string text, int iterations)
+    public void SetQuestText(object sender, QuestManager.SetQuestText e)
     {
-        taskText = text;
+        taskText = e._text;
         taskTextField.text = taskText;
-        if (iterations > 0)
+        if (e._taskIterations > 0)
         {
-            taskCount = iterations;
-            taskTextField.text = taskText + " (0/" + iterations + ")";
+            taskIterations = e._taskIterations;
+            taskTextField.text = taskText + " (" + 0 + "/" + taskIterations + ")";
         }
-        ToggleQuestView();
+
+        if (!questViewActive)
+            ToggleQuestView();
     }
     public void ToggleQuestView()
     {
@@ -78,23 +84,24 @@ public class GeneralUIHandler : MonoBehaviour
     {
         closeInspector.Invoke(this, EventArgs.Empty);
     }
-    public void InvokeOpenInteractionInfo(string interactionInfo)
+    public void InvokeOpenInteractionInfo(Sprite interactionIcon, string interactionButton, string interactionInfo)
     {
         openInteractionInfo.Invoke(this, new ItemInteractionEventArgs
         {
-            _inputText = interactionInfo
+            _interactionSprite = interactionIcon,
+            _interactionButton = interactionButton,
+            _interactionText = interactionInfo
         });
     }
 
-    private void FirstQuestUI(object sender, QuestManager.SetFirstQuest e)
+    private void OnTaskStepDone(object sender, QuestManager.TaskSteps e)
     {
-        SetQuestText(e._text, e._taskIterations);
-        QuestManager.instance.companionFound -= FirstQuestUI;
+        taskTextField.text = taskText + " (" + e._stepCount + "/" + taskIterations + ")";
     }
-
 
     private void OnDestroy()
     {
-        QuestManager.instance.companionFound -= FirstQuestUI;
+        QuestManager.instance.setQuest -= SetQuestText;
+        QuestManager.instance.taskStepDone -= OnTaskStepDone;
     }
 }

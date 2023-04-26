@@ -5,15 +5,25 @@ using UnityEngine.Events;
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
-    public UnityEvent playerAwake;
-    public event EventHandler<SetFirstQuest> companionFound;
-    public class SetFirstQuest : EventArgs
+    public string[] quests;
+    public int finishedQuests = 0;
+    public UnityEvent enableScrapParts;
+    public UnityEvent scrapCollected;
+    public UnityEvent repairedCompanion;
+    public event EventHandler<SetQuestText> setQuest;
+    public class SetQuestText : EventArgs
     {
         public string _text;
         public int _taskIterations;
     }
+    public event EventHandler<TaskSteps> taskStepDone;
+    public class TaskSteps : EventArgs
+    {
+        public int _stepCount;
+    }
     [SerializeField] private CutSceneManager cutSceneManager;
-    [SerializeField] private FindingCompanion findingCompanion;
+    private int scrapPartsCollected = 0;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -22,29 +32,45 @@ public class QuestManager : MonoBehaviour
             instance = this;
     }
 
-    private void Start()
-    {
-        findingCompanion.foundCompanion += FoundCompanion;
-    }
-
     public void InitStory()
     {
         cutSceneManager.InitPlayerWakeUpScene();
     }
 
-    private void FoundCompanion(object sender, EventArgs e)
+    public void FoundCompanion()
     {
-        companionFound?.Invoke(this, new SetFirstQuest
-        {
-            _text = "Find 5 scrap parts",
-            _taskIterations = 5
-        }
-        );
-        findingCompanion.foundCompanion -= FoundCompanion;
+        InvokeSetQuest("Find 5 scrap parts", 5);
+        enableScrapParts.Invoke();
     }
 
-    private void OnDestroy()
+    public void CollectedScrapPart()
     {
-        findingCompanion.foundCompanion -= FoundCompanion;
+        scrapPartsCollected++;
+        taskStepDone.Invoke(this, new TaskSteps
+        {
+            _stepCount = scrapPartsCollected
+        });
+
+        if (scrapPartsCollected >= 5)
+        {
+            InvokeSetQuest("Go back to the damaged robot and repair it", 0);
+            scrapCollected.Invoke();
+        }
+    }
+
+    public void RepairedCompanion()
+    {
+        finishedQuests++;
+        repairedCompanion.Invoke();
+        InvokeSetQuest("New Quest", 5);
+    }
+
+    public void InvokeSetQuest(string text, int taskIterations)
+    {
+        setQuest.Invoke(this, new SetQuestText
+        {
+            _text = text,
+            _taskIterations = taskIterations
+        });
     }
 }

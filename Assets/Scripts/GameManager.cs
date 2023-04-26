@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public PlayerControls playerControls;
     public bool playerIsRunning = false;
+    public bool menuAccessible = false;
+    [SerializeField] private GameObject player;
+    [SerializeField] private SaveLoadManager saveLoadManager;
 
     private void Awake()
     {
@@ -14,13 +17,34 @@ public class GameManager : MonoBehaviour
         else
             Instance = this;
 
-        DontDestroyOnLoad(this);
         playerControls = new PlayerControls();
+        player.SetActive(true);
     }
 
     private void Start()
     {
-        QuestManager.instance.InitStory();
+        CheckPlayerPrefs();
     }
 
+    private void CheckPlayerPrefs()
+    {
+        if (PlayerPrefs.HasKey("Checkpoint"))
+        {
+            int progress = PlayerPrefs.GetInt("Checkpoint");
+
+            switch (progress)
+            {
+                case 0:
+                    QuestManager.instance.InitStory();
+                    break;
+                case 1:
+                    saveLoadManager.LoadCheckpoint(1);
+                    break;
+            }
+        }
+        else
+        {
+            QuestManager.instance.InitStory();
+        }
+    }
 }

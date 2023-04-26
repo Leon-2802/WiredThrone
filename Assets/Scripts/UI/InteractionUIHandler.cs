@@ -8,8 +8,9 @@ public class InteractionUIHandler : MonoBehaviour
     [SerializeField] private GameObject itemInspector;
     [SerializeField] private Image itemImage;
     [SerializeField] private TMP_Text itemTextfield;
-    [SerializeField] private GameObject inputInfo;
-    [SerializeField] private TMP_Text inputTextfield;
+    [SerializeField] private GameObject interactionInfo;
+    [SerializeField] private Image interactionIcon;
+    [SerializeField] private TMP_Text interactionText;
 
 
     private void Start()
@@ -28,13 +29,14 @@ public class InteractionUIHandler : MonoBehaviour
     }
     private void SetInteractionInfo(object sender, GeneralUIHandler.ItemInteractionEventArgs e)
     {
-        inputTextfield.text = e._inputText;
-        inputInfo.SetActive(true);
+        interactionIcon.sprite = e._interactionSprite;
+        interactionText.text = "[" + e._interactionButton + "] " + e._interactionText;
+        interactionInfo.SetActive(true);
     }
     private void CloseItemInspector(object sender, EventArgs e)
     {
         itemInspector.SetActive(false);
-        inputInfo.SetActive(false);
+        interactionInfo.SetActive(false);
     }
 
     private void OnDestroy()

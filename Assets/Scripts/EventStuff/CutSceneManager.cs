@@ -1,22 +1,30 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 //no cutscenes filmed yet -> just has placeholder behaviour for now
 public class CutSceneManager : MonoBehaviour
 {
-    [SerializeField] private Animator playerAnim;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject playerWakeupScene;
+    [SerializeField] private TimelineAsset playerWakeupClip;
 
     public void InitPlayerWakeUpScene()
     {
-        playerAnim.SetBool("Unconscious", true);
-        StartCoroutine(WakeUp());
+        player.SetActive(false);
+        playerWakeupScene.SetActive(true);
+        StartCoroutine(DisableCutscene(playerWakeupClip.duration, 0));
     }
 
-    IEnumerator WakeUp()
+    IEnumerator DisableCutscene(double duration, int cutsceneIndex)
     {
-        yield return new WaitForSeconds(3f);
-        playerAnim.SetBool("Unconscious", false);
-        yield return new WaitForSeconds(1.5f);
-        QuestManager.instance.playerAwake.Invoke();
+        yield return new WaitForSeconds((float)duration);
+        switch (cutsceneIndex)
+        {
+            case 0:
+                playerWakeupScene.SetActive(false);
+                player.SetActive(true);
+                break;
+        }
     }
 }
