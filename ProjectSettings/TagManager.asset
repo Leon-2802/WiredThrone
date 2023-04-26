@@ -12,6 +12,7 @@ TagManager:
   - Decoration
   - Wall
   - Block
+  - SidebarPanel
   layers:
   - Default
   - TransparentFX
