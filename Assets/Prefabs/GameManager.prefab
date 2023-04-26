@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rendererRef: {fileID: 8389329812971565885}
-  objectImage: {fileID: 21300000, guid: ec547896a73b65040b0cdf07d41ed280, type: 3}
+  objectImage: {fileID: 21300000, guid: 407495bcdd3d5374d83282a72c78a9b8, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
   isOneShotInteraction: 1
   interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rendererRef: {fileID: 7558119607007805286}
-  objectImage: {fileID: 21300000, guid: ec547896a73b65040b0cdf07d41ed280, type: 3}
+  objectImage: {fileID: 21300000, guid: 407495bcdd3d5374d83282a72c78a9b8, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
   isOneShotInteraction: 1
   interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rendererRef: {fileID: 9111226179276861036}
-  objectImage: {fileID: 21300000, guid: ec547896a73b65040b0cdf07d41ed280, type: 3}
+  objectImage: {fileID: 21300000, guid: 407495bcdd3d5374d83282a72c78a9b8, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
   isOneShotInteraction: 1
   interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rendererRef: {fileID: 7520401811197779341}
-  objectImage: {fileID: 21300000, guid: ec547896a73b65040b0cdf07d41ed280, type: 3}
+  objectImage: {fileID: 21300000, guid: 407495bcdd3d5374d83282a72c78a9b8, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
   isOneShotInteraction: 1
   interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
@@ -1166,9 +1166,6 @@ MonoBehaviour:
   - Repair the damaged robot
   - Reach the ship's terminal
   finishedQuests: 0
-  playerAwake:
-    m_PersistentCalls:
-      m_Calls: []
   enableScrapParts:
     m_PersistentCalls:
       m_Calls:
@@ -1414,7 +1411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rendererRef: {fileID: 325255776350966689}
-  objectImage: {fileID: 21300000, guid: ec547896a73b65040b0cdf07d41ed280, type: 3}
+  objectImage: {fileID: 21300000, guid: 407495bcdd3d5374d83282a72c78a9b8, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
   isOneShotInteraction: 1
   interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
