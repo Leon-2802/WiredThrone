@@ -10,7 +10,7 @@ public class PlayerInteractions : MonoBehaviour
     private InputAction openMenu;
     private InputAction toggleQuestUI;
 
-    void Start()
+    void OnEnable()
     {
         playerControls = GameManager.Instance.playerControls;
 

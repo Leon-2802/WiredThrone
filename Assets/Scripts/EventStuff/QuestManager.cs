@@ -7,7 +7,6 @@ public class QuestManager : MonoBehaviour
     public static QuestManager instance;
     public string[] quests;
     public int finishedQuests = 0;
-    public UnityEvent playerAwake;
     public UnityEvent enableScrapParts;
     public UnityEvent scrapCollected;
     public UnityEvent repairedCompanion;

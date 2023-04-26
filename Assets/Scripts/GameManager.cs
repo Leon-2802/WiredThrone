@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public PlayerControls playerControls;
     public bool playerIsRunning = false;
     public bool menuAccessible = false;
+    [SerializeField] private GameObject player;
     [SerializeField] private SaveLoadManager saveLoadManager;
 
     private void Awake()
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
 
         playerControls = new PlayerControls();
+        player.SetActive(true);
     }
 
     private void Start()

@@ -18,7 +18,7 @@ public class ClickMovement : MonoBehaviour
     public bool forcedDest;
     private float initalStoppingDistance;
 
-    private void Start()
+    private void OnEnable()
     {
         /*<------ enable controls*/
         playerControls = GameManager.Instance.playerControls;
@@ -95,7 +95,9 @@ public class ClickMovement : MonoBehaviour
 
     private void OnDisable()
     {
-        clickMove.Disable();
-        mousePosition.Disable();
+        if (clickMove.enabled)
+            clickMove.Disable();
+        if (mousePosition.enabled)
+            mousePosition.Disable();
     }
 }
