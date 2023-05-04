@@ -12,24 +12,24 @@ public class MiniGame : MonoBehaviour
     private InputAction exit;
 
 
-    private void Start() 
+    private void Start()
     {
         playerControls = GameManager.Instance.playerControls;
-        
+
         start = playerControls.Player.StartCom;
         start.Enable();
         start.performed += OnStartGame;
 
-        exit = playerControls.Player.Back;
+        exit = playerControls.Player.Interact;
         exit.Enable();
         exit.performed += OnExitGame;
     }
-    
+
     private void OnStartGame(InputAction.CallbackContext context)
     {
-        if(!InteractableManager.Instance.isInteracting || !computer.interacting)
+        if (!InteractableManager.Instance.isInteracting || !computer.interacting)
             return;
-        
+
         screenCam.SetActive(true);
 
         startScreen.SetActive(false);
@@ -37,7 +37,7 @@ public class MiniGame : MonoBehaviour
     }
     private void OnExitGame(InputAction.CallbackContext context)
     {
-        if(!InteractableManager.Instance.isInteracting || !computer.interacting)
+        if (!InteractableManager.Instance.isInteracting || !computer.interacting)
             return;
 
         screenCam.SetActive(false);
@@ -46,7 +46,7 @@ public class MiniGame : MonoBehaviour
         game.SetActive(false);
     }
 
-    private void OnDisable() 
+    private void OnDisable()
     {
         start.Disable();
         exit.Disable();

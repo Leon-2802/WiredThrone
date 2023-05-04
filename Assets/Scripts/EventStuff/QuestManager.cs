@@ -7,7 +7,7 @@ public class QuestManager : MonoBehaviour
     public static QuestManager instance;
     public string[] quests;
     public int finishedQuests = 0;
-    public UnityEvent enableScrapParts;
+    public UnityEvent companionFound;
     public UnityEvent scrapCollected;
     public UnityEvent repairedCompanion;
     public event EventHandler<SetQuestText> setQuest;
@@ -40,7 +40,7 @@ public class QuestManager : MonoBehaviour
     public void FoundCompanion()
     {
         InvokeSetQuest("Find 5 scrap parts", 5);
-        enableScrapParts.Invoke();
+        companionFound.Invoke();
     }
 
     public void CollectedScrapPart()

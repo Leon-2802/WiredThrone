@@ -10,6 +10,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private SaveLoadManager saveLoadManager;
 
+    public void TogglePlayerControls(bool enable)
+    {
+        if (enable)
+            playerControls.Player.Enable();
+        else
+            playerControls.Player.Disable();
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

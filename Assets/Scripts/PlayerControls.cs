@@ -73,15 +73,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Back"",
-                    ""type"": ""Button"",
-                    ""id"": ""62c9919a-68df-4210-ba26-e35ed119e6b4"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""StartCom"",
                     ""type"": ""Button"",
                     ""id"": ""215548ae-0a93-4607-835a-46311496f8a8"",
@@ -318,17 +309,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MousePosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3b65f238-a30a-4c3b-a30c-58abc0bf2fe4"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1011,7 +991,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_ClickMove = m_Player.FindAction("ClickMove", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
-        m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
         m_Player_StartCom = m_Player.FindAction("StartCom", throwIfNotFound: true);
         m_Player_ToggleQuestUI = m_Player.FindAction("ToggleQuestUI", throwIfNotFound: true);
         // UI
@@ -1095,7 +1074,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ClickMove;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_MousePosition;
-    private readonly InputAction m_Player_Back;
     private readonly InputAction m_Player_StartCom;
     private readonly InputAction m_Player_ToggleQuestUI;
     public struct PlayerActions
@@ -1107,7 +1085,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @ClickMove => m_Wrapper.m_Player_ClickMove;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
-        public InputAction @Back => m_Wrapper.m_Player_Back;
         public InputAction @StartCom => m_Wrapper.m_Player_StartCom;
         public InputAction @ToggleQuestUI => m_Wrapper.m_Player_ToggleQuestUI;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1134,9 +1111,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @MousePosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
-                @Back.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
-                @Back.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
-                @Back.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBack;
                 @StartCom.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartCom;
                 @StartCom.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartCom;
                 @StartCom.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStartCom;
@@ -1162,9 +1136,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
-                @Back.started += instance.OnBack;
-                @Back.performed += instance.OnBack;
-                @Back.canceled += instance.OnBack;
                 @StartCom.started += instance.OnStartCom;
                 @StartCom.performed += instance.OnStartCom;
                 @StartCom.canceled += instance.OnStartCom;
@@ -1381,7 +1352,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnClickMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
-        void OnBack(InputAction.CallbackContext context);
         void OnStartCom(InputAction.CallbackContext context);
         void OnToggleQuestUI(InputAction.CallbackContext context);
     }

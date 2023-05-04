@@ -9,6 +9,7 @@ public class InGameMenuClickEvents : MonoBehaviour
     public void OnClickResume()
     {
         inGameMenu.SetActive(false);
+        GameManager.Instance.TogglePlayerControls(true);
     }
 
     public void OnClickQuit()

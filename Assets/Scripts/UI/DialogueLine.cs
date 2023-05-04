@@ -10,11 +10,12 @@ public class DialogueLine : DialogueBaseClass
     [SerializeField] private Color textColor;
 
     [Header("Time Parameters")]
-    [SerializeField] private float delay;
+    [SerializeField] private float delay = 0.1f;
+    [SerializeField] private float delayBetweenLines = 1f;
 
 
-    private void Awake()
+    private void Start()
     {
-        StartCoroutine(WriteText(input, textHolder, textColor, delay));
+        StartCoroutine(WriteText(input, textHolder, textColor, delay, delayBetweenLines));
     }
 }

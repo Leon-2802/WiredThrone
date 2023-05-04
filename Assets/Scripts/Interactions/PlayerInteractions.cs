@@ -18,9 +18,9 @@ public class PlayerInteractions : MonoBehaviour
         interact.Enable();
         interact.performed += Interact;
 
-        openMenu = playerControls.Player.Back;
+        openMenu = playerControls.Menu.ToggleMenu;
         openMenu.Enable();
-        openMenu.performed += OpenInGameMenu;
+        openMenu.performed += ToggleInGameMenu;
 
         toggleQuestUI = playerControls.Player.ToggleQuestUI;
         toggleQuestUI.Enable();
@@ -47,8 +47,9 @@ public class PlayerInteractions : MonoBehaviour
         shoulderCam.SetActive(true);
     }
 
-    private void OpenInGameMenu(InputAction.CallbackContext context)
+    private void ToggleInGameMenu(InputAction.CallbackContext context)
     {
+        GameManager.Instance.TogglePlayerControls(inGameMenu.activeInHierarchy);
         inGameMenu.SetActive(!inGameMenu.activeInHierarchy);
     }
 
