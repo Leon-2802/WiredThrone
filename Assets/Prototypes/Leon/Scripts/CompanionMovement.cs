@@ -12,7 +12,7 @@ public class CompanionMovement : MonoBehaviour
     [SerializeField] private float maxDistanceToPlayer = 1f;
     private Transform eventTarget;
     private Vector3 initialPos;
-    private float initalStoppingDist;
+    private float initialStoppingDist;
     private float currentDistanceToParent;
     private bool disableFollowPlayer; //true if companion is moving towards an object, ie. to give the player a hint
     private bool checkDistanceToPlayer; //set to true if an optional target was approached
@@ -24,7 +24,7 @@ public class CompanionMovement : MonoBehaviour
         CompanionEvents.instance.flyToObject += FlyToEventObj;
         CompanionEvents.instance.flyBackToPlayer += FlyBackToPlayer;
 
-        initalStoppingDist = agent.stoppingDistance;
+        initialStoppingDist = agent.stoppingDistance;
         movedBackToPlayer = true; //sits next to player on start
         disableFollowPlayer = false;
         checkDistanceToPlayer = false;
@@ -37,7 +37,7 @@ public class CompanionMovement : MonoBehaviour
 
         if (GameManager.Instance.playerIsRunning && !disableFollowPlayer || !movedBackToPlayer && !disableFollowPlayer) //means, that if player is running and is not close to player, if statement is excuted
         {
-            MoveTowardsTarget(player.position, initalStoppingDist, false);
+            MoveTowardsTarget(player.position, initialStoppingDist, false);
         }
 
         if (disableFollowPlayer) //if companion should move to another target than the player
@@ -74,7 +74,7 @@ public class CompanionMovement : MonoBehaviour
     {
         float currentDistanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (currentDistanceToPlayer > maxDistanceToPlayer) //if the player is too far, call event to revert back to follwowing the player
+        if (currentDistanceToPlayer > maxDistanceToPlayer) //if the player is too far, call event to revert back to following the player
         {
             CompanionEvents.instance.CallFlyBackToPlayer();
             checkDistanceToPlayer = false;
