@@ -62,7 +62,6 @@ public class QuestManager : MonoBehaviour
     {
         finishedQuests++;
         repairedCompanion.Invoke();
-        InvokeSetQuest("New Quest", 5);
     }
 
     public void InvokeSetQuest(string text, int taskIterations)

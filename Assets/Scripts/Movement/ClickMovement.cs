@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class ClickMovement : MonoBehaviour
 {
     [SerializeField] private PlayerControls playerControls;
-    [SerializeField] private PlayerInteractions playerInteractions;
+    [SerializeField] private PlayerActions playerActions;
     [SerializeField] private Camera cam;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator animator;
@@ -49,7 +49,7 @@ public class ClickMovement : MonoBehaviour
                     if (forcedDest)
                     {
                         //Switch to shoulder cam and rotate player according to the rotation of the destination the player was forced towards
-                        playerInteractions.ActivateShoulderCam();
+                        playerActions.ActivateShoulderCam();
                         Vector3 finalRot = new Vector3(forcedDestination.eulerAngles.x, forcedDestination.eulerAngles.y,
                             forcedDestination.eulerAngles.z);
                         transform.rotation = Quaternion.Euler(finalRot);
@@ -61,9 +61,6 @@ public class ClickMovement : MonoBehaviour
 
     private void RightClickOnScene(InputAction.CallbackContext context)
     {
-        if (InteractableManager.Instance.isInteracting)
-            return;
-
         Ray ray = cam.ScreenPointToRay(mousePosition.ReadValue<Vector2>());
         RaycastHit hit;
 

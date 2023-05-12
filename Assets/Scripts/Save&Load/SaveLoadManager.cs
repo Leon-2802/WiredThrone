@@ -28,7 +28,7 @@ public class SaveLoadManager : MonoBehaviour
         switch (num)
         {
             case 1:
-                StartCoroutine(DelayedSetQuest("New Quest", 5));
+                StartCoroutine(DelayedSetQuest(QuestManager.instance.quests[1], 0));
                 loadCheckpoint01.Invoke();
                 break;
         }

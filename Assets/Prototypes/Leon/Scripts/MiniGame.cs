@@ -27,7 +27,7 @@ public class MiniGame : MonoBehaviour
 
     private void OnStartGame(InputAction.CallbackContext context)
     {
-        if (!InteractableManager.Instance.isInteracting || !computer.interacting)
+        if (!InteractableManager.Instance.isInteractingWithCom)
             return;
 
         screenCam.SetActive(true);
@@ -37,7 +37,7 @@ public class MiniGame : MonoBehaviour
     }
     private void OnExitGame(InputAction.CallbackContext context)
     {
-        if (!InteractableManager.Instance.isInteracting || !computer.interacting)
+        if (!InteractableManager.Instance.isInteractingWithCom)
             return;
 
         screenCam.SetActive(false);

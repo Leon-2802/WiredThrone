@@ -13,6 +13,8 @@ public class Collectible : InteractableObject
 
         base.OnStartInteraction(sender, e);
 
+        SoundManager.instance.PlaySoundOneShot(ESounds.Collect);
+
         InteractableManager.Instance.EndInteraction();
         InteractableManager.Instance.LeaveInteractionZone();
         GeneralUIHandler.instance.InvokeCloseInspector();

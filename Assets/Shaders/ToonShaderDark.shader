@@ -57,11 +57,14 @@ Shader "Unlit/ToonShaderDark"
                 float cosineAngle = dot(normalize(i.worldNormal), normalize(_WorldSpaceLightPos0.xyz));
 
                 //set the min to zero as result can be negative in cases where the light is behind the shaded point
-                cosineAngle = max(cosineAngle, 0.0);
+                cosineAngle = max(0.0, cosineAngle);
                 //Quatize the diffuse component
-                cosineAngle = floor(cosineAngle * _Shades) / _Shades;
+                cosineAngle = floor(cosineAngle * _Shades) / _Shades ;
 
-                return _Albedo * cosineAngle;
+                float4 ambient = _Albedo * 0.03;
+                float4 color = ambient + _Albedo;
+
+                return _Albedo * cosineAngle + ambient;
             }
             ENDCG 
         }

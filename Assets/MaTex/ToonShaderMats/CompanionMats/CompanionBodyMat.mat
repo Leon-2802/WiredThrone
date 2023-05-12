@@ -97,7 +97,7 @@ Material:
     - _InkSize: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineSize: 2
+    - _OutlineSize: 4
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1

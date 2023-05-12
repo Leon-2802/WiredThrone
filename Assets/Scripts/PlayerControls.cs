@@ -293,7 +293,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""be4f3643-fd57-452e-8c95-b1efdb7d6c9c"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/#(E)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -326,7 +326,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""99e4f568-b8f6-48b1-9060-9f6aae7e58b1"",
-                    ""path"": ""<Keyboard>/y"",
+                    ""path"": ""<Keyboard>/#(Y)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -919,6 +919,34 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Computer"",
+            ""id"": ""e9451ca0-54ae-40ef-882b-2603949aa43b"",
+            ""actions"": [
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d6903b7-e30d-4790-9202-326cd9899349"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""5d5e725a-4d5d-439f-b8a1-358871c961dc"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1010,6 +1038,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_ToggleMenu = m_Menu.FindAction("ToggleMenu", throwIfNotFound: true);
+        // Computer
+        m_Computer = asset.FindActionMap("Computer", throwIfNotFound: true);
+        m_Computer_Exit = m_Computer.FindAction("Exit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1300,6 +1331,39 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
+
+    // Computer
+    private readonly InputActionMap m_Computer;
+    private IComputerActions m_ComputerActionsCallbackInterface;
+    private readonly InputAction m_Computer_Exit;
+    public struct ComputerActions
+    {
+        private @PlayerControls m_Wrapper;
+        public ComputerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Exit => m_Wrapper.m_Computer_Exit;
+        public InputActionMap Get() { return m_Wrapper.m_Computer; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ComputerActions set) { return set.Get(); }
+        public void SetCallbacks(IComputerActions instance)
+        {
+            if (m_Wrapper.m_ComputerActionsCallbackInterface != null)
+            {
+                @Exit.started -= m_Wrapper.m_ComputerActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_ComputerActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_ComputerActionsCallbackInterface.OnExit;
+            }
+            m_Wrapper.m_ComputerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
+            }
+        }
+    }
+    public ComputerActions @Computer => new ComputerActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1373,5 +1437,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     public interface IMenuActions
     {
         void OnToggleMenu(InputAction.CallbackContext context);
+    }
+    public interface IComputerActions
+    {
+        void OnExit(InputAction.CallbackContext context);
     }
 }
