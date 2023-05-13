@@ -14,6 +14,7 @@ public class InteractableManager : MonoBehaviour
     public event EventHandler endInteraction;
     public event EventHandler startCom;
     public event EventHandler endCom;
+    [SerializeField] private GameObject inGameUI;
 
     private void Awake()
     {
@@ -37,7 +38,6 @@ public class InteractableManager : MonoBehaviour
         if (!isOneShotInteraction)
         { //One Shot Interactions have no duration, so no need to set the bool 
             isInteracting = true;
-            GameManager.Instance.playerControls.Player.ClickMove.Disable();
         }
         startInteraction?.Invoke(this, EventArgs.Empty);
     }
@@ -46,7 +46,6 @@ public class InteractableManager : MonoBehaviour
         if (!isOneShotInteraction)
         {
             isInteracting = false;
-            GameManager.Instance.playerControls.Player.ClickMove.Enable();
         }
         endInteraction?.Invoke(this, EventArgs.Empty);
     }
@@ -58,10 +57,19 @@ public class InteractableManager : MonoBehaviour
 
     public void InvokeStartCom()
     {
-        startCom.Invoke(this, EventArgs.Empty);
+        if (isInteractingWithCom)
+        {
+            CameraController.instance.SetBlendTime(0); //set to 0, to prevent camera from exposing the position of WorlSpace Canvas
+            startCom.Invoke(this, EventArgs.Empty);
+            inGameUI.SetActive(false);
+        }
     }
     public void InvokeEndCom()
     {
-        endCom.Invoke(this, EventArgs.Empty);
+        if (isInteractingWithCom)
+        {
+            endCom.Invoke(this, EventArgs.Empty);
+            inGameUI.SetActive(true);
+        }
     }
 }

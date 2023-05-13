@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
         playerControls = new PlayerControls();
         playerControls.Computer.Disable(); //Computer Controls are only enabled when player starts using one
+        player.SetActive(true);
         CheckPlayerPrefs();
     }
 

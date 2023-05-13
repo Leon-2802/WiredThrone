@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum ESounds { SlidingDoor, Text, DoorError, Collect }
+public enum ESounds { SlidingDoor, Text, DoorError, Collect, RepairCompanion }
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource text;
     [SerializeField] private AudioSource doorError;
     [SerializeField] private AudioSource collect;
+    [SerializeField] private AudioSource repairCompanion;
 
     private void Awake()
     {
@@ -35,6 +36,10 @@ public class SoundManager : MonoBehaviour
 
             case ESounds.Collect:
                 collect.Play();
+                break;
+
+            case ESounds.RepairCompanion:
+                repairCompanion.Play();
                 break;
         }
     }

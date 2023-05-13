@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class InteractableObject : InspectableObject
 {
+    [SerializeField] protected bool onlyInspect;
     [SerializeField] protected bool isOneShotInteraction;
     [SerializeField] protected Sprite interactionIcon;
     [SerializeField] protected string interactionButton;
@@ -16,6 +17,11 @@ public class InteractableObject : InspectableObject
 
         CompanionEvents.instance.flyToObject += OnCompanionFlyToTarget;
         CompanionEvents.instance.flyBackToPlayer += OnCompanionFlyToPlayer;
+    }
+
+    public void SetOnlyInspect(bool onlyInspect)
+    {
+        this.onlyInspect = onlyInspect;
     }
 
     protected virtual void OnCompanionFlyToTarget(object sender, CompanionEvents.FlyToObjectEventArgs e)
@@ -33,7 +39,7 @@ public class InteractableObject : InspectableObject
     {
         base.OnTriggerEnter(other);
 
-        if (!this.isActiveAndEnabled)
+        if (!this.isActiveAndEnabled || onlyInspect)
             return;
 
         if (other.gameObject.GetComponent<Player>())
@@ -47,7 +53,7 @@ public class InteractableObject : InspectableObject
     {
         base.OnTriggerExit(other);
 
-        if (!this.isActiveAndEnabled)
+        if (!this.isActiveAndEnabled || onlyInspect)
             return;
 
         if (other.gameObject.GetComponent<Player>())

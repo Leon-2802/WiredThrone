@@ -27,6 +27,7 @@ public class Decoration : InteractableObject
 
     protected override void OnStartInteraction(object sender, EventArgs e)
     {
+        GameManager.Instance.playerControls.Player.ClickMove.Disable(); //Keep Player locked during interaction
         base.OnStartInteraction(sender, e);
 
         GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionIcon, interactionButton, interactionEndInfo);
@@ -34,8 +35,8 @@ public class Decoration : InteractableObject
     }
     protected virtual void OnEndInteraction(object sender, EventArgs e)
     {
+        GameManager.Instance.playerControls.Player.ClickMove.Enable();
         GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionIcon, interactionButton, interactionText);
-
 
         clickMovement.SetStoppingDistance(0); //Reset Values to let Player be moved by clicking again
         clickMovement.forcedDest = false; //Reset Values to let Player be moved by clicking again

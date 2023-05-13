@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Computer : Decoration
 {
+    protected bool unavailable = false;
+
     [SerializeField] protected GameObject interactionInfo;
     [SerializeField] protected GameObject computerCam;
 
@@ -11,10 +13,8 @@ public class Computer : Decoration
         base.OnTriggerEnter(other);
         if (other.gameObject.GetComponent<Player>())
         {
-            InteractableManager.Instance.isInteractingWithCom = true;
-            interactionInfo.SetActive(true);
-            InteractableManager.Instance.startCom += StartCom;
-            InteractableManager.Instance.endCom += ExitCom;
+            if (!unavailable && this.enabled)
+                interactionInfo.SetActive(true);
         }
     }
     protected override void OnTriggerExit(Collider other)
@@ -22,11 +22,27 @@ public class Computer : Decoration
         base.OnTriggerExit(other);
         if (other.gameObject.GetComponent<Player>())
         {
-            InteractableManager.Instance.isInteractingWithCom = false;
-            interactionInfo.SetActive(false);
-            InteractableManager.Instance.startCom -= StartCom;
-            InteractableManager.Instance.endCom -= ExitCom;
+            if (!unavailable && this.enabled)
+                interactionInfo.SetActive(false);
         }
+    }
+
+    protected override void OnStartInteraction(object sender, EventArgs e)
+    {
+        base.OnStartInteraction(sender, e);
+        GameManager.Instance.playerControls.Computer.Disable(); // make sure controls are disabled, as long as com is not used yet
+        InteractableManager.Instance.isInteractingWithCom = true;
+        InteractableManager.Instance.startCom += StartCom;
+        InteractableManager.Instance.endCom += ExitCom;
+    }
+
+    protected override void OnEndInteraction(object sender, EventArgs e)
+    {
+        base.OnEndInteraction(sender, e);
+        InteractableManager.Instance.isInteractingWithCom = false;
+        InteractableManager.Instance.startCom -= StartCom;
+        InteractableManager.Instance.endCom -= ExitCom;
+        CameraController.instance.ResetBlendTime(); //Safety measure, in case Computer was not exited properly
     }
 
     protected virtual void StartCom(object sender, EventArgs e)

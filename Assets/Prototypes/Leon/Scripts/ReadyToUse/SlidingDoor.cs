@@ -16,6 +16,17 @@ public class SlidingDoor : MonoBehaviour
         standardMaterial = meshRenderer.materials[0];
     }
 
+    public void Unlock()
+    {
+        locked = false;
+        Open();
+    }
+
+    public void SetLocked(bool locked)
+    {
+        this.locked = locked;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -29,14 +40,18 @@ public class SlidingDoor : MonoBehaviour
                 return;
             }
 
+            Open();
+        }
+    }
 
-            timesOpened++;
+    private void Open()
+    {
+        timesOpened++;
 
-            if (timesOpened == 1)
-            {
-                anim.SetBool("open", true);
-                SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
-            }
+        if (timesOpened == 1)
+        {
+            anim.SetBool("open", true);
+            SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
         }
     }
 
@@ -44,14 +59,20 @@ public class SlidingDoor : MonoBehaviour
     {
         if (other.gameObject.GetComponent<MovingCharacter>() && !locked)
         {
-            timesOpened--;
-
-            if (timesOpened == 0)
-            {
-                anim.SetBool("open", false);
-                SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
-            }
+            Close();
         }
+    }
+
+    private void Close()
+    {
+        timesOpened--;
+
+        if (timesOpened == 0)
+        {
+            anim.SetBool("open", false);
+            SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
+        }
+
     }
 
     private IEnumerator ShowStandardMat()

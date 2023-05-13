@@ -735,7 +735,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5356491899154670813}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 030c17706a06eb544a87fb50c98fa5ec, type: 3}
   m_Name: 
@@ -752,12 +752,14 @@ MonoBehaviour:
   - {fileID: 8539249641653697250}
   objectImage: {fileID: 21300000, guid: 407495bcdd3d5374d83282a72c78a9b8, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
+  onlyInspect: 1
   isOneShotInteraction: 1
   interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
   interactionButton: E
   interactionText: to pick up
   companionStopPos: {fileID: 2016884243460600196}
   destroyOnCollect: 1
+  collectSound: 3
 --- !u!1 &7015511373969666462
 GameObject:
   m_ObjectHideFlags: 0

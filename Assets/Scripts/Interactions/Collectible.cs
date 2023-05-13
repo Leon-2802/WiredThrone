@@ -4,6 +4,7 @@ using UnityEngine;
 public class Collectible : InteractableObject
 {
     [SerializeField] private bool destroyOnCollect = true;
+    [SerializeField] private ESounds collectSound;
 
     protected override void OnStartInteraction(object sender, EventArgs e)
     {
@@ -13,7 +14,7 @@ public class Collectible : InteractableObject
 
         base.OnStartInteraction(sender, e);
 
-        SoundManager.instance.PlaySoundOneShot(ESounds.Collect);
+        SoundManager.instance.PlaySoundOneShot(collectSound);
 
         InteractableManager.Instance.EndInteraction();
         InteractableManager.Instance.LeaveInteractionZone();
