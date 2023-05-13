@@ -4818,6 +4818,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScrapPart
       objectReference: {fileID: 0}
+    - target: {fileID: 5819752291518476543, guid: 685a5f154c9529943af7f9e0ee3f23c2,
+        type: 3}
+      propertyPath: outlineScaleFactor
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 685a5f154c9529943af7f9e0ee3f23c2, type: 3}
 --- !u!114 &439517917358061941 stripped

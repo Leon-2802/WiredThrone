@@ -5,6 +5,7 @@ public class InspectableObject : MonoBehaviour
     [SerializeField] protected Renderer[] rendererRefs;
     [SerializeField] protected Sprite objectImage;
     [SerializeField] protected string objectInfo;
+    [SerializeField] protected float outlineScaleFactor = 1.4f;
     protected Color previousOutlineColor;
     protected float[] previousOutlineSizes;
 
@@ -27,7 +28,7 @@ public class InspectableObject : MonoBehaviour
             {
                 previousOutlineSizes[i] = rendererRefs[i].materials[0].GetFloat("_OutlineSize");
                 rendererRefs[i].materials[0].SetColor("_OutlineColor", Color.white);
-                rendererRefs[i].materials[0].SetFloat("_OutlineSize", previousOutlineSizes[i] * 1.4f);
+                rendererRefs[i].materials[0].SetFloat("_OutlineSize", previousOutlineSizes[i] * outlineScaleFactor);
             }
         }
     }

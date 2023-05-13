@@ -752,6 +752,7 @@ MonoBehaviour:
   - {fileID: 8539249641653697250}
   objectImage: {fileID: 21300000, guid: 407495bcdd3d5374d83282a72c78a9b8, type: 3}
   objectInfo: This scrap part could be used for building or repairing something.
+  outlineScaleFactor: 5
   onlyInspect: 1
   isOneShotInteraction: 1
   interactionIcon: {fileID: 21300000, guid: a9ec49ed9566fc543a1bb8849102df7f, type: 3}
