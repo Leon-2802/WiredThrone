@@ -21,8 +21,6 @@ public class GeneralUIHandler : MonoBehaviour
     }
     [SerializeField] private GameObject taskField;
     [SerializeField] private TMP_Text taskTextField;
-    [SerializeField] private GameObject hideQuestText;
-    [SerializeField] private GameObject showQuestText;
     private string taskText;
     private int taskIterations;
     private bool questViewActive;
@@ -58,17 +56,6 @@ public class GeneralUIHandler : MonoBehaviour
     public void ToggleQuestView()
     {
         questViewActive = !questViewActive;
-        if (questViewActive)
-        {
-            showQuestText.SetActive(false);
-            hideQuestText.SetActive(true);
-        }
-        else
-        {
-            showQuestText.SetActive(true);
-            hideQuestText.SetActive(false);
-        }
-
         taskField.SetActive(questViewActive);
     }
 

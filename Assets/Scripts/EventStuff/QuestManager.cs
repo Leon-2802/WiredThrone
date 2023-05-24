@@ -10,6 +10,8 @@ public class QuestManager : MonoBehaviour
     public UnityEvent companionFound;
     public UnityEvent scrapCollected;
     public UnityEvent repairedCompanion;
+    public UnityEvent reachedWorkerBots;
+    public UnityEvent debuggedWorkerBots;
     public event EventHandler<SetQuestText> setQuest;
     public class SetQuestText : EventArgs
     {
@@ -62,6 +64,24 @@ public class QuestManager : MonoBehaviour
     {
         finishedQuests++;
         repairedCompanion.Invoke();
+    }
+
+    public void ReachedWorkerBots()
+    {
+        reachedWorkerBots.Invoke();
+        InvokeSetQuest("Debug the two worker robots", 2);
+    }
+    public void DebuggedOneWokerBot(int counter)
+    {
+        taskStepDone.Invoke(this, new TaskSteps
+        {
+            _stepCount = counter
+        });
+    }
+
+    public void DebuggedWorkerBots()
+    {
+        debuggedWorkerBots.Invoke();
     }
 
     public void InvokeSetQuest(string text, int taskIterations)

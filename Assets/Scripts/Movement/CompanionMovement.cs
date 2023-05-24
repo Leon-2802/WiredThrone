@@ -16,7 +16,7 @@ public class CompanionMovement : MonoBehaviour
     private float currentDistanceToParent;
     private bool disableFollowPlayer; //true if companion is moving towards an object, ie. to give the player a hint
     private bool checkDistanceToPlayer; //set to true if an optional target was approached
-    private bool onTarget; //block companion from rotating around own axis, when on target
+    private bool rotationLocked; //block companion from rotating around own axis
 
     void Start()
     {
@@ -28,13 +28,16 @@ public class CompanionMovement : MonoBehaviour
         initialStoppingDist = agent.stoppingDistance;
         disableFollowPlayer = false;
         checkDistanceToPlayer = false;
-        onTarget = false;
+        rotationLocked = false;
     }
 
 
     void Update()
     {
-        transform.Rotate(Vector3.up, rotateAroundOwnAxisSpeed * Time.deltaTime, Space.Self); //rotate around y axis
+        if (!rotationLocked)
+        {
+            transform.Rotate(Vector3.up, rotateAroundOwnAxisSpeed * Time.deltaTime, Space.Self); //rotate around y axis
+        }
 
         if (GameManager.Instance.playerIsRunning && !disableFollowPlayer || !movedBackToPlayer && !disableFollowPlayer) //means, that if player is running and is not close to player, if statement is excuted
         {
@@ -51,6 +54,17 @@ public class CompanionMovement : MonoBehaviour
         }
     }
 
+    public void LockRotationTo(Transform target)
+    {
+        rotationLocked = true;
+        this.transform.eulerAngles = target.eulerAngles;
+    }
+
+    public void UnlockRotation()
+    {
+        rotationLocked = false;
+    }
+
 
     void MoveTowardsTarget(Vector3 target, float stopDistance, bool eventTargeted)
     {
@@ -64,8 +78,6 @@ public class CompanionMovement : MonoBehaviour
         {
             if (eventTargeted) //meaning if player was followed
             {
-                // onTarget = true;
-                // this.transform.eulerAngles = eventTarget.eulerAngles;
             }
             else
             {
@@ -91,7 +103,6 @@ public class CompanionMovement : MonoBehaviour
     void FlyToEventObj(object sender, CompanionEvents.FlyToObjectEventArgs e)
     {
         eventTarget = e._target;
-        onTarget = false;
         disableFollowPlayer = true; //don't follow the player for time being
 
         //check if optional object 
@@ -105,7 +116,6 @@ public class CompanionMovement : MonoBehaviour
     //resets all arguments to default values -> follow player
     void FlyBackToPlayer(object sender, EventArgs e)
     {
-        onTarget = false;
         movedBackToPlayer = false;
         disableFollowPlayer = false;
         checkDistanceToPlayer = false;
