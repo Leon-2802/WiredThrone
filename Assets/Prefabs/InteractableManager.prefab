@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionAvailable: 0
+  isOneShotInteraction: 0
   isInteracting: 0
+  isInteractingWithCom: 0
+  inGameUI: {fileID: 0}

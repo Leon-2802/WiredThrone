@@ -1,12 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;
 
 public class SaveLoadManager : MonoBehaviour
 {
     [SerializeField] private UnityEvent loadCheckpoint01;
-    public GameObject player;
-    public GameObject companion;
+    [SerializeField] private UnityEvent loadCheckpoint02;
+    [SerializeField] private GameObject player;
+    [SerializeField] private NavMeshAgent playerAgent;
+    [SerializeField] private GameObject companion;
     [SerializeField] private GameObject loadSymbol;
     private void Start()
     {
@@ -31,6 +34,10 @@ public class SaveLoadManager : MonoBehaviour
                 StartCoroutine(DelayedSetQuest(QuestManager.instance.quests[1], 0));
                 loadCheckpoint01.Invoke();
                 break;
+            case 2:
+                StartCoroutine(DelayedSetQuest(QuestManager.instance.quests[1], 0));
+                loadCheckpoint02.Invoke();
+                break;
         }
         LoadPlayerPos();
         LoadCompanionPos();
@@ -47,12 +54,15 @@ public class SaveLoadManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("PlayerPosX"))
             return;
 
+        playerAgent.enabled = false;
+
         Vector3 pos = new Vector3(
             PlayerPrefs.GetFloat("PlayerPosX"),
             PlayerPrefs.GetFloat("PlayerPosY"),
             PlayerPrefs.GetFloat("PlayerPosZ")
         );
         player.transform.position = pos;
+        playerAgent.enabled = true;
     }
 
     private void SaveCompanionPos()

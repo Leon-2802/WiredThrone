@@ -16,6 +16,7 @@ public class CompanionMovement : MonoBehaviour
     private float currentDistanceToParent;
     private bool disableFollowPlayer; //true if companion is moving towards an object, ie. to give the player a hint
     private bool checkDistanceToPlayer; //set to true if an optional target was approached
+    private bool onTarget; //block companion from rotating around own axis, when on target
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class CompanionMovement : MonoBehaviour
         initialStoppingDist = agent.stoppingDistance;
         disableFollowPlayer = false;
         checkDistanceToPlayer = false;
+        onTarget = false;
     }
 
 
@@ -60,7 +62,12 @@ public class CompanionMovement : MonoBehaviour
 
         if (agent.remainingDistance <= agent.stoppingDistance) // => target is reached
         {
-            if (!eventTargeted) //meaning if player was followed
+            if (eventTargeted) //meaning if player was followed
+            {
+                // onTarget = true;
+                // this.transform.eulerAngles = eventTarget.eulerAngles;
+            }
+            else
             {
                 movedBackToPlayer = true;
             }
@@ -84,6 +91,7 @@ public class CompanionMovement : MonoBehaviour
     void FlyToEventObj(object sender, CompanionEvents.FlyToObjectEventArgs e)
     {
         eventTarget = e._target;
+        onTarget = false;
         disableFollowPlayer = true; //don't follow the player for time being
 
         //check if optional object 
@@ -97,6 +105,7 @@ public class CompanionMovement : MonoBehaviour
     //resets all arguments to default values -> follow player
     void FlyBackToPlayer(object sender, EventArgs e)
     {
+        onTarget = false;
         movedBackToPlayer = false;
         disableFollowPlayer = false;
         checkDistanceToPlayer = false;

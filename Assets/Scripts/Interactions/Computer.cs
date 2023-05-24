@@ -13,7 +13,7 @@ public class Computer : Decoration
         base.OnTriggerEnter(other);
         if (other.gameObject.GetComponent<Player>())
         {
-            if (!unavailable && this.enabled)
+            if (!unavailable && this.enabled && !onlyInspect)
                 interactionInfo.SetActive(true);
         }
     }
@@ -22,7 +22,7 @@ public class Computer : Decoration
         base.OnTriggerExit(other);
         if (other.gameObject.GetComponent<Player>())
         {
-            if (!unavailable && this.enabled)
+            if (!unavailable && this.enabled && !onlyInspect)
                 interactionInfo.SetActive(false);
         }
     }

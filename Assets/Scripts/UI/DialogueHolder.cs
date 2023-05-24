@@ -16,8 +16,11 @@ public class DialogueHolder : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             Deactivate();
-            transform.GetChild(i).gameObject.SetActive(true);
-            yield return new WaitUntil(() => transform.GetChild(i).GetComponent<DialogueLine>().finished);
+            if (!transform.GetChild(i).gameObject.GetComponent<DialogueLine>().debugSkip)
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+                yield return new WaitUntil(() => transform.GetChild(i).GetComponent<DialogueLine>().finished);
+            }
         }
         dialogEnded.Invoke();
         this.gameObject.SetActive(false);

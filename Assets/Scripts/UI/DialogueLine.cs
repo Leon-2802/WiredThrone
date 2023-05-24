@@ -3,6 +3,7 @@ using TMPro;
 
 public class DialogueLine : DialogueBaseClass
 {
+    public bool debugSkip = false;
     [SerializeField] private TMP_Text textHolder;
 
     [Header("Text Options")]

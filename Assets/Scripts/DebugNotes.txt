@@ -1,0 +1,3 @@
+- DialogueHolder + DialogueLine haben debugSkip, um während Tests Dialog zu beschleunigen
+
+- Debug Load, um direkt zu Checkpoint zu kommen

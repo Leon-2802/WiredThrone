@@ -10,6 +10,7 @@ public class CompanionEvents : MonoBehaviour
         public Transform _target;
     }
     public event EventHandler flyBackToPlayer;
+    public bool flyEventCalled;
     [SerializeField] private Transform eventTriggerParent;
 
 
@@ -19,28 +20,18 @@ public class CompanionEvents : MonoBehaviour
             Destroy(this.gameObject);
         else
             instance = this;
+
+        flyEventCalled = false;
     }
 
     public void CallFlyToObjectEvent(Transform target)
     {
         flyToObject?.Invoke(this, new FlyToObjectEventArgs { _target = target });
-
-        //all triggers need to be disabled in order to prevent multiple active events
-        for (int i = 0; i < eventTriggerParent.childCount; i++)
-        {
-            GameObject Go = eventTriggerParent.GetChild(i).gameObject;
-            Go.SetActive(false);
-        }
+        flyEventCalled = true;
     }
     public void CallFlyBackToPlayer()
     {
         flyBackToPlayer?.Invoke(this, EventArgs.Empty);
-
-        //enable all triggers, that are still to be used later in game
-        for (int i = 0; i < eventTriggerParent.childCount; i++)
-        {
-            GameObject Go = eventTriggerParent.GetChild(i).gameObject;
-            Go.SetActive(true);
-        }
+        flyEventCalled = false;
     }
 }
