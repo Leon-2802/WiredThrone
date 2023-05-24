@@ -1,8 +1,9 @@
+using UnityEngine;
 public abstract class WeaponModule
 {
-    private string _name;
-    private int _size;
-    private bool[,] _shape;
+    protected string _name;
+    protected int _size;
+    protected bool[,] _shape;
 
     public string Name
     {
@@ -17,15 +18,46 @@ public abstract class WeaponModule
     {
         get { return _shape; }
     }
+
+    public static WeaponModule GetFromID(int id)
+    {
+        switch (id)
+        {
+            case 1:
+                return new FistModule();
+            case 2:
+                return new BladeModule();
+            default:
+                return null;
+        }
+    }
 }
 
 public class FistModule : WeaponModule
 {
-    private string _name = "Fist Module";
-    private int _size = 3;
-    private bool[,] _shape = new bool[,] {
-        {false, true, false},
-        {true, false, true},
-        {false, true, false}
-    };
+    public FistModule()
+    {
+        _name = "FistModule";
+        _size = 3;
+        _shape = new bool[,] {
+            {false, true, false},
+            {true, false, true},
+            {false, true, false}
+        };
+    }
 }
+
+public class BladeModule : WeaponModule
+{
+    public BladeModule()
+    {
+        _name = "BladeModule";
+        _size = 3;
+        _shape = new bool[,] {
+            {true, true, true},
+            {true, false, true},
+            {false, false, false}
+        };
+    }
+}
+

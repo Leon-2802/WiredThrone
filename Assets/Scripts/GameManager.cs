@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public enum ECharacterTypes { Character, MovingCharacter, NPC, Player, Robot };
 public class GameManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class GameManager : MonoBehaviour
     public PlayerControls playerControls;
     public bool playerIsRunning = false;
     public bool menuAccessible = false;
+    [SerializeField] private List<Robot> robots = new List<Robot>();
     [SerializeField] private GameObject player;
     [SerializeField] private SaveLoadManager saveLoadManager;
     [SerializeField] private int debugCheckpoint;
