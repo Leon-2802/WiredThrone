@@ -71,6 +71,8 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (_connectionOut != null)
         {
+            GameObject canvas = GameObject.FindGameObjectWithTag("MainCanvas");
+
             Vector3 outBlockPivot = _connectionOut.GetComponentInChildren<Wire>().BlockWirePivot.position;
             var wireDraggableRt = GetComponent<RectTransform>();
 
@@ -78,8 +80,13 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
 
             var wireEndRt = wireEnd.GetComponent<RectTransform>();
             startPoint = wireEndRt.position;
-            _dist = Vector2.Distance(wireDraggableRt.position, startPoint);
-            wireEnd.transform.localScale = new Vector2(wireEnd.localScale.x, _dist / 30);
+
+            // Convert positions to canvas-relative coordinates
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), outBlockPivot, Camera.main, out Vector2 canvasOutBlockPivot);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), startPoint, Camera.main, out Vector2 canvasStartPoint);
+
+            _dist = Vector2.Distance(canvasOutBlockPivot, canvasStartPoint);
+            wireEnd.transform.localScale = new Vector2(wireEnd.localScale.x, _dist / 35);
 
             float angle = AngleBetweenTwoPoints(transform.position, startPoint);
             transform.rotation = Quaternion.Euler(0, 0, angle - 90);
@@ -108,12 +115,15 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
 
         var wireEndRt = wireEnd.GetComponent<RectTransform>();
 
-        startPoint = wireEndRt.position;
-        _dist = Vector2.Distance(mousePos, startPoint);
+        // Convert positions to canvas-relative coordinates
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), mousePos, Camera.main, out Vector2 canvasMousePos);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), wireEndRt.position, Camera.main, out Vector2 canvasStartPoint);
 
-        wireEndRt.localScale = new Vector2(wireEnd.localScale.x, _dist / 30);
+        float dist = Vector2.Distance(canvasMousePos, canvasStartPoint);
 
-        float angle = AngleBetweenTwoPoints(mousePos, startPoint);
+        wireEndRt.localScale = new Vector2(wireEnd.localScale.x, dist / 35);
+
+        float angle = AngleBetweenTwoPoints(canvasMousePos, canvasStartPoint);
         wireDraggableRt.rotation = Quaternion.Euler(0, 0, angle - 90);
         wireEndRt.rotation = Quaternion.Euler(0, 0, angle - 90);
         // startPoint = transform.parent.position;  // Wire Source

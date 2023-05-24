@@ -21,7 +21,7 @@ public class RobotLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Evaluate();
+        //Evaluate();
     }
 
     private void Evaluate()
