@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateRobot : MonoBehaviour
 {
@@ -7,42 +10,35 @@ public class CreateRobot : MonoBehaviour
     [SerializeField] private ModuleSelect _movementModule;
     [SerializeField] private ModuleSelect _shell1Module;
     [SerializeField] private ModuleSelect _shell2Module;
+    [SerializeField] private GameManager _gameManager;
 
-    private void Start()
-    {
-
+    private void Start() {
+        
     }
 
-    public void GenerateRobot()
-    {
+    public void GenerateRobot() {
         Robot robot = NewRobot();
-        if (robot != null) RobotManager.instance.AddRobot(robot);
+        if (robot != null && _gameManager != null) _gameManager.AddRobot(robot);
     }
 
-    public Robot NewRobot()
-    {
-        if (_leftAttackModule.ModuleID == -1)
-        {
+    public Robot NewRobot() {
+        if (_leftAttackModule.ModuleID == -1) {
             Debug.Log("Left attack module not picked");
             return null;
         }
-        if (_rightAttackModule.ModuleID == -1)
-        {
+        if (_rightAttackModule.ModuleID == -1) {
             Debug.Log("Right attack module not picked");
             return null;
         }
-        if (_movementModule.ModuleID == -1)
-        {
+        if (_movementModule.ModuleID == -1) {
             Debug.Log("Movement module not picked");
             return null;
         }
-        if (_shell1Module.ModuleID == -1)
-        {
+        if (_shell1Module.ModuleID == -1) {
             Debug.Log("Left shell module not picked");
             return null;
         }
-        if (_shell2Module.ModuleID == -1)
-        {
+        if (_shell2Module.ModuleID == -1) {
             Debug.Log("Right shell module not picked");
             return null;
         }
