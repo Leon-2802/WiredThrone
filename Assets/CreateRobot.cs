@@ -17,8 +17,8 @@ public class CreateRobot : MonoBehaviour
     }
 
     public void GenerateRobot() {
-        Robot robot = NewRobot();
-        if (robot != null && _gameManager != null) _gameManager.AddRobot(robot);
+        //Robot robot = NewRobot();
+        //if (robot != null && _gameManager != null) _gameManager.AddRobot(robot);
     }
 
     public Robot NewRobot() {
