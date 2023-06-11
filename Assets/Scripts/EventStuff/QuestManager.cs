@@ -82,6 +82,7 @@ public class QuestManager : MonoBehaviour
     public void DebuggedWorkerBots()
     {
         debuggedWorkerBots.Invoke();
+        InvokeSetQuest("New Task", 0);
     }
 
     public void InvokeSetQuest(string text, int taskIterations)

@@ -1,12 +1,17 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    public int _id = -1;
+    [SerializeField] private Camera _camera;
     [SerializeField] private Transform _blockWirePivot;
     [SerializeField] private GameObject _connectionOut;
     [SerializeField] private GameObject _connectionIn;
+    [SerializeField] private UnityEvent _onConnected;
+
     private float _dist;
     private Vector3 startPoint;
 
@@ -32,6 +37,10 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
     // Start is called before the first frame update
     void Start()
     {
+        if (_camera == null)
+        {
+            _camera = Camera.main;
+        }
         _dist = 0f;
     }
 
@@ -80,8 +89,8 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
             startPoint = wireEndRt.position;
 
             // Convert positions to canvas-relative coordinates
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), outBlockPivot, Camera.main, out Vector2 canvasOutBlockPivot);
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), startPoint, Camera.main, out Vector2 canvasStartPoint);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), outBlockPivot, _camera, out Vector2 canvasOutBlockPivot);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), startPoint, _camera, out Vector2 canvasStartPoint);
 
             _dist = Vector2.Distance(canvasOutBlockPivot, canvasStartPoint);
             wireEnd.transform.localScale = new Vector2(wireEnd.localScale.x, _dist / 35);
@@ -105,7 +114,7 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
         GameObject canvas = GameObject.FindGameObjectWithTag("MainCanvas");
 
         // Store mouse position and calculate distance to source of the wire.
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3 mousePos = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mousePos.z = 0;
 
         var wireDraggableRt = GetComponent<RectTransform>();
@@ -114,8 +123,8 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
         var wireEndRt = wireEnd.GetComponent<RectTransform>();
 
         // Convert positions to canvas-relative coordinates
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), mousePos, Camera.main, out Vector2 canvasMousePos);
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), wireEndRt.position, Camera.main, out Vector2 canvasStartPoint);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), mousePos, _camera, out Vector2 canvasMousePos);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), wireEndRt.position, _camera, out Vector2 canvasStartPoint);
 
         float dist = Vector2.Distance(canvasMousePos, canvasStartPoint);
 
@@ -163,6 +172,13 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
             Debug.Log("No connection");
             //ResetWireOut();
             _connectionOut = null;
+
+            //Audio Feedback when no connection found
+            if (SoundManager.instance)
+            {
+                SoundManager.instance.PlaySoundOneShot(ESounds.DoorError);
+            }
+
             return;
         }
 
@@ -187,6 +203,20 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
                     Debug.Log("resetting as same block conntection");
                     return;
                 }
+
+                // If in Debug-Scene, send the ids of the connected blocks to the manager
+                if (DebugManager.instance)
+                {
+                    bool succes = DebugManager.instance.ConnectedBlocks(this._id, otherBlock._id);
+
+                    // don't let blocks connect, that are not fitting
+                    if (!succes)
+                    {
+                        ResetWireOut();
+                        return;
+                    }
+                }
+
                 UpdateWireVisuals();
                 // Rotate wire.
                 // startPoint = new Vector3(transform.parent.position.x, transform.parent.position.y, 0);

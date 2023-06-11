@@ -4,13 +4,11 @@ using UnityEngine.Events;
 public class DebugRobotCode : Computer
 {
     public UnityEvent onDebugDone;
-    [SerializeField] private int index;
     [SerializeField] private GameObject shoulderCam;
     private bool onStayPassed = false;
 
     public void DebuggedSuccessfully()
     {
-        QuestManager.instance.DebuggedOneWokerBot(index);
         onDebugDone.Invoke();
         Finished();
     }
