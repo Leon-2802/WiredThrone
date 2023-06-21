@@ -10,7 +10,7 @@ public class MainMenuClickEvents : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Checkpoint"))
         {
-            playOptions.SetActive(true);
+            playOptions.SetActive(!playOptions.activeInHierarchy);
         }
         else
         {

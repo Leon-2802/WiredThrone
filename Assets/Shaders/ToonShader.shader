@@ -64,7 +64,7 @@ Shader "Unlit/ToonShader"
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
-                col *= Toon(i.worldNormal, _WorldSpaceLightPos0.xyz) * _Strength + _Color + _Brightness;
+                col *= Toon(i.worldNormal, _WorldSpaceLightPos0.xyz) * _Strength + _Color  + _Brightness;
                 return col;
             }
             ENDCG 
@@ -146,5 +146,7 @@ Shader "Unlit/ToonShader"
             }
             ENDCG
         }
+
+        //Pass for recieving shadows
     }
 }
