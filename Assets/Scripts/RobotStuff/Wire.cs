@@ -93,10 +93,10 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), startPoint, _camera, out Vector2 canvasStartPoint);
 
             _dist = Vector2.Distance(canvasOutBlockPivot, canvasStartPoint);
-            wireEnd.transform.localScale = new Vector2(wireEnd.localScale.x, _dist / 35);
+            wireEnd.transform.localScale = new Vector2(wireEnd.localScale.x, _dist / 1.3f / wireEndRt.rect.height);
 
             float angle = AngleBetweenTwoPoints(transform.position, startPoint);
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             wireEnd.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
         }
     }
@@ -128,10 +128,10 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
 
         float dist = Vector2.Distance(canvasMousePos, canvasStartPoint);
 
-        wireEndRt.localScale = new Vector2(wireEnd.localScale.x, dist / 35);
+        wireEndRt.localScale = new Vector2(wireEnd.localScale.x, dist / 1.3f / wireEndRt.rect.height);
 
         float angle = AngleBetweenTwoPoints(canvasMousePos, canvasStartPoint);
-        wireDraggableRt.rotation = Quaternion.Euler(0, 0, angle - 90);
+        wireDraggableRt.rotation = Quaternion.Euler(0, 0, 180 + angle - 90);
         wireEndRt.rotation = Quaternion.Euler(0, 0, angle - 90);
         // startPoint = transform.parent.position;  // Wire Source
         // _dist = Vector2.Distance(mousePos, startPoint);
@@ -164,12 +164,10 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
 
     void IEndDragHandler.OnEndDrag(PointerEventData data)
     {
-        Debug.Log("Drag end");
         Collider[] colliders = Physics.OverlapBox(transform.position, new Vector3(1, 1, 100000));
 
         if (colliders.Length == 0)
         {
-            Debug.Log("No connection");
             //ResetWireOut();
             _connectionOut = null;
 
@@ -184,7 +182,6 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
 
         foreach (Collider collider in colliders)
         {
-            Debug.Log(collider.gameObject.name);
             if (collider.CompareTag("Block"))
             {
                 Wire otherBlock = collider.gameObject.GetComponentInChildren<Wire>();
@@ -200,7 +197,6 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
                 if (otherBlock._connectionIn == transform.IsChildOf(collider.gameObject.transform))
                 {
                     ResetWireIn();
-                    Debug.Log("resetting as same block conntection");
                     return;
                 }
 
