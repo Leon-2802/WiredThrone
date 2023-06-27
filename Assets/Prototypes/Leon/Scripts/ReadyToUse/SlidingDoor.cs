@@ -50,7 +50,7 @@ public class SlidingDoor : MonoBehaviour
 
         if (timesOpened == 1)
         {
-            anim.SetBool("open", true);
+            anim.SetTrigger("open");
             SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
         }
     }
@@ -69,7 +69,7 @@ public class SlidingDoor : MonoBehaviour
 
         if (timesOpened == 0)
         {
-            anim.SetBool("open", false);
+            anim.SetTrigger("close");
             SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
         }
 

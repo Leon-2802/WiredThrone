@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionAvailable: {fileID: 2100000, guid: 10f706f9f4b8e4142afcb2c7c288e00d,
     type: 2}
-  lockedDoor: {fileID: 2100000, guid: fe31e3189a58ced43a9e9043d6901dad, type: 2}
+  lockedDoor: {fileID: 2100000, guid: c26a8c6bc54dbe0448006d56c6605d69, type: 2}
