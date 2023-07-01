@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.02971158, g: 0.017666405, b: 0.019892825, a: 1}
+  m_IndirectSpecularColor: {r: 0.029577656, g: 0.017715747, b: 0.01976219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -527,7 +527,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: What a mess we have around here...
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &20122173
@@ -1792,7 +1791,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: Let's see what is left on that ship
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &49118935
@@ -4113,7 +4111,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: Where... where am I?
-  textColor: {r: 1, g: 0.41037738, b: 0.41037738, a: 1}
   delay: 0.1
   delayBetweenLines: 1.5
 --- !u!1001 &131180172
@@ -4833,7 +4830,7 @@ PrefabInstance:
     - target: {fileID: 102278878896298810, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.62
+      value: -8.73
       objectReference: {fileID: 0}
     - target: {fileID: 102278878896298810, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -4843,32 +4840,32 @@ PrefabInstance:
     - target: {fileID: 102278878896298810, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.44
+      value: 28.22
       objectReference: {fileID: 0}
     - target: {fileID: 102278878896298810, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.2105826
+      value: -0.051120643
       objectReference: {fileID: 0}
     - target: {fileID: 102278878896298810, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -1.1380483e-10
+      value: -1.16263096e-10
       objectReference: {fileID: 0}
     - target: {fileID: 102278878896298810, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.97757614
+      value: -0.9986925
       objectReference: {fileID: 0}
     - target: {fileID: 102278878896298810, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 2.4515038e-11
+      value: 5.951225e-12
       objectReference: {fileID: 0}
     - target: {fileID: 102278878896298810, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -204.313
+      value: -185.861
       objectReference: {fileID: 0}
     - target: {fileID: 428171765573438128, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -6243,7 +6240,7 @@ PrefabInstance:
     - target: {fileID: 7655648265974404410, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.135
+      value: -8.96
       objectReference: {fileID: 0}
     - target: {fileID: 7655648265974404410, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -6253,7 +6250,32 @@ PrefabInstance:
     - target: {fileID: 7655648265974404410, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27.427
+      value: 24.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655648265974404410, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.6532291
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655648265974404410, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 8.326673e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655648265974404410, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.75716037
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655648265974404410, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655648265974404410, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 458.42902
       objectReference: {fileID: 0}
     - target: {fileID: 8241005287340228065, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -6683,7 +6705,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: Follow me
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &158632064
@@ -7213,7 +7234,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: We should repair those robots, they are the best for repairing the ship.
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &173291090
@@ -7268,7 +7288,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: What happened... ?
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &175804358
@@ -13267,7 +13286,6 @@ MonoBehaviour:
   textHolder: {fileID: 1550259691}
   input: You seem like a capable technician, with my help you might be able to get
     that place up and running again!
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &212677670
@@ -14019,7 +14037,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: Let's get him repaired
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &241922479
@@ -22603,7 +22620,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: Nice! Now they work again.
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &464660413
@@ -25816,7 +25832,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543675887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0162}
+  m_LocalPosition: {x: 0, y: 0, z: -0.016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25825,7 +25841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3958, y: -0.304}
+  m_AnchoredPosition: {x: -0.396, y: 0.294}
   m_SizeDelta: {x: 0.6, y: 0.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &543675889
@@ -26001,7 +26017,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: That little robot might be able to help me
-  textColor: {r: 1, g: 0.41037738, b: 0.41037738, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &547877788
@@ -26866,18 +26881,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576711999}
-  m_LocalRotation: {x: -0.25676277, y: 0.7206583, z: -0.54859537, w: 0.33729455}
-  m_LocalPosition: {x: 0, y: 0, z: -2.8}
+  m_LocalRotation: {x: -0.042651556, y: 0.79371077, z: -0.60420597, w: 0.056028917}
+  m_LocalPosition: {x: 0, y: 0, z: -2.36}
   m_LocalScale: {x: 1, y: 1, z: 0.50000006}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1822414409}
   m_Father: {fileID: 258206233766556018}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 38.133, y: 102.523, z: -70.216}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 72.621, y: 151.944, z: -26.959}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.98, y: 1.07}
+  m_AnchoredPosition: {x: 2.27, y: 2.41}
   m_SizeDelta: {x: 0.7423, y: 0.9215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &576712001
@@ -34448,7 +34463,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: It seems that the computers are not working
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &729153184
@@ -36050,7 +36064,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: Seems like I am lost somewhere in space...
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &771215460
@@ -38019,7 +38032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.65, y: -0.316}
+  m_AnchoredPosition: {x: 0.65, y: 0.316}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &811614892
@@ -38076,7 +38089,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -38106,7 +38119,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.13458383, z: -3.7307272, w: 0.09356761}
+  m_margin: {x: 0, y: 0.13458383, z: -4.021682, w: 0.09356761}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -38173,7 +38186,6 @@ MonoBehaviour:
   textHolder: {fileID: 1550259691}
   input: We should search for the Terminal of the ship, that should be a good place
     to start
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &813535773
@@ -38573,7 +38585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.3760652, b: 0.3160377, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -41088,8 +41100,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283523327
-  m_fontColor: {r: 1, g: 0.3764706, b: 0.31764707, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -41112,7 +41124,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -41142,7 +41154,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.13458383, z: -2.2195785, w: 0.09355426}
+  m_margin: {x: 0, y: 0.13458383, z: -2.6927383, w: 0.09355426}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -45369,7 +45381,6 @@ MonoBehaviour:
   textHolder: {fileID: 1550259691}
   input: Use my integrated computer to fix the code. I think you are pretty capable
     at this, am I right?
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &1019372008
@@ -45590,7 +45601,6 @@ MonoBehaviour:
   debugSkip: 1
   textHolder: {fileID: 1550259691}
   input: Do you remember the damaged robots we saw in the alley?
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &1029961315
@@ -45645,7 +45655,6 @@ MonoBehaviour:
   debugSkip: 1
   textHolder: {fileID: 1550259691}
   input: There has to be an issue with the power supply
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &1030082527
@@ -48996,12 +49005,12 @@ PrefabInstance:
     - target: {fileID: 6956836780122126777, guid: 72a900e61395ef04cb07214ff8c0fae4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.811256
+      value: 11.811257
       objectReference: {fileID: 0}
     - target: {fileID: 6956836780122126777, guid: 72a900e61395ef04cb07214ff8c0fae4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.532526
+      value: 15.532525
       objectReference: {fileID: 0}
     - target: {fileID: 6956836780122126777, guid: 72a900e61395ef04cb07214ff8c0fae4,
         type: 3}
@@ -53069,7 +53078,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: 'That door seems to be jammed, hopefully I will '
-  textColor: {r: 1, g: 0.41037738, b: 0.41037738, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &1256227559
@@ -54139,7 +54147,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: Hey! Thanks for reviving me
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &1285692312
@@ -56091,7 +56098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318253403}
   m_LocalRotation: {x: 0.5467015, y: -0.0033210814, z: 0.0021683993, w: 0.83731824}
-  m_LocalPosition: {x: 11.811256, y: 15.532526, z: 57.530582}
+  m_LocalPosition: {x: 11.811257, y: 15.532524, z: 57.530582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67627,7 +67634,6 @@ MonoBehaviour:
   debugSkip: 1
   textHolder: {fileID: 1550259691}
   input: I can connect to the robots codebase
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &1663642534
@@ -74132,7 +74138,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822414408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9.36}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -74143,7 +74149,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.393, y: -0.41}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1826364890
@@ -77206,7 +77212,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: Follow me
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &1880532300
@@ -78622,7 +78627,6 @@ MonoBehaviour:
   debugSkip: 0
   textHolder: {fileID: 1550259691}
   input: But let's open that locked door first
-  textColor: {r: 1, g: 0.4117647, b: 0.4117647, a: 1}
   delay: 0.1
   delayBetweenLines: 1
 --- !u!1 &1916217026
@@ -90661,6 +90665,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133552494}
   m_CullTransparentMesh: 1
+--- !u!1 &2143558930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143558931}
+  - component: {fileID: 2143558933}
+  - component: {fileID: 2143558932}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143558931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143558930}
+  m_LocalRotation: {x: 0.12366699, y: 0.9919838, z: -0.012857139, w: -0.022568718}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 258206233766556018}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &2143558932
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143558930}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0d41bf3cf2c37c54faaca8c36a3c8940, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2143558933
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143558930}
+  m_Mesh: {fileID: -2759120661506837977, guid: 12f795af077273941b57d45557e1037c, type: 3}
 --- !u!1 &2143628929
 GameObject:
   m_ObjectHideFlags: 0
@@ -91736,12 +91823,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639095115092208584}
   m_LocalRotation: {x: 0.5799833, y: -0, z: -0, w: 0.81462836}
-  m_LocalPosition: {x: 15.427532, y: 0.30999982, z: 9.3092575}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 15.427532, y: -0.15, z: 6.7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3379837824360337622}
   - {fileID: 576712000}
+  - {fileID: 2143558931}
   m_Father: {fileID: 1551850541}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 70.899, y: 0, z: 0}
@@ -92876,8 +92963,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 258206233766556018}
-  - component: {fileID: 3763477285936398039}
-  - component: {fileID: 1431715799867689501}
   - component: {fileID: 3763477285936398042}
   - component: {fileID: 3763477285936398041}
   - component: {fileID: 3763477285936398043}
@@ -95984,48 +96069,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!23 &1431715799867689501
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 639095115092208584}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 0d41bf3cf2c37c54faaca8c36a3c8940, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1438481495141366896
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -97436,14 +97479,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1821779773750402931
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2714624065953139308}
-  m_Mesh: {fileID: 7954577337513133825, guid: 219a7db908fb44355aeef540aead4b2e, type: 3}
 --- !u!23 &1823736525896224747
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -100210,24 +100245,6 @@ Transform:
   m_Father: {fileID: 7825820695441838568}
   m_RootOrder: 118
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2714624065953139308
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3379837824360337622}
-  - component: {fileID: 1821779773750402931}
-  - component: {fileID: 4516182733641395129}
-  m_Layer: 0
-  m_Name: _gun_module
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &2717314335242348610
 GameObject:
   m_ObjectHideFlags: 0
@@ -102420,21 +102437,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!4 &3379837824360337622
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2714624065953139308}
-  m_LocalRotation: {x: -4.7429507e-17, y: 0.8511233, z: -0.5249659, w: -3.872778e-17}
-  m_LocalPosition: {x: 0.38, y: 0.85, z: 2.67}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 258206233766556018}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3394014153329634701
 GameObject:
   m_ObjectHideFlags: 0
@@ -103544,14 +103546,6 @@ Transform:
   m_Father: {fileID: 402463247370301352}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3763477285936398039
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 639095115092208584}
-  m_Mesh: {fileID: -2759120661506837977, guid: 12f795af077273941b57d45557e1037c, type: 3}
 --- !u!135 &3763477285936398041
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -103563,8 +103557,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8
-  m_Center: {x: -0.04, y: 0.14, z: -0.05}
+  m_Radius: 6.5031347
+  m_Center: {x: 0.07000017, y: 2.4952288, z: -0.80999935}
 --- !u!54 &3763477285936398042
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -103594,7 +103588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rendererRefs:
-  - {fileID: 1431715799867689501}
+  - {fileID: 2143558932}
   objectImage: {fileID: 21300000, guid: 3f0d16bb5cc0828459479b1116d991ea, type: 3}
   objectInfo: A damaged worker robot. This one was able to perform essential repairs
     inside the ship.
@@ -106133,48 +106127,6 @@ Transform:
   m_Father: {fileID: 7825820695441838568}
   m_RootOrder: 105
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &4516182733641395129
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2714624065953139308}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: df868791a7f54714eae7b324cf8f7a6f, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4523377076526487554
 GameObject:
   m_ObjectHideFlags: 0

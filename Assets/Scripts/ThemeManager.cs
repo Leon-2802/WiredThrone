@@ -5,6 +5,7 @@ public class ThemeManager : MonoBehaviour
     public static ThemeManager instance;
     public Material interactionAvailable;
     public Material lockedDoor;
+    public Color dialogueColor;
 
     private void Awake()
     {

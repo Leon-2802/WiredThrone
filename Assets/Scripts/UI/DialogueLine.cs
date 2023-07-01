@@ -8,7 +8,6 @@ public class DialogueLine : DialogueBaseClass
 
     [Header("Text Options")]
     [SerializeField] private string input;
-    [SerializeField] private Color textColor;
 
     [Header("Time Parameters")]
     [SerializeField] private float delay = 0.1f;
@@ -17,6 +16,6 @@ public class DialogueLine : DialogueBaseClass
 
     private void Start()
     {
-        StartCoroutine(WriteText(input, textHolder, textColor, delay, delayBetweenLines));
+        StartCoroutine(WriteText(input, textHolder, ThemeManager.instance.dialogueColor, delay, delayBetweenLines));
     }
 }
