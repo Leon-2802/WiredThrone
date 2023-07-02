@@ -40,7 +40,7 @@ public class DebugWire : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (_camera == null)
         {
-            _camera = Camera.main;
+            _camera = DebugManager.instance.cameraRef;
         }
         _dist = 0f;
     }

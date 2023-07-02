@@ -5314,6 +5314,11 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[2].value
       value: 
       objectReference: {fileID: 1030082527}
+    - target: {fileID: 1694466032853567395, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1318253405}
     - target: {fileID: 1742534042670897178, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: player
@@ -5351,6 +5356,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 192203268}
+    - target: {fileID: 2267782559207439892, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1318253405}
+    - target: {fileID: 2267782559207439892, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: playerClickMovement
+      value: 
+      objectReference: {fileID: 1267684555}
     - target: {fileID: 2267782559207439893, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: m_Name
@@ -5469,7 +5484,7 @@ PrefabInstance:
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: companionFound.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -5984,7 +5999,7 @@ PrefabInstance:
     - target: {fileID: 4267298344831895603, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4595397077309921897, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -65980,7 +65995,6 @@ MonoBehaviour:
   interactionEndInfo: to cancel interaction
   playerStandingPos: {fileID: 1926128153}
   playerStoppingDistance: 0
-  clickMovement: {fileID: 1267684555}
   interactionStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -94757,7 +94771,6 @@ MonoBehaviour:
   interactionEndInfo: to leave interaction
   playerStandingPos: {fileID: 1148844791}
   playerStoppingDistance: 0
-  clickMovement: {fileID: 1267684555}
   interactionStarted:
     m_PersistentCalls:
       m_Calls:
@@ -94865,6 +94878,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  codeType: 0
   shoulderCam: {fileID: 724425741}
 --- !u!4 &1111930506297765576
 Transform:
@@ -103602,7 +103616,6 @@ MonoBehaviour:
   interactionEndInfo: to leave interaction
   playerStandingPos: {fileID: 128329400}
   playerStoppingDistance: 0
-  clickMovement: {fileID: 1267684555}
   interactionStarted:
     m_PersistentCalls:
       m_Calls:
@@ -103698,6 +103711,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  codeType: 1
   shoulderCam: {fileID: 724425741}
 --- !u!1 &3767360510164435558
 GameObject:
@@ -105314,7 +105328,6 @@ MonoBehaviour:
   interactionEndInfo: to cancel investigation
   playerStandingPos: {fileID: 900010985}
   playerStoppingDistance: 1
-  clickMovement: {fileID: 1267684555}
 --- !u!54 &4286882061767963028
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119938,7 +119951,6 @@ MonoBehaviour:
   interactionEndInfo: to cancel investigation
   playerStandingPos: {fileID: 1302883255}
   playerStoppingDistance: 0
-  clickMovement: {fileID: 1267684555}
 --- !u!54 &8674022873163540662
 Rigidbody:
   m_ObjectHideFlags: 0

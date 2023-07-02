@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -5,8 +7,14 @@ public enum ECodeType { DamagedBot00, DamagedBot01 }
 public class DebugManager : MonoBehaviour
 {
     public static DebugManager instance;
+    public Camera cameraRef;
+    public event EventHandler compiledBot00;
+    public event EventHandler compiledBot01;
     [SerializeField] private ECodeType codeType;
-    [SerializeField] private GameObject compileStatusInfo;
+    [SerializeField] private GameObject blockInteraction;
+    [SerializeField] private GameObject bot00Dialogue;
+    [SerializeField] private GameObject compileInfo;
+    [SerializeField] private GameObject finishedCompileInfo;
     [SerializeField] private ProgressBar compileProgressBar;
     [SerializeField] private UnityEvent onCompiledCode;
 
@@ -34,6 +42,21 @@ public class DebugManager : MonoBehaviour
         }
     }
 
+    public void InitInteraction(ECodeType codeType)
+    {
+        GameManager.Instance.lockedToPc = true;
+        switch (codeType)
+        {
+            case ECodeType.DamagedBot00:
+                connectionsNeeded = 7;
+                bot00Dialogue.SetActive(true);
+                break;
+            case ECodeType.DamagedBot01:
+                connectionsNeeded = 8;
+                break;
+        }
+    }
+
     public bool ConnectedBlocks(int originId, int targetId)
     {
         if ((targetId - originId) == 1)
@@ -45,7 +68,8 @@ public class DebugManager : MonoBehaviour
             if (connectionsNeeded == activeConnections)
             {
                 Debug.Log("Successfully debugged the code!");
-                compileStatusInfo.SetActive(true);
+                blockInteraction.SetActive(true);
+                compileInfo.SetActive(true);
                 StartCoroutine(compileProgressBar.RunTimerProgress(2f, ESounds.Success, onCompiledCode));
             }
 
@@ -80,5 +104,32 @@ public class DebugManager : MonoBehaviour
     {
         activeConnections--;
         Debug.Log("Active connections: " + activeConnections);
+    }
+
+    public void CallCompileEvent(bool bot00)
+    {
+        StartCoroutine(DelayedInvoke(bot00));
+    }
+    private IEnumerator DelayedInvoke(bool bot00)
+    {
+        yield return new WaitForSeconds(1f);
+        if (bot00)
+            InvokeCompiledBot00();
+        else
+            InvokeCompiledBot01();
+    }
+    private void InvokeCompiledBot00()
+    {
+        GameManager.Instance.lockedToPc = false;
+        compileInfo.SetActive(false);
+        finishedCompileInfo.SetActive(false);
+        compiledBot00.Invoke(this, EventArgs.Empty);
+    }
+    private void InvokeCompiledBot01()
+    {
+        GameManager.Instance.lockedToPc = false;
+        compileInfo.SetActive(false);
+        finishedCompileInfo.SetActive(false);
+        compiledBot01.Invoke(this, EventArgs.Empty);
     }
 }

@@ -52,14 +52,12 @@ public class Computer : Decoration
 
     protected virtual void StartCom(object sender, EventArgs e)
     {
-        computerCam.SetActive(true);
         GameManager.Instance.playerControls.Player.Disable();
         GameManager.Instance.playerControls.Computer.Enable();
     }
 
     protected virtual void ExitCom(object sender, EventArgs e)
     {
-        computerCam.SetActive(false);
         GameManager.Instance.playerControls.Player.Enable();
         GameManager.Instance.playerControls.Computer.Disable();
     }

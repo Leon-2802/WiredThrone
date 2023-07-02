@@ -5,8 +5,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public PlayerControls playerControls;
+    public ClickMovement playerClickMovement;
     public bool playerIsRunning = false;
     public bool menuAccessible = false;
+    public bool lockedToPc = false; // set to true, if player has to do some task on a pc before proceeding with the normal gameplay (ie. debugging the code of the repair bots)
     [SerializeField] private GameObject player;
     [SerializeField] private SaveLoadManager saveLoadManager;
     [SerializeField] private int debugCheckpoint;
@@ -15,9 +17,15 @@ public class GameManager : MonoBehaviour
     public void TogglePlayerControls(bool enable)
     {
         if (enable)
+        {
             playerControls.Player.Enable();
+            playerClickMovement.enabled = true;
+        }
         else
+        {
             playerControls.Player.Disable();
+            playerClickMovement.enabled = false;
+        }
     }
 
     private void Awake()

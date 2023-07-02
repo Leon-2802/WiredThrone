@@ -6,7 +6,6 @@ public class Decoration : InteractableObject
     [SerializeField] protected string interactionEndInfo;
     [SerializeField] protected Transform playerStandingPos;
     [SerializeField] protected float playerStoppingDistance;
-    [SerializeField] protected ClickMovement clickMovement;
 
     protected override void OnTriggerEnter(Collider other)
     {
@@ -31,15 +30,15 @@ public class Decoration : InteractableObject
         base.OnStartInteraction(sender, e);
 
         GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionIcon, interactionButton, interactionEndInfo);
-        clickMovement.ForceDestination(playerStandingPos, playerStoppingDistance); //Make player move to desired Pos
+        GameManager.Instance.playerClickMovement.ForceDestination(playerStandingPos, playerStoppingDistance); //Make player move to desired Pos
     }
     protected virtual void OnEndInteraction(object sender, EventArgs e)
     {
         GameManager.Instance.playerControls.Player.ClickMove.Enable();
         GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionIcon, interactionButton, interactionText);
 
-        clickMovement.SetStoppingDistance(0); //Reset Values to let Player be moved by clicking again
-        clickMovement.forcedDest = false; //Reset Values to let Player be moved by clicking again
+        GameManager.Instance.playerClickMovement.SetStoppingDistance(0); //Reset Values to let Player be moved by clicking again
+        GameManager.Instance.playerClickMovement.forcedDest = false; //Reset Values to let Player be moved by clicking again
     }
 
     protected override void OnDestroy()

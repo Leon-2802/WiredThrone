@@ -5,19 +5,25 @@ using UnityEngine;
 public class DebugBlockDragDropHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     [SerializeField] private DebugWire wireRef;
+    [SerializeField] private Camera cameraRef;
 
     private Vector3 _clickOffset;
     private bool _dragging = false;
+
+    private void Start()
+    {
+        cameraRef = DebugManager.instance.cameraRef;
+    }
 
 
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
         if (!_dragging)
         {
-            _clickOffset = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - GetComponent<RectTransform>().position;
+            _clickOffset = cameraRef.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - GetComponent<RectTransform>().position;
             _dragging = true;
         }
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - _clickOffset;
+        Vector3 mousePos = cameraRef.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - _clickOffset;
         mousePos.z = 0;
         transform.position = mousePos;
 

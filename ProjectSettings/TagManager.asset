@@ -13,6 +13,7 @@ TagManager:
   - Wall
   - Block
   - SidebarPanel
+  - DebugCam
   layers:
   - Default
   - TransparentFX

@@ -1,14 +1,45 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 public class DebugRobotCode : Computer
 {
     public UnityEvent onDebugDone;
+    [SerializeField] private ECodeType codeType;
     [SerializeField] private GameObject shoulderCam;
     private bool onStayPassed = false;
+    private bool startedComOnce = false;
 
-    public void DebuggedSuccessfully()
+    protected override void Start()
     {
+        base.Start();
+
+        if (codeType == ECodeType.DamagedBot00)
+            DebugManager.instance.compiledBot00 += DebuggedSuccessfully;
+        else
+            DebugManager.instance.compiledBot01 += DebuggedSuccessfully;
+    }
+
+    protected override void StartCom(object sender, EventArgs e)
+    {
+        base.StartCom(sender, e);
+        SwitchGameplayManager.instance.SwitchToDebugCamera();
+        if (!startedComOnce)
+        {
+            Debug.Log("onStartCom");
+            DebugManager.instance.InitInteraction(codeType);
+            startedComOnce = true;
+        }
+    }
+    protected override void ExitCom(object sender, EventArgs e)
+    {
+        base.ExitCom(sender, e);
+        SwitchGameplayManager.instance.SwitchToMainCamera();
+    }
+
+    public void DebuggedSuccessfully(object sender, EventArgs e)
+    {
+        // SwitchGameplayManager.instance.SwitchToMainCamera();
         onDebugDone.Invoke();
         Finished();
     }

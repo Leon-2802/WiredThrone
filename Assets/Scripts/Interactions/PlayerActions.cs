@@ -70,11 +70,13 @@ public class PlayerActions : MonoBehaviour
 
     private void StartCom(InputAction.CallbackContext context)
     {
-        InteractableManager.Instance.InvokeStartCom();
+        if (!GameManager.Instance.lockedToPc)
+            InteractableManager.Instance.InvokeStartCom();
     }
     private void ExitCom(InputAction.CallbackContext context)
     {
-        InteractableManager.Instance.InvokeEndCom();
+        if (!GameManager.Instance.lockedToPc)
+            InteractableManager.Instance.InvokeEndCom();
     }
 
     private void OnDisable()
