@@ -9,7 +9,6 @@ public class Computer : Decoration
     protected bool unavailable = false;
 
     [SerializeField] protected GameObject interactionInfo;
-    [SerializeField] protected GameObject computerCam;
 
     protected override void OnTriggerEnter(Collider other)
     {
@@ -66,8 +65,6 @@ public class Computer : Decoration
     {
         InteractableManager.Instance.endInteraction -= StartCom;
         InteractableManager.Instance.endCom -= ExitCom;
-        //just in case something goes wrong ----
-        computerCam.SetActive(false);
         GameManager.Instance.playerControls.Player.Enable();
         GameManager.Instance.playerControls.Computer.Disable();
         // -------------------------------------

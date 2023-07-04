@@ -39,7 +39,6 @@ public class DebugRobotCode : Computer
 
     public void DebuggedSuccessfully(object sender, EventArgs e)
     {
-        // SwitchGameplayManager.instance.SwitchToMainCamera();
         onDebugDone.Invoke();
         Finished();
     }
@@ -63,6 +62,11 @@ public class DebugRobotCode : Computer
         {
             base.OnTriggerEnter(other);
             onStayPassed = true;
+        }
+        else if (onlyInspect && onStayPassed && other.gameObject.GetComponent<Player>())
+        {
+            base.OnTriggerExit(other);
+            onStayPassed = false;
         }
     }
 

@@ -10,15 +10,21 @@ public class DebugManager : MonoBehaviour
     public Camera cameraRef;
     public event EventHandler compiledBot00;
     public event EventHandler compiledBot01;
-    [SerializeField] private ECodeType codeType;
+    [SerializeField] private ECodeType currentCodeType;
+    [SerializeField] private GameObject bot00Blocks;
+    [SerializeField] private GameObject bot01Blocks;
     [SerializeField] private GameObject blockInteraction;
     [SerializeField] private GameObject bot00Dialogue;
+    [SerializeField] private GameObject bot01Dialogue;
     [SerializeField] private GameObject compileInfo;
+    [SerializeField] private GameObject compileStatusInfo;
     [SerializeField] private GameObject finishedCompileInfo;
     [SerializeField] private ProgressBar compileProgressBar;
-    [SerializeField] private UnityEvent onCompiledCode;
+    [SerializeField] private UnityEvent onCompiledCode00;
+    [SerializeField] private UnityEvent onCompiledCode01;
 
     private int connectionsNeeded = -1;
+    private int falseWireTargetId = -1;
     private int activeConnections = 0;
 
     private void Awake()
@@ -29,30 +35,24 @@ public class DebugManager : MonoBehaviour
             instance = this;
     }
 
-    private void Start()
-    {
-        switch (codeType)
-        {
-            case ECodeType.DamagedBot00:
-                connectionsNeeded = 7;
-                break;
-            case ECodeType.DamagedBot01:
-                connectionsNeeded = 8;
-                break;
-        }
-    }
-
     public void InitInteraction(ECodeType codeType)
     {
         GameManager.Instance.lockedToPc = true;
+        currentCodeType = codeType;
         switch (codeType)
         {
             case ECodeType.DamagedBot00:
+                bot00Blocks.SetActive(true);
                 connectionsNeeded = 7;
+                falseWireTargetId = 5;
                 bot00Dialogue.SetActive(true);
                 break;
             case ECodeType.DamagedBot01:
-                connectionsNeeded = 8;
+                compileStatusInfo.SetActive(true); // been set to false after debugging bot00
+                bot01Blocks.SetActive(true);
+                connectionsNeeded = 7;
+                falseWireTargetId = 4;
+                bot01Dialogue.SetActive(true);
                 break;
         }
     }
@@ -67,10 +67,18 @@ public class DebugManager : MonoBehaviour
 
             if (connectionsNeeded == activeConnections)
             {
-                Debug.Log("Successfully debugged the code!");
                 blockInteraction.SetActive(true);
                 compileInfo.SetActive(true);
-                StartCoroutine(compileProgressBar.RunTimerProgress(2f, ESounds.Success, onCompiledCode));
+                if (currentCodeType == ECodeType.DamagedBot00)
+                {
+                    StartCoroutine(compileProgressBar.RunTimerProgress(2f, ESounds.Success, onCompiledCode00));
+                    Debug.Log("Bot00 compiled successfully");
+                }
+                else if (currentCodeType == ECodeType.DamagedBot01)
+                {
+                    StartCoroutine(compileProgressBar.RunTimerProgress(2f, ESounds.Success, onCompiledCode01));
+                    Debug.Log("Bot01 compiled successfully");
+                }
             }
 
             return true;
@@ -86,7 +94,7 @@ public class DebugManager : MonoBehaviour
 
     public bool ConnectedFalseWire(int targetId)
     {
-        if (targetId == 5)
+        if (targetId == falseWireTargetId)
         {
             activeConnections++;
             SoundManager.instance.PlaySoundOneShot(ESounds.Click);
@@ -120,14 +128,18 @@ public class DebugManager : MonoBehaviour
     }
     private void InvokeCompiledBot00()
     {
+        activeConnections = 0;
         GameManager.Instance.lockedToPc = false;
+        bot00Blocks.SetActive(false);
         compileInfo.SetActive(false);
         finishedCompileInfo.SetActive(false);
         compiledBot00.Invoke(this, EventArgs.Empty);
     }
     private void InvokeCompiledBot01()
     {
+        activeConnections = 0;
         GameManager.Instance.lockedToPc = false;
+        bot01Blocks.SetActive(false);
         compileInfo.SetActive(false);
         finishedCompileInfo.SetActive(false);
         compiledBot01.Invoke(this, EventArgs.Empty);
