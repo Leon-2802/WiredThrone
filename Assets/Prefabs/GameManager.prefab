@@ -6094,10 +6094,12 @@ MonoBehaviour:
   playerClickMovement: {fileID: 0}
   playerIsRunning: 0
   menuAccessible: 0
+  lockedToPc: 0
   player: {fileID: 0}
   saveLoadManager: {fileID: 1440596825858743889}
   debugCheckpoint: 0
   debugLoadMode: 0
+  debugSceneLoaded: 0
 --- !u!114 &1440596825858743889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6148,6 +6150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+  debugScreenCamera: {fileID: 0}
 --- !u!1 &2296377816489908656
 GameObject:
   m_ObjectHideFlags: 0
@@ -12661,6 +12664,7 @@ MonoBehaviour:
   quests:
   - Repair the damaged robot
   - Reach the ship's terminal
+  - Debug the two worker bots
   finishedQuests: 0
   companionFound:
     m_PersistentCalls:

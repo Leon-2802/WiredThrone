@@ -68,6 +68,7 @@ public class QuestManager : MonoBehaviour
 
     public void ReachedWorkerBots()
     {
+        finishedQuests++;
         reachedWorkerBots.Invoke();
         InvokeSetQuest("Debug the two worker robots", 2);
     }

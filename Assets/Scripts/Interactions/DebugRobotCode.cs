@@ -39,6 +39,7 @@ public class DebugRobotCode : Computer
 
     public void DebuggedSuccessfully(object sender, EventArgs e)
     {
+        Debug.Log("onDebugSuccessfully");
         onDebugDone.Invoke();
         Finished();
     }
@@ -74,6 +75,7 @@ public class DebugRobotCode : Computer
     {
         yield return new WaitForSeconds(1.5f);
         CameraController.instance.ResetBlendTime();
+        this.gameObject.SetActive(false);
     }
 
 }

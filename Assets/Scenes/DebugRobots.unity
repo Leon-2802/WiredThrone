@@ -3077,7 +3077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eef7e26ece20438e620cabdad572a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugSkip: 0
+  debugSkip: 1
   textHolder: {fileID: 1981991239}
   input: He searched for things to repair (targets), and if he found something, he
     approached the target and repaired it
@@ -4039,7 +4039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eef7e26ece20438e620cabdad572a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugSkip: 0
+  debugSkip: 1
   textHolder: {fileID: 1981991239}
   input: I think you have to connect the code blocks in the correct order. But I
     guess this is not my strength, you might be the expert here...
@@ -8302,7 +8302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eef7e26ece20438e620cabdad572a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugSkip: 0
+  debugSkip: 1
   textHolder: {fileID: 1981991239}
   input: Hang in there, if you can repair this robot, we will have another very helpful
     friend on our side.
@@ -14049,7 +14049,7 @@ GameObject:
   m_TagString: MainCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &7043075110542181297
 MonoBehaviour:
