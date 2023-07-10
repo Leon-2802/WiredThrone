@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Models/sketchfab/bobs_sniper-rifle/license.txt.meta
-guid: 5f7379b55690dd24383a2494e56b7728
-TextScriptImporter:
-========
 guid: 552251d08fd52be4e833ff1f0c5e9235
 PrefabImporter:
->>>>>>>> test:Assets/Prefabs/Blocks/customVariableBlock.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
