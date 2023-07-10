@@ -50,7 +50,7 @@ public class DebugManager : MonoBehaviour
             case ECodeType.DamagedBot01:
                 compileStatusInfo.SetActive(true); // been set to false after debugging bot00
                 bot01Blocks.SetActive(true);
-                connectionsNeeded = 7;
+                connectionsNeeded = 6;
                 falseWireTargetId = 4;
                 bot01Dialogue.SetActive(true);
                 break;
@@ -61,7 +61,7 @@ public class DebugManager : MonoBehaviour
     {
         if ((targetId - originId) == 1)
         {
-            if (alreadyConnected)
+            if (!alreadyConnected)
             {
                 activeConnections++;
                 Debug.Log("Active Connections: " + activeConnections);

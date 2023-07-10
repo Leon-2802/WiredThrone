@@ -7,13 +7,14 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     public int _id = -1;
     [SerializeField] private Camera _camera;
-    [SerializeField] private Transform _blockWirePivot;
-    [SerializeField] private GameObject _connectionOut;
-    [SerializeField] private GameObject _connectionIn;
-    [SerializeField] private UnityEvent _onConnected;
+    [SerializeField] public Transform _blockWirePivot;
+    [SerializeField] public GameObject _connectionOut;
+    [SerializeField] public GameObject _connectionIn;
+    [SerializeField] public UnityEvent _onConnected;
 
-    private float _dist;
-    private Vector3 startPoint;
+
+    public float _dist;
+    public Vector3 startPoint;
 
     public RectTransform wireEnd;
 
@@ -30,6 +31,7 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
     public GameObject ConnectionIn
     {
         get { return _connectionIn; }
+        set { _connectionIn = value; }
     }
 
     private bool _dragging = false;
@@ -66,7 +68,7 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
         }
     }
 
-    private void SetWireInVisually()
+    public void SetWireInVisually()
     {
         if (_connectionIn != null)
         {
@@ -74,7 +76,7 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
         }
     }
 
-    private void SetWireOutVisually()
+    public void SetWireOutVisually()
     {
         if (_connectionOut != null)
         {
@@ -93,10 +95,10 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), startPoint, _camera, out Vector2 canvasStartPoint);
 
             _dist = Vector2.Distance(canvasOutBlockPivot, canvasStartPoint);
-            wireEnd.transform.localScale = new Vector2(wireEnd.localScale.x, _dist / 35);
+            wireEnd.transform.localScale = new Vector2(wireEnd.localScale.x, _dist / 0.5f / wireEndRt.rect.height);
 
             float angle = AngleBetweenTwoPoints(transform.position, startPoint);
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             wireEnd.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
         }
     }
@@ -128,10 +130,10 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
 
         float dist = Vector2.Distance(canvasMousePos, canvasStartPoint);
 
-        wireEndRt.localScale = new Vector2(wireEnd.localScale.x, dist / 35);
+        wireEndRt.localScale = new Vector2(wireEnd.localScale.x, dist / 0.5f / wireEndRt.rect.height);
 
         float angle = AngleBetweenTwoPoints(canvasMousePos, canvasStartPoint);
-        wireDraggableRt.rotation = Quaternion.Euler(0, 0, angle - 90);
+        wireDraggableRt.rotation = Quaternion.Euler(0, 0, 180 + angle - 90);
         wireEndRt.rotation = Quaternion.Euler(0, 0, angle - 90);
         // startPoint = transform.parent.position;  // Wire Source
         // _dist = Vector2.Distance(mousePos, startPoint);
@@ -157,35 +159,26 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
         // wireEnd.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
     }
 
-    float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
+    public static float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
     {
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
 
     void IEndDragHandler.OnEndDrag(PointerEventData data)
     {
-        Debug.Log("Drag end");
         Collider[] colliders = Physics.OverlapBox(transform.position, new Vector3(1, 1, 100000));
 
         if (colliders.Length == 0)
         {
-            Debug.Log("No connection");
             //ResetWireOut();
             _connectionOut = null;
-
-            //Audio Feedback when no connection found
-            if (SoundManager.instance)
-            {
-                SoundManager.instance.PlaySoundOneShot(ESounds.DoorError);
-            }
 
             return;
         }
 
         foreach (Collider collider in colliders)
         {
-            Debug.Log(collider.gameObject.name);
-            if (collider.CompareTag("Block"))
+            if (BlockTag(collider.tag))
             {
                 Wire otherBlock = collider.gameObject.GetComponentInChildren<Wire>();
                 RectTransform rt = GetComponent<RectTransform>();
@@ -194,27 +187,13 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
                 // Set block connections.
                 otherBlock.ResetWireIn();
                 otherBlock._connectionIn = transform.parent.transform.parent.gameObject;
-                _connectionOut = collider.gameObject;
+                this._connectionOut = collider.gameObject;
 
                 // Do not allow wires to connect to its own block.
                 if (otherBlock._connectionIn == transform.IsChildOf(collider.gameObject.transform))
                 {
                     ResetWireIn();
-                    Debug.Log("resetting as same block conntection");
                     return;
-                }
-
-                // If in Debug-Scene, send the ids of the connected blocks to the manager
-                if (DebugManager.instance)
-                {
-                    bool succes = DebugManager.instance.ConnectedBlocks(this._id, otherBlock._id);
-
-                    // don't let blocks connect, that are not fitting
-                    if (!succes)
-                    {
-                        ResetWireOut();
-                        return;
-                    }
                 }
 
                 UpdateWireVisuals();
@@ -230,6 +209,26 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
 
     }
 
+    public static bool BlockTag(string tag)
+    {
+        bool result = false;
+        switch (tag)
+        {
+            case "Block":
+                result = true;
+                break;
+            case "MoveBlock":
+                result = true;
+                break;
+            case "AttackBlock":
+                result = true;
+                break;
+            case "VariableBlock":
+                result = true;
+                break;
+        }
+        return result;
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

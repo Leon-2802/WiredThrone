@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Spaceship.unity
     guid: c6c5c0efcdaca455d98780086f8cf62e
   - enabled: 1
-    path: Assets/Scenes/DebugRobots.unity
-    guid: 45c94bfd7e7ec984aab5dc2561433b1a
+    path: Assets/Prototypes/Alex/Scenes/blocksScene.unity
+    guid: 6bc96da09bfe2804b93facd54a739963
+  - enabled: 1
+    path: Assets/Prototypes/Leon/FightArea.unity
+    guid: 5ebc5ba23b37a794ba2267815c6bae00
   m_configObjects: {}
