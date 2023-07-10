@@ -30,7 +30,6 @@ public class SideConnection : MonoBehaviour
 
     public void SetSideBlock(GameObject block)
     {
-        Debug.Log("Setting");
         if (_sideBlock == null)
         {
             _sideBlock = block;

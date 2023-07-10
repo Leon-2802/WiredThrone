@@ -61,8 +61,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 259.92294, y: 50, z: 100}
-  m_Center: {x: 140.54955, y: 0, z: 0}
+  m_Size: {x: 254.70786, y: 50, z: 100}
+  m_Center: {x: 7.5644684, y: 0, z: 0}
 --- !u!114 &4720462441992317029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wireRef: {fileID: 0}
+  argWireRef: {fileID: 0}
   _sideConnection: {fileID: 8788373588275349473}
 --- !u!114 &8517798512728991870
 MonoBehaviour:

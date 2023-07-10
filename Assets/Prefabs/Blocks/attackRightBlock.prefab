@@ -377,9 +377,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df35292bc9334004ab55b58b8de8b606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: -1
+  _camera: {fileID: 0}
   _blockWirePivot: {fileID: 5075207121898963754}
   _connectionOut: {fileID: 0}
   _connectionIn: {fileID: 0}
+  _onConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  _dist: 0
+  startPoint: {x: 0, y: 0, z: 0}
   wireEnd: {fileID: 6586255892571046302}
 --- !u!1 &8285088407224263998
 GameObject:
@@ -471,6 +478,7 @@ GameObject:
   - component: {fileID: 113016646306007693}
   - component: {fileID: 3462177149268085629}
   - component: {fileID: 2380317302210843187}
+  - component: {fileID: 9005484498242512787}
   m_Layer: 5
   m_Name: attackRightBlock
   m_TagString: Block
@@ -535,6 +543,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wireRef: {fileID: 0}
+  _sideConnection: {fileID: 0}
+--- !u!114 &9005484498242512787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071105339177006630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed1dced6fe5baa43900adaad8da9647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _side: 1
 --- !u!1 &9212994343408173552
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960784, g: 0.44313726, b: 0, a: 1}
+  m_Color: {r: 0.3490566, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

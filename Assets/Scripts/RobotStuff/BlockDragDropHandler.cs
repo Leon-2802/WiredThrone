@@ -23,9 +23,12 @@ public class BlockDragDropHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (Mouse.current.middleButton.IsPressed())
+        if (wireRef != null)
         {
-            wireRef.ResetWireOut();
+            if (Mouse.current.middleButton.IsPressed())
+            {
+                wireRef.ResetWireOut();
+            }
         }
     }
 
@@ -57,6 +60,11 @@ public class BlockDragDropHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     void IEndDragHandler.OnEndDrag(PointerEventData data)
     {
         _dragging = false;
+
+        if (wireRef != null) {
+            wireRef.UpdateWireVisuals();
+        }
+
         if (_sideConnection != null)
         {
 
@@ -76,7 +84,7 @@ public class BlockDragDropHandler : MonoBehaviour, IDragHandler, IEndDragHandler
             {
                 foreach (Collider collider in colliders)
                 {
-                    if (collider.CompareTag("Block"))
+                    if (Wire.BlockTag(collider.tag))
                     {
                         RectTransform sideCon = collider.gameObject.GetComponent<BlockDragDropHandler>().SideConnection;
                         if (sideCon != null)

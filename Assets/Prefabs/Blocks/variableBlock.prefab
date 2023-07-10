@@ -142,9 +142,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df35292bc9334004ab55b58b8de8b606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: -1
+  _camera: {fileID: 0}
   _blockWirePivot: {fileID: 2802408376052103548}
   _connectionOut: {fileID: 0}
   _connectionIn: {fileID: 0}
+  _onConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  _dist: 0
+  startPoint: {x: 0, y: 0, z: 0}
   wireEnd: {fileID: 4318374505257728968}
 --- !u!1 &1328678918021390184
 GameObject:
@@ -486,7 +493,7 @@ GameObject:
   - component: {fileID: 1528992738180801825}
   m_Layer: 5
   m_Name: variableBlock
-  m_TagString: Block
+  m_TagString: VariableBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,8 +542,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 200, y: 68.266235, z: 100}
-  m_Center: {x: 0, y: 9.133118, z: 0}
+  m_Size: {x: 194.7056, y: 68.266235, z: 100}
+  m_Center: {x: 96.622025, y: 9.133118, z: 0}
 --- !u!114 &4720462441992317029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wireRef: {fileID: 0}
-  _sideConnection: {fileID: 0}
+  _sideConnection: {fileID: 3131804607966621035}
 --- !u!114 &1528992738180801825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,6 +661,7 @@ GameObject:
   - component: {fileID: 6229520784578377952}
   - component: {fileID: 1424639832614185732}
   - component: {fileID: 8705004839105984454}
+  - component: {fileID: 3206623918432466909}
   - component: {fileID: 808617854378003663}
   m_Layer: 5
   m_Name: InputField (TMP)
@@ -721,6 +729,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.5
+--- !u!114 &3206623918432466909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2390255314082258368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c19a90dddfb5654abf5b704f76c75b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &808617854378003663
 MonoBehaviour:
   m_ObjectHideFlags: 0

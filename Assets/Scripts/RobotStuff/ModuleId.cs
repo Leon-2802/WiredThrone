@@ -8,18 +8,39 @@ public class ModuleId : MonoBehaviour
     [SerializeField] private ModuleSelect _leftModule;
     [SerializeField] private ModuleSelect _rightModule;
 
+    public ModuleSelect LeftModule
+    {
+        get { return _leftModule; }
+    }
+
+    public ModuleSelect RightModule
+    {
+        get { return _rightModule; }
+    }
+
     public void SetModuleId(int id)
     {
         switch (_lastPressedModuleName)
         {
-            case "Left":
+            case "AttackLeft":
                 _leftModule.SetModuleId(id);
+                ModuleManager.instance.ToggleLeftAttackModule(id);
                 break;
-            case "Right":
+            case "AttackRight":
                 _rightModule.SetModuleId(id);
+                ModuleManager.instance.ToggleRightAttackModule(id);
                 break;
             case "Movement":
                 _leftModule.SetModuleId(id);
+                ModuleManager.instance.ToggleMoveModule(id);
+                break;
+            case "ShellLeft":
+                _leftModule.SetModuleId(id);
+                ModuleManager.instance.ToggleShellLeftModule(id);
+                break;
+            case "ShellRight":
+                _rightModule.SetModuleId(id);
+                ModuleManager.instance.ToggleShellRightModule(id);
                 break;
         }
     }

@@ -9,7 +9,7 @@ public class FightAreaBlock : MonoBehaviour
         coordinates = new Vector2(transform.position.x, this.gameObject.GetComponentInParent<Transform>().position.z);
     }
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerStay(Collider other) 
     {
         if(other.gameObject.GetComponent<Robot>())
         {
