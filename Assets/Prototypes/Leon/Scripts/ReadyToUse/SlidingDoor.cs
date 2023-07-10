@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SlidingDoor : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class SlidingDoor : MonoBehaviour
     [SerializeField] private ECharacterTypes acceptedCharacterType;
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private bool locked;
+    [SerializeField] private BoxCollider boxCollider;
+    [SerializeField] private NavMeshObstacle meshObstacle;
     private int timesOpened;
     private Material standardMaterial;
 
@@ -19,12 +22,16 @@ public class SlidingDoor : MonoBehaviour
     public void Unlock()
     {
         locked = false;
+        boxCollider.enabled = false;
+        meshObstacle.enabled = false;
         Open();
     }
 
     public void SetLocked(bool locked)
     {
         this.locked = locked;
+        boxCollider.enabled = locked;
+        meshObstacle.enabled = locked;
     }
 
 

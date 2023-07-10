@@ -12,6 +12,7 @@ public class DebugWire : MonoBehaviour, IDragHandler, IEndDragHandler
     [SerializeField] private GameObject _connectionOut;
     [SerializeField] private GameObject _connectionIn;
     [SerializeField] private UnityEvent _onConnected;
+    private bool successfullyConnected = false;
 
     private float _dist;
     private Vector3 startPoint;
@@ -153,6 +154,7 @@ public class DebugWire : MonoBehaviour, IDragHandler, IEndDragHandler
             if (ConnectionOut)
             {
                 DebugManager.instance.CutConnetion();
+                successfullyConnected = false;
             }
             _connectionOut = null;
 
@@ -195,8 +197,8 @@ public class DebugWire : MonoBehaviour, IDragHandler, IEndDragHandler
                 {
                     if (!falseWire)
                     {
-                        bool success = DebugManager.instance.ConnectedBlocks(this._id, otherBlocks[0]._id);
-
+                        bool success = DebugManager.instance.ConnectedBlocks(this._id, otherBlocks[0]._id, successfullyConnected);
+                        successfullyConnected = success;
                         // don't let blocks connect, that are not fitting
                         if (!success)
                         {

@@ -57,12 +57,15 @@ public class DebugManager : MonoBehaviour
         }
     }
 
-    public bool ConnectedBlocks(int originId, int targetId)
+    public bool ConnectedBlocks(int originId, int targetId, bool alreadyConnected)
     {
         if ((targetId - originId) == 1)
         {
-            activeConnections++;
-            Debug.Log("Active Connections: " + activeConnections);
+            if (alreadyConnected)
+            {
+                activeConnections++;
+                Debug.Log("Active Connections: " + activeConnections);
+            }
             SoundManager.instance.PlaySoundOneShot(ESounds.Click);
 
             if (connectionsNeeded == activeConnections)
