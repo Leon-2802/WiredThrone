@@ -5,6 +5,7 @@ public abstract class WeaponModule
     protected int _size;
     protected bool[,] _shape;
 
+    protected int _dmg;
     public string Name
     {
         get { return _name; }
@@ -19,40 +20,32 @@ public abstract class WeaponModule
         get { return _shape; }
     }
 
+    public int Dmg
+    {
+        get { return _dmg; }
+    }
+
     public static WeaponModule GetFromID(int id)
     {
         switch (id)
         {
             case 1:
-                return new FistModule();
+                return new GunModule();
             case 2:
-                return new BladeModule();
+                return new DrillModule();
             default:
                 return null;
         }
     }
 }
 
-public class FistModule : WeaponModule
+public class GunModule : WeaponModule
 {
-    public FistModule()
+    public GunModule()
     {
-        _name = "FistModule";
+        _name = "GunModule";
         _size = 3;
-        _shape = new bool[,] {
-            {false, true, false},
-            {true, false, true},
-            {false, true, false}
-        };
-    }
-}
-
-public class BladeModule : WeaponModule
-{
-    public BladeModule()
-    {
-        _name = "BladeModule";
-        _size = 3;
+        _dmg = 5;
         _shape = new bool[,] {
             {true, true, true},
             {true, false, true},
@@ -61,3 +54,17 @@ public class BladeModule : WeaponModule
     }
 }
 
+public class DrillModule : WeaponModule
+{
+    public DrillModule()
+    {
+        _name = "DrillModule";
+        _size = 3;
+        _dmg = 3;
+        _shape = new bool[,] {
+            {false, true, false},
+            {true, false, true},
+            {false, true, false}
+        };
+    }
+}
