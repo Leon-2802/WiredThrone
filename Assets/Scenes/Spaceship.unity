@@ -11762,12 +11762,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338796973}
   m_Mesh: {fileID: 8960124117626777215, guid: f2197e9d98b30216b992450aa564dd70, type: 3}
---- !u!4 &339796981 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4261786709562940205, guid: 4cfb771b444cf064fa31a381ca2a898b,
-    type: 3}
-  m_PrefabInstance: {fileID: 143294040}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &341282114
 GameObject:
   m_ObjectHideFlags: 0
@@ -43281,19 +43275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogEnded:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1794480111}
-        m_TargetAssemblyTypeName: WorkerBot01, Assembly-CSharp
-        m_MethodName: CallRobotToTarget
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 339796981}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!224 &1072033377
 RectTransform:
   m_ObjectHideFlags: 0
@@ -69723,6 +69705,7 @@ MonoBehaviour:
   agent: {fileID: 1794480112}
   idlePosition: {fileID: 979507567}
   repairEffect: {fileID: 761175587}
+  animator: {fileID: 1983081258}
 --- !u!195 &1794480112
 NavMeshAgent:
   m_ObjectHideFlags: 0

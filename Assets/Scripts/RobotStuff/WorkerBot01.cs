@@ -7,6 +7,7 @@ public class WorkerBot01 : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Transform idlePosition;
     [SerializeField] private GameObject repairEffect;
+    [SerializeField] private Animator animator;
     private bool enRoute = false;
     private bool movingBackToIdlePos = false;
 
@@ -15,12 +16,14 @@ public class WorkerBot01 : MonoBehaviour
         agent.SetDestination(idlePosition.position);
         enRoute = true;
         movingBackToIdlePos = true;
+        animator.SetBool("Idle", false);
     }
 
     public void CallRobotToTarget(Transform target)
     {
         agent.SetDestination(target.position);
         enRoute = true;
+        animator.SetBool("Idle", false);
     }
 
     private void Update()
@@ -30,6 +33,7 @@ public class WorkerBot01 : MonoBehaviour
             if (movingBackToIdlePos)
             {
                 movingBackToIdlePos = false;
+                animator.SetBool("Idle", true);
             }
             else
             {
