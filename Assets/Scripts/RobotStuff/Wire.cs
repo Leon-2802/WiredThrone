@@ -173,12 +173,6 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
             //ResetWireOut();
             _connectionOut = null;
 
-            //Audio Feedback when no connection found
-            if (SoundManager.instance)
-            {
-                SoundManager.instance.PlaySoundOneShot(ESounds.DoorError);
-            }
-
             return;
         }
 
@@ -200,19 +194,6 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
                 {
                     ResetWireIn();
                     return;
-                }
-
-                // If in Debug-Scene, send the ids of the connected blocks to the manager
-                if (DebugManager.instance)
-                {
-                    bool succes = DebugManager.instance.ConnectedBlocks(this._id, otherBlock._id);
-
-                    // don't let blocks connect, that are not fitting
-                    if (!succes)
-                    {
-                        ResetWireOut();
-                        return;
-                    }
                 }
 
                 UpdateWireVisuals();
