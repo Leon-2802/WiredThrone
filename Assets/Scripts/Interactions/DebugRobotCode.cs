@@ -52,6 +52,7 @@ public class DebugRobotCode : Computer
         CameraController.instance.SetBlendTime(0);
         shoulderCam.SetActive(false);
         interactionInfo.SetActive(false);
+        InteractableManager.Instance.LeaveInteractionZone();
         StartCoroutine(ResetBlendTime());
     }
 

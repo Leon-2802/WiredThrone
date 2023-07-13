@@ -218,8 +218,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: As long as there is no target, the code connected to the while-loop is
-    executed
+  m_text: As long as there is no target, the code connected to the green wire is
+    executed, if there is no target, the code attached to the red wire is executed.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -79.59851, w: 0}
+  m_margin: {x: 0, y: 0, z: -95.7865, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -639,6 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraRef: {fileID: 1524545321}
+  blockCanvas: {fileID: 7043075110542181299}
   currentCodeType: 0
   bot00Blocks: {fileID: 666044702}
   bot01Blocks: {fileID: 1245362680}
@@ -1547,8 +1548,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -604.03986, y: -383.17273}
-  m_SizeDelta: {x: 619.9203, y: 271.6546}
+  m_AnchoredPosition: {x: -662, y: -418.13962}
+  m_SizeDelta: {x: 505.3254, y: 222.9524}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &316723709
 MonoBehaviour:
@@ -1624,8 +1625,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -604.03986, y: -436.04828}
-  m_SizeDelta: {x: 619.9203, y: 165.9035}
+  m_AnchoredPosition: {x: -659, y: -446.67014}
+  m_SizeDelta: {x: 505.3254, y: 155.096}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346574624
 MonoBehaviour:
@@ -1868,8 +1869,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -604.03986, y: -414.6069}
-  m_SizeDelta: {x: 619.9203, y: 235.402}
+  m_AnchoredPosition: {x: -661.3373, y: -441.6921}
+  m_SizeDelta: {x: 505.3254, y: 181.2316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &367304270
 MonoBehaviour:
@@ -2916,7 +2917,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Only executed the code connected to this block, if the target is reached
+  m_text: Only executes the code connected to the green wire of this block, if a
+    target exists.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -4045,14 +4047,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4081,7 +4083,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -559.418, y: -3.940031, z: -559.48016, w: -10.767956}
+  m_margin: {x: -559.418, y: 9.0693245, z: -559.48016, w: 8.969946}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5664,8 +5666,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -29, y: 36.074}
-  m_SizeDelta: {x: 1333.2297, y: 72.149}
+  m_AnchoredPosition: {x: -29, y: 50.624428}
+  m_SizeDelta: {x: 1333.2297, y: 43.0482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1067073839
 MonoBehaviour:
@@ -7961,8 +7963,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -29, y: 36.074}
-  m_SizeDelta: {x: 1333.2297, y: 72.149}
+  m_AnchoredPosition: {x: -29, y: 36}
+  m_SizeDelta: {x: 1333.2297, y: 77.5684}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1531221572
 MonoBehaviour:
@@ -8115,11 +8117,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: An if statement will only execute the code attached to the green wire,
-    if the requirement is met (just like a while loop). But it will only execute
-    that code once, which differentiates it from a while loop. If a red wire is part
-    of the if-block, you can choose a code block to execute when the requirement
-    is not met.
+  m_text: "An if statement will only execute the code attached to the green wire,
+    if the requirement is met (just like a while loop). \nBut it will only execute
+    that code once, which differentiates it from a while loop. \nIf a red wire is
+    part of the if-block, you can choose a code block to execute when the requirement
+    is not met."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -8147,8 +8149,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8183,7 +8185,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -187.18011, y: -105.99371, z: -181.18256, w: -94.54663}
+  m_margin: {x: -147.50363, y: -84.251236, z: -147.05469, w: -80.69742}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9389,14 +9391,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -9716,7 +9718,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: All green blocks define functions that execute a certain action, that the
-    robot can perform. See the description of each function-block to check which
+    robot can perform. Check the description of each function-block to see which
     type of action the function executes.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
@@ -9745,8 +9747,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9781,7 +9783,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -187.18011, y: -50.652405, z: -181.18256, w: -51.99362}
+  m_margin: {x: -145.16074, y: -43.994377, z: -145.85182, w: -51.99362}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9830,7 +9832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1771140028
@@ -9853,10 +9855,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A while loop executes the code attached to the green wire as long as the
-    requirement in the braces is met. In this case it is either if a target is present
-    (target != null) or not (target == null). If a red wire is part of the while-block,
-    you can choose a code block to execute when the requirement is not met.
+  m_text: "A while loop executes the code attached to the green wire as long as the
+    requirement in the braces is met. \n'!= null' means something does exist, \n'==
+    null' means the opposite. \nIf a red wire is part of the while-block, you can
+    choose a code block to execute when the requirement is not met."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -9884,8 +9886,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9920,7 +9922,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -187.18011, y: -105.993774, z: -181.18256, w: -94.54663}
+  m_margin: {x: -139.18294, y: -84.18468, z: -145.3409, w: -60.68775}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -10128,7 +10130,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Only executes the code connected to the green wire, if the target is reached
+  m_text: Only executes the code connected to the green wire, if the current target
+    is reached
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -10669,7 +10672,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Only executed the code connected to this block, if the target is reached
+  m_text: Only executes the code connected to the green wire of this block, if the
+    current target is reached.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -11116,7 +11120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The code starts here
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -11230,8 +11234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -604.03986, y: -383.17273}
-  m_SizeDelta: {x: 619.9203, y: 271.6546}
+  m_AnchoredPosition: {x: -660, y: -409.21896}
+  m_SizeDelta: {x: 505.3254, y: 237.7049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1947635478
 MonoBehaviour:
@@ -11667,8 +11671,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11703,7 +11707,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -187.18011, y: -48.826965, z: -181.18256, w: -106.31326}
+  m_margin: {x: -140.86406, y: -26.31435, z: -147.0162, w: -91.2064}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

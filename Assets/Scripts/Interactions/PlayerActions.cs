@@ -6,11 +6,15 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private PlayerControls playerControls;
     [SerializeField] private GameObject shoulderCam;
     [SerializeField] private GameObject inGameMenu;
+    [SerializeField] private PlanetConsole planetConsole;
     private InputAction interact;
     private InputAction openMenu;
     private InputAction toggleQuestUI;
     private InputAction startCom;
     private InputAction exitCom;
+    private InputAction switchLeft;
+    private InputAction switchRight;
+    private InputAction confirm;
 
     void OnEnable()
     {
@@ -35,6 +39,18 @@ public class PlayerActions : MonoBehaviour
         exitCom = playerControls.Computer.Exit;
         exitCom.Enable();
         exitCom.performed += ExitCom;
+
+        switchLeft = playerControls.PlanetConsole.SwitchLeft;
+        switchLeft.Enable();
+        switchLeft.performed += SwitchLeftOnPc;
+
+        switchRight = playerControls.PlanetConsole.SwitchRight;
+        switchRight.Enable();
+        switchRight.performed += SwitchRightOnPc;
+
+        confirm = playerControls.PlanetConsole.Confirm;
+        confirm.Enable();
+        confirm.performed += ConfirmOnPc;
     }
 
     private void Interact(InputAction.CallbackContext context)
@@ -79,6 +95,22 @@ public class PlayerActions : MonoBehaviour
             InteractableManager.Instance.InvokeEndCom();
     }
 
+    private void SwitchLeftOnPc(InputAction.CallbackContext context)
+    {
+        if (InteractableManager.Instance.interatingWithPlanetConsole)
+            planetConsole.SwitchPlanet();
+    }
+    private void SwitchRightOnPc(InputAction.CallbackContext context)
+    {
+        if (InteractableManager.Instance.interatingWithPlanetConsole)
+            planetConsole.SwitchPlanet();
+    }
+    private void ConfirmOnPc(InputAction.CallbackContext context)
+    {
+        if (InteractableManager.Instance.interatingWithPlanetConsole)
+            planetConsole.TravelToPlanet();
+    }
+
     private void OnDisable()
     {
         interact.Disable();
@@ -86,5 +118,8 @@ public class PlayerActions : MonoBehaviour
         toggleQuestUI.Disable();
         startCom.Disable();
         exitCom.Disable();
+        switchLeft.Disable();
+        switchRight.Disable();
+        confirm.Disable();
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class SaveLoadManager : MonoBehaviour
 {
+    [SerializeField] private UnityEvent loadCheckpointGeneral;
     [SerializeField] private UnityEvent loadCheckpoint01;
     [SerializeField] private UnityEvent loadCheckpoint02;
     [SerializeField] private GameObject player;
@@ -20,6 +21,8 @@ public class SaveLoadManager : MonoBehaviour
     }
     public void SaveCheckpoint(int checkpoint)
     {
+        // Checkpoint 01 in QuestManager.RepairedCompanion() Event
+        // Checkpoint 02 in WorkerBot00.TerminalRepaired()
         StartCoroutine(PlayLoadAnim());
         PlayerPrefs.SetInt("Checkpoint", checkpoint);
         SavePlayerPos();
@@ -32,10 +35,12 @@ public class SaveLoadManager : MonoBehaviour
         {
             case 1:
                 StartCoroutine(DelayedSetQuest(QuestManager.instance.quests[1], 0));
+                loadCheckpointGeneral.Invoke();
                 loadCheckpoint01.Invoke();
                 break;
             case 2:
-                StartCoroutine(DelayedSetQuest(QuestManager.instance.quests[1], 0));
+                StartCoroutine(DelayedSetQuest(QuestManager.instance.quests[3], 0));
+                loadCheckpointGeneral.Invoke();
                 loadCheckpoint02.Invoke();
                 break;
         }

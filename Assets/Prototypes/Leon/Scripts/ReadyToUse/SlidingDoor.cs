@@ -24,7 +24,7 @@ public class SlidingDoor : MonoBehaviour
         locked = false;
         boxCollider.enabled = false;
         meshObstacle.enabled = false;
-        Open();
+        Open(true);
     }
 
     public void SetLocked(bool locked)
@@ -47,18 +47,25 @@ public class SlidingDoor : MonoBehaviour
                 return;
             }
 
-            Open();
+            bool playSound;
+            if (other.gameObject.GetComponent<Player>() || other.gameObject.GetComponent<CompanionAnims>())
+                playSound = true;
+            else
+                playSound = false;
+
+            Open(playSound);
         }
     }
 
-    private void Open()
+    private void Open(bool sound)
     {
         timesOpened++;
 
         if (timesOpened == 1)
         {
             anim.SetTrigger("open");
-            SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
+            if (sound)
+                SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
         }
     }
 
@@ -66,18 +73,25 @@ public class SlidingDoor : MonoBehaviour
     {
         if (other.gameObject.GetComponent<MovingCharacter>() && !locked)
         {
-            Close();
+            bool playSound;
+            if (other.gameObject.GetComponent<Player>() || other.gameObject.GetComponent<CompanionAnims>())
+                playSound = true;
+            else
+                playSound = false;
+
+            Close(playSound);
         }
     }
 
-    private void Close()
+    private void Close(bool sound)
     {
         timesOpened--;
 
         if (timesOpened == 0)
         {
             anim.SetTrigger("close");
-            SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
+            if (sound)
+                SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
         }
 
     }

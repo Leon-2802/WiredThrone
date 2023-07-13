@@ -10,6 +10,7 @@ public class DebugManager : MonoBehaviour
     public Camera cameraRef;
     public event EventHandler compiledBot00;
     public event EventHandler compiledBot01;
+    [SerializeField] private Canvas blockCanvas;
     [SerializeField] private ECodeType currentCodeType;
     [SerializeField] private GameObject bot00Blocks;
     [SerializeField] private GameObject bot01Blocks;
@@ -39,6 +40,8 @@ public class DebugManager : MonoBehaviour
     {
         GameManager.Instance.lockedToPc = true;
         currentCodeType = codeType;
+        // make sure, that the camera is facing the canvas (sometimes it moves down for some reason)
+        cameraRef.gameObject.transform.position = new Vector3(blockCanvas.transform.position.x, blockCanvas.transform.position.y, cameraRef.gameObject.transform.position.z);
         switch (codeType)
         {
             case ECodeType.DamagedBot00:

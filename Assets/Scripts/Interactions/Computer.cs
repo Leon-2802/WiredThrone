@@ -1,11 +1,8 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Computer : Decoration
 {
-    public UnityEvent interactionStarted;
-    public UnityEvent interactionEnded;
     protected bool unavailable = false;
 
     [SerializeField] protected GameObject interactionInfo;
@@ -36,7 +33,6 @@ public class Computer : Decoration
         InteractableManager.Instance.isInteractingWithCom = true;
         InteractableManager.Instance.startCom += StartCom;
         InteractableManager.Instance.endCom += ExitCom;
-        interactionStarted.Invoke();
     }
 
     protected override void OnEndInteraction(object sender, EventArgs e)
@@ -45,7 +41,6 @@ public class Computer : Decoration
         InteractableManager.Instance.isInteractingWithCom = false;
         InteractableManager.Instance.startCom -= StartCom;
         InteractableManager.Instance.endCom -= ExitCom;
-        interactionEnded.Invoke();
         CameraController.instance.ResetBlendTime(); //Safety measure, in case Computer was not exited properly
     }
 

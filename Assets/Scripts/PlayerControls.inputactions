@@ -925,6 +925,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "PlanetConsole",
+            "id": "40943f8d-6e5b-4c46-9911-a825e4591932",
+            "actions": [
+                {
+                    "name": "SwitchLeft",
+                    "type": "Button",
+                    "id": "03b0965a-f933-4872-bd74-7ba49a86ffa2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchRight",
+                    "type": "Button",
+                    "id": "81277ded-4297-4653-823c-9220e9bb72fe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Confirm",
+                    "type": "Button",
+                    "id": "69749cb8-a41c-49fd-9f8a-b6acd735ba8c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "15e55579-2555-439b-9a48-63b631c08429",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e79ec85e-f9ed-4b25-ad94-f9db362c14d8",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d78d3dc-05cb-4352-a44b-3ca473256cb6",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

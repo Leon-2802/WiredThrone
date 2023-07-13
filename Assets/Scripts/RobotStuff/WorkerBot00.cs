@@ -39,7 +39,6 @@ public class WorkerBot00 : MonoBehaviour
         if (agent.remainingDistance <= agent.stoppingDistance && !interacting && initialized)
         {
             interacting = true;
-            Debug.Log(targetIndex);
             if (!terminalRepair)
             {
                 int rand = Random.Range(0, 10);
@@ -71,12 +70,14 @@ public class WorkerBot00 : MonoBehaviour
             // if end of terminalTarget array is reached, set to normal repair loop and Init
             if (targetIndex == terminalTargets.Length)
             {
+                TerminalRepaired(); // Invoke terminalRepaired event
                 terminalRepair = false;
                 targetIndex = 0;
                 Init();
                 interacting = false;
                 return;
             }
+            QuestManager.instance.LogComputerRepaired(); // on first iteration invoke logComputer event
             agent.SetDestination(terminalTargets[targetIndex].position);
         }
         interacting = false;
@@ -88,5 +89,10 @@ public class WorkerBot00 : MonoBehaviour
         yield return new WaitForSeconds(2f);
         currentTarget.GetChild(0).gameObject.SetActive(false);
         NextTarget();
+    }
+
+    private void TerminalRepaired()
+    {
+        QuestManager.instance.TerminalRepaired();
     }
 }

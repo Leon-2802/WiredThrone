@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Decoration : InteractableObject
 {
+    public UnityEvent interactionStarted;
+    public UnityEvent interactionEnded;
     [SerializeField] protected string interactionEndInfo;
     [SerializeField] protected Transform playerStandingPos;
     [SerializeField] protected float playerStoppingDistance;
@@ -31,6 +34,7 @@ public class Decoration : InteractableObject
 
         GeneralUIHandler.instance.InvokeOpenInteractionInfo(interactionIcon, interactionButton, interactionEndInfo);
         GameManager.Instance.playerClickMovement.ForceDestination(playerStandingPos, playerStoppingDistance); //Make player move to desired Pos
+        interactionStarted.Invoke();
     }
     protected virtual void OnEndInteraction(object sender, EventArgs e)
     {
@@ -39,6 +43,7 @@ public class Decoration : InteractableObject
 
         GameManager.Instance.playerClickMovement.SetStoppingDistance(0); //Reset Values to let Player be moved by clicking again
         GameManager.Instance.playerClickMovement.forcedDest = false; //Reset Values to let Player be moved by clicking again
+        interactionEnded.Invoke();
     }
 
     protected override void OnDestroy()

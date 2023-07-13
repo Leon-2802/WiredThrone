@@ -10,12 +10,13 @@ public class DialogueLine : DialogueBaseClass
     [SerializeField] private string input;
 
     [Header("Time Parameters")]
-    [SerializeField] private float delay = 0.1f;
-    [SerializeField] private float delayBetweenLines = 1f;
+    private float delay = 0.1f;
+    [SerializeField] private float delayBetweenLines = 1.5f;
 
 
     private void Start()
     {
-        StartCoroutine(WriteText(input, textHolder, ThemeManager.instance.dialogueColor, delay, delayBetweenLines));
+        delay = ThemeManager.instance.dialogueSpeed;
+        StartCoroutine(WriteText(input, textHolder, textHolder.color, delay, delayBetweenLines));
     }
 }

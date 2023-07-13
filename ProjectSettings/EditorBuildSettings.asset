@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Prototypes/Leon/FightArea.unity
     guid: 5ebc5ba23b37a794ba2267815c6bae00
+  - enabled: 1
+    path: Assets/Scenes/DebugRobots.unity
+    guid: 45c94bfd7e7ec984aab5dc2561433b1a
   m_configObjects: {}

@@ -4,7 +4,7 @@ public class SwitchGameplayManager : MonoBehaviour
 {
     public static SwitchGameplayManager instance;
     [SerializeField] private Camera mainCamera;
-    [SerializeField] private Camera debugScreenCamera;
+    private Camera debugScreenCamera;
 
     private void Awake()
     {

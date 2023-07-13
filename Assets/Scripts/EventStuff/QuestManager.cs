@@ -12,6 +12,8 @@ public class QuestManager : MonoBehaviour
     public UnityEvent repairedCompanion;
     public UnityEvent reachedWorkerBots;
     public UnityEvent debuggedWorkerBots;
+    public UnityEvent logComputerRepaired;
+    public UnityEvent terminalRepaired;
     public event EventHandler<SetQuestText> setQuest;
     public class SetQuestText : EventArgs
     {
@@ -83,7 +85,17 @@ public class QuestManager : MonoBehaviour
     public void DebuggedWorkerBots()
     {
         debuggedWorkerBots.Invoke();
-        InvokeSetQuest("New Task", 0);
+        InvokeSetQuest("Look for information in the terminal computers", 0);
+    }
+
+    public void LogComputerRepaired()
+    {
+        logComputerRepaired.Invoke();
+    }
+
+    public void TerminalRepaired()
+    {
+        terminalRepaired.Invoke();
     }
 
     public void InvokeSetQuest(string text, int taskIterations)

@@ -10,13 +10,14 @@ public class ClickMovement : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem clickEffect;
+    public bool forcedDest;
     private InputAction clickMove;
     private InputAction mousePosition;
     private Vector3 moveDirection;
     private Quaternion lastRot;
     private Transform forcedDestination;
-    public bool forcedDest;
     private float initalStoppingDistance;
+    private bool showControls;
 
     private void OnEnable()
     {
@@ -24,8 +25,6 @@ public class ClickMovement : MonoBehaviour
         playerControls = GameManager.Instance.playerControls;
 
         clickMove = playerControls.Player.ClickMove;
-        clickMove.Enable();
-        clickMove.performed += RightClickOnScene;
 
         mousePosition = playerControls.Player.MousePosition;
         mousePosition.Enable();
@@ -35,6 +34,7 @@ public class ClickMovement : MonoBehaviour
         forcedDest = false; //only true when player is moved towards an object
         initalStoppingDistance = agent.stoppingDistance; //stopping distance will be changed later when player is moved towards an object
     }
+
 
     void Update()
     {
@@ -46,6 +46,7 @@ public class ClickMovement : MonoBehaviour
                 {
                     animator.SetBool("Running", false);
                     GameManager.Instance.playerIsRunning = false;
+
                     if (forcedDest)
                     {
                         //Switch to shoulder cam and rotate player according to the rotation of the destination the player was forced towards
@@ -73,6 +74,23 @@ public class ClickMovement : MonoBehaviour
             animator.SetBool("Running", true);
             GameManager.Instance.playerIsRunning = true;
         }
+    }
+
+    public void EnableClickMove()
+    {
+        showControls = false;
+        clickMove.Enable();
+        clickMove.performed += RightClickOnScene;
+    }
+
+    public void MovePlayerToDestination(Transform dest)
+    {
+        clickEffect.transform.position = new Vector3(dest.position.x, (0.2f), dest.position.z);
+        clickEffect.Play();
+        agent.SetDestination(dest.position);
+        animator.SetBool("Running", true);
+        GameManager.Instance.playerIsRunning = true;
+        showControls = true;
     }
 
     public void ForceDestination(Transform dest, float stoppingDist)

@@ -947,6 +947,74 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PlanetConsole"",
+            ""id"": ""40943f8d-6e5b-4c46-9911-a825e4591932"",
+            ""actions"": [
+                {
+                    ""name"": ""SwitchLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""03b0965a-f933-4872-bd74-7ba49a86ffa2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""81277ded-4297-4653-823c-9220e9bb72fe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""69749cb8-a41c-49fd-9f8a-b6acd735ba8c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""15e55579-2555-439b-9a48-63b631c08429"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e79ec85e-f9ed-4b25-ad94-f9db362c14d8"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d78d3dc-05cb-4352-a44b-3ca473256cb6"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1041,6 +1109,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         // Computer
         m_Computer = asset.FindActionMap("Computer", throwIfNotFound: true);
         m_Computer_Exit = m_Computer.FindAction("Exit", throwIfNotFound: true);
+        // PlanetConsole
+        m_PlanetConsole = asset.FindActionMap("PlanetConsole", throwIfNotFound: true);
+        m_PlanetConsole_SwitchLeft = m_PlanetConsole.FindAction("SwitchLeft", throwIfNotFound: true);
+        m_PlanetConsole_SwitchRight = m_PlanetConsole.FindAction("SwitchRight", throwIfNotFound: true);
+        m_PlanetConsole_Confirm = m_PlanetConsole.FindAction("Confirm", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1364,6 +1437,55 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
     public ComputerActions @Computer => new ComputerActions(this);
+
+    // PlanetConsole
+    private readonly InputActionMap m_PlanetConsole;
+    private IPlanetConsoleActions m_PlanetConsoleActionsCallbackInterface;
+    private readonly InputAction m_PlanetConsole_SwitchLeft;
+    private readonly InputAction m_PlanetConsole_SwitchRight;
+    private readonly InputAction m_PlanetConsole_Confirm;
+    public struct PlanetConsoleActions
+    {
+        private @PlayerControls m_Wrapper;
+        public PlanetConsoleActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @SwitchLeft => m_Wrapper.m_PlanetConsole_SwitchLeft;
+        public InputAction @SwitchRight => m_Wrapper.m_PlanetConsole_SwitchRight;
+        public InputAction @Confirm => m_Wrapper.m_PlanetConsole_Confirm;
+        public InputActionMap Get() { return m_Wrapper.m_PlanetConsole; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlanetConsoleActions set) { return set.Get(); }
+        public void SetCallbacks(IPlanetConsoleActions instance)
+        {
+            if (m_Wrapper.m_PlanetConsoleActionsCallbackInterface != null)
+            {
+                @SwitchLeft.started -= m_Wrapper.m_PlanetConsoleActionsCallbackInterface.OnSwitchLeft;
+                @SwitchLeft.performed -= m_Wrapper.m_PlanetConsoleActionsCallbackInterface.OnSwitchLeft;
+                @SwitchLeft.canceled -= m_Wrapper.m_PlanetConsoleActionsCallbackInterface.OnSwitchLeft;
+                @SwitchRight.started -= m_Wrapper.m_PlanetConsoleActionsCallbackInterface.OnSwitchRight;
+                @SwitchRight.performed -= m_Wrapper.m_PlanetConsoleActionsCallbackInterface.OnSwitchRight;
+                @SwitchRight.canceled -= m_Wrapper.m_PlanetConsoleActionsCallbackInterface.OnSwitchRight;
+                @Confirm.started -= m_Wrapper.m_PlanetConsoleActionsCallbackInterface.OnConfirm;
+                @Confirm.performed -= m_Wrapper.m_PlanetConsoleActionsCallbackInterface.OnConfirm;
+                @Confirm.canceled -= m_Wrapper.m_PlanetConsoleActionsCallbackInterface.OnConfirm;
+            }
+            m_Wrapper.m_PlanetConsoleActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @SwitchLeft.started += instance.OnSwitchLeft;
+                @SwitchLeft.performed += instance.OnSwitchLeft;
+                @SwitchLeft.canceled += instance.OnSwitchLeft;
+                @SwitchRight.started += instance.OnSwitchRight;
+                @SwitchRight.performed += instance.OnSwitchRight;
+                @SwitchRight.canceled += instance.OnSwitchRight;
+                @Confirm.started += instance.OnConfirm;
+                @Confirm.performed += instance.OnConfirm;
+                @Confirm.canceled += instance.OnConfirm;
+            }
+        }
+    }
+    public PlanetConsoleActions @PlanetConsole => new PlanetConsoleActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1441,5 +1563,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     public interface IComputerActions
     {
         void OnExit(InputAction.CallbackContext context);
+    }
+    public interface IPlanetConsoleActions
+    {
+        void OnSwitchLeft(InputAction.CallbackContext context);
+        void OnSwitchRight(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
     }
 }
