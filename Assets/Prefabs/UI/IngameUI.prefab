@@ -437,7 +437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: 'That door seems to be jammed, hopefully I will '
+  input: This door seems to be jammed, let's hope I can find a way to open it.
   delayBetweenLines: 1
 --- !u!1 &1896953683233305278
 GameObject:
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: In the meantime, I will check out the travel console over there.
+  input: In the meantime, I will check out the other computer over there.
   delayBetweenLines: 1
 --- !u!1 &1996606854118971875
 GameObject:
@@ -575,6 +575,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7644789510257872550}
+  - {fileID: 5682803506813279481}
   - {fileID: 1445861610423138376}
   m_Father: {fileID: 4574770104546132349}
   m_RootOrder: 1
@@ -629,7 +630,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 889563090672985492}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1382,6 +1383,60 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &3516853846695260904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5682803506813279481}
+  - component: {fileID: 9043497605435073410}
+  m_Layer: 5
+  m_Name: Line01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &5682803506813279481
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516853846695260904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 202066269326083534}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9043497605435073410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516853846695260904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786eef7e26ece20438e620cabdad572a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugSkip: 0
+  textHolder: {fileID: 4574770104546132339}
+  input: If his data didn't get lost, he might have some helpful information for
+    me.
+  delayBetweenLines: 1
 --- !u!1 &3669604577904974490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,7 +1488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: Let's see what is left on that ship
+  input: Let's find the other people on this ship, maybe they know what happened.
   delayBetweenLines: 1
 --- !u!1 &3873856077983748459
 GameObject:
@@ -1539,7 +1594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: That little robot might be able to help me
+  input: Not a human, but these small supporter robots are pretty smart.
   delayBetweenLines: 1
 --- !u!1 &4565122825772097837
 GameObject:
@@ -1571,7 +1626,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 889563090672985492}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2017,6 +2072,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &4906617781082870549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2224288527784669492}
+  - component: {fileID: 7065668463620074663}
+  m_Layer: 5
+  m_Name: Line03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2224288527784669492
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906617781082870549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 889563090672985492}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7065668463620074663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906617781082870549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786eef7e26ece20438e620cabdad572a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugSkip: 0
+  textHolder: {fileID: 4574770104546132339}
+  input: It seems like you know your ways around technology, together we could get
+    this ship up and running again!
+  delayBetweenLines: 1
 --- !u!1 &4953123619771192473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,7 +2177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: It seems he did that intentionally to anyone who finds this ship.
+  input: He must have done that for a reason...
   delayBetweenLines: 1
 --- !u!1 &5210905671288371664
 GameObject:
@@ -2174,7 +2283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: Seems like I am lost somewhere in space...
+  input: Seems like I am in the medbay of a republican spaceship...
   delayBetweenLines: 1
 --- !u!1 &5259620300371765250
 GameObject:
@@ -2263,7 +2372,7 @@ GameObject:
   - component: {fileID: 1445861610423138376}
   - component: {fileID: 2495369207561711683}
   m_Layer: 5
-  m_Name: Line01
+  m_Name: Line02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2282,7 +2391,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 202066269326083534}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2303,7 +2412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: Let's get him repaired
+  input: Let's get him repaired.
   delayBetweenLines: 1
 --- !u!1 &5698631368691333242
 GameObject:
@@ -2356,7 +2465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: Take your time reading the log files
+  input: Take your time reading the log files, the information could be highly valuable.
   delayBetweenLines: 1
 --- !u!1 &5753163037673605012
 GameObject:
@@ -2949,7 +3058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 1
   textHolder: {fileID: 4574770104546132339}
-  input: It seems that the robot is fine physically, but the code looks pretty messed
+  input: The hardware of this robot is in good shape, but his code looks pretty messed
     up.
   delayBetweenLines: 1
 --- !u!1 &6530789967230810263
@@ -3114,6 +3223,7 @@ RectTransform:
   - {fileID: 5371064465157900245}
   - {fileID: 5416598685083209922}
   - {fileID: 6097672480868353019}
+  - {fileID: 2224288527784669492}
   - {fileID: 6196405410751035037}
   - {fileID: 8893858845500924967}
   m_Father: {fileID: 4574770104546132349}
@@ -3202,7 +3312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 1
   textHolder: {fileID: 4574770104546132339}
-  input: Do you remember the damaged robots we saw in the alley?
+  input: Do you remember the damaged robots we saw on the way here?
   delayBetweenLines: 1
 --- !u!1 &7346309741457336951
 GameObject:
@@ -3308,7 +3418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: 'The computers inside the terminal should be repaired soon. '
+  input: The computers inside the terminal should be repaired soon.
   delayBetweenLines: 1
 --- !u!1 &7578707771298742820
 GameObject:
@@ -3361,7 +3471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: Hey! Thanks for reviving me
+  input: Hey! Thanks for reviving me!
   delayBetweenLines: 1
 --- !u!1 &7734466487456932955
 GameObject:
@@ -3468,8 +3578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: You seem like a capable technician, with my help you might be able to get
-    that place up and running again!
+  input: I must have been passed out for days... but I can't remember why...
   delayBetweenLines: 1
 --- !u!1 &8042143336926533953
 GameObject:
@@ -3598,7 +3707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: The captain left his log files open to read on this computer
+  input: The captain left his log files open for anyone to read on this computer
   delayBetweenLines: 1
 --- !u!1 &8212118569703793872
 GameObject:
@@ -3704,7 +3813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 0
   textHolder: {fileID: 4574770104546132339}
-  input: It seems that the computers are not working
+  input: The computers inside the terminal can't access the database.
   delayBetweenLines: 1
 --- !u!1 &8566999605795463672
 GameObject:
@@ -3757,7 +3866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 1
   textHolder: {fileID: 4574770104546132339}
-  input: There has to be an issue with the power supply
+  input: There has to be an issue with the power supply of the dataserver.
   delayBetweenLines: 1
 --- !u!1 &8915322332804142859
 GameObject:

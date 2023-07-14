@@ -20,10 +20,10 @@ public class ManageQuestLog : MonoBehaviour
         for (int i = 0; i < QuestManager.instance.finishedQuests; i++)
         {
             questEntries[i].SetActive(true);
-            // deactivate "Finished Quests" text of the quest before, so that the text of the new finished quest object is used
-            // -> "Finished Quests" appears always on top of the list 
-            if (QuestManager.instance.finishedQuests >= 2)
-                questEntries[QuestManager.instance.finishedQuests - 2].transform.GetChild(0).gameObject.SetActive(false);
+            questEntries[i].transform.GetChild(0).gameObject.SetActive(false);
         }
+        // -> "Finished Quests" appears always on top of the list 
+        if (QuestManager.instance.finishedQuests > 0)
+            questEntries[QuestManager.instance.finishedQuests - 1].transform.GetChild(0).gameObject.SetActive(true);
     }
 }

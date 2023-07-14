@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -28,7 +26,7 @@ public class SpawnBlock : MonoBehaviour
     {
         GameObject canvas = GameObject.FindGameObjectWithTag("MainCanvas");
         GameObject objectAtPath = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-        
+
         GameObject instantiatedPrefab = Instantiate(objectAtPath);
         instantiatedPrefab.transform.SetParent(canvas.transform);
         instantiatedPrefab.transform.position = _spawnPos.position;

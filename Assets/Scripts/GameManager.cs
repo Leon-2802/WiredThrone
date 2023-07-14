@@ -68,6 +68,9 @@ public class GameManager : MonoBehaviour
                 case 1:
                     saveLoadManager.LoadCheckpoint(1);
                     break;
+                case 2:
+                    saveLoadManager.LoadCheckpoint(2);
+                    break;
             }
         }
         else
@@ -85,6 +88,9 @@ public class GameManager : MonoBehaviour
                 break;
             case 1:
                 saveLoadManager.LoadCheckpoint(1);
+                break;
+            case 2:
+                saveLoadManager.LoadCheckpoint(2);
                 break;
         }
     }

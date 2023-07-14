@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -35,7 +34,7 @@ public class VariableManager : MonoBehaviour
 
         // Calculate position for the button.
         int childCount = newButton.transform.parent.childCount;
-        Vector2 pos = newButton.transform.parent.GetChild(childCount-2).position;
+        Vector2 pos = newButton.transform.parent.GetChild(childCount - 2).position;
         //RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), new Vector2(0, yPos), Camera.main, out Vector2 canvasLocation);
         newButton.transform.localPosition = new Vector2(70, 160 - _createdVariables * 50);
         newButton.transform.GetComponentInChildren<TextMeshProUGUI>().text = name;
@@ -43,9 +42,9 @@ public class VariableManager : MonoBehaviour
         // Create new variable block instance.
         GameObject newBlock = Instantiate(_blockObject);
         childCount = newBlock.transform.childCount;
-        newBlock.transform.GetChild(childCount-1).GetComponent<TextMeshProUGUI>().text = name;
+        newBlock.transform.GetChild(childCount - 1).GetComponent<TextMeshProUGUI>().text = name;
         newBlock.name = name;
-        
+
         // Create prefab from newly created variable.
         string path = "Assets/Prefabs/Blocks/variables/" + newBlock.name + ".prefab";
         GameObject prefabBlock = PrefabUtility.SaveAsPrefabAsset(newBlock, path);
@@ -54,12 +53,13 @@ public class VariableManager : MonoBehaviour
 
         // Add onClick events for block spawning.
         newButton.GetComponent<Button>().onClick.RemoveAllListeners();
-        newButton.GetComponent<Button>().onClick.AddListener(delegate {SpawnBlockFromScript(path);});
-        
+        newButton.GetComponent<Button>().onClick.AddListener(delegate { SpawnBlockFromScript(path); });
+
         _createdVariables++;
     }
 
-    public void SpawnBlockFromScript(string path) {
+    public void SpawnBlockFromScript(string path)
+    {
         GameObject.FindGameObjectWithTag("SideBarCanvas").GetComponent<SpawnBlock>().SpawnBlockFromPath(path);
     }
 }

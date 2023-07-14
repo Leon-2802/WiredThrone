@@ -72,7 +72,7 @@ public class QuestManager : MonoBehaviour
     {
         finishedQuests++;
         reachedWorkerBots.Invoke();
-        InvokeSetQuest("Debug the two worker robots", 2);
+        InvokeSetQuest(quests[2], 2);
     }
     public void DebuggedOneWokerBot(int counter)
     {
@@ -84,8 +84,9 @@ public class QuestManager : MonoBehaviour
 
     public void DebuggedWorkerBots()
     {
+        finishedQuests++;
         debuggedWorkerBots.Invoke();
-        InvokeSetQuest("Look for information in the terminal computers", 0);
+        InvokeSetQuest(quests[3], 0);
     }
 
     public void LogComputerRepaired()

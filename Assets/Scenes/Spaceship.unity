@@ -3869,7 +3869,7 @@ MonoBehaviour:
   m_text: 'Sol 23
 
 
-    Lorem ipsum'
+    A cursed mission'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -5211,7 +5211,7 @@ PrefabInstance:
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -5315,6 +5315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
+      propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.data[9].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
       propertyPath: loadCheckpoint01.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1924033263}
@@ -5410,6 +5415,11 @@ PrefabInstance:
       objectReference: {fileID: 2042458077}
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
+      propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.data[9].m_Target
+      value: 
+      objectReference: {fileID: 1924033263}
+    - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
       propertyPath: loadCheckpoint01.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -5501,6 +5511,11 @@ PrefabInstance:
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.data[8].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.data[9].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
@@ -5632,6 +5647,11 @@ PrefabInstance:
         type: 3}
       propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.data[8].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.data[9].m_MethodName
+      value: SetCurrentQuest
       objectReference: {fileID: 0}
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -5835,6 +5855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
+      propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.data[9].m_TargetAssemblyTypeName
+      value: ManageQuestLog, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
       propertyPath: loadCheckpoint01.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
@@ -5857,6 +5882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: loadCheckpoint01.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_IntArgument
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.data[9].m_Arguments.m_IntArgument
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -5926,6 +5956,11 @@ PrefabInstance:
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.data[8].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.data[9].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
@@ -6080,6 +6115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
+      propertyPath: loadCheckpoint02.m_PersistentCalls.m_Calls.Array.data[9].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440596825858743889, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
       propertyPath: loadCheckpointGeneral.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -6190,6 +6230,11 @@ PrefabInstance:
         type: 3}
       propertyPath: debugLoadMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267782559207439892, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: debugCheckpoint
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2267782559207439892, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -6349,7 +6394,7 @@ PrefabInstance:
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -6473,6 +6518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
+      propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
       propertyPath: terminalRepaired.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8674022873163540664}
@@ -6593,6 +6643,11 @@ PrefabInstance:
       objectReference: {fileID: 899772156}
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
+      propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1924033263}
+    - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
       propertyPath: scrapCollected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_enabled
       objectReference: {fileID: 0}
@@ -6683,6 +6738,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
+      propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
       propertyPath: reachedWorkerBots.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetOnlyInspect
       objectReference: {fileID: 0}
@@ -6725,6 +6785,11 @@ PrefabInstance:
         type: 3}
       propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: InitTerminalRepair
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetCurrentQuest
       objectReference: {fileID: 0}
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -6863,6 +6928,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
+      propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ManageQuestLog, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
       propertyPath: reachedWorkerBots.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 2
       objectReference: {fileID: 0}
@@ -6875,6 +6945,11 @@ PrefabInstance:
         type: 3}
       propertyPath: repairedCompanion.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_IntArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
@@ -6924,6 +6999,11 @@ PrefabInstance:
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
@@ -7019,6 +7099,11 @@ PrefabInstance:
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
         type: 3}
       propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
+        type: 3}
+      propertyPath: debuggedWorkerBots.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4221577664548353755, guid: 4cfb771b444cf064fa31a381ca2a898b,
@@ -7632,9 +7717,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  m_text: 'Yesterday, a well-equipped gang of pirates intercepted our path. They
+    persist in their pursuit, but for now, our skilled pilots are able to maintain
+    a safe distance.
+
+
+
+    It is highly probable that the machines have received
+    information from our ship by now. In most instances, the pirates work for them.
+    And if not, there are still the crime syndicates attempting to exploit the crumbling
+    Galactic Republic for their own gain.
+
+
+
+    I have already dispatched an encrypted
+    message to higher command regarding our predicament, hoping it will reach them
+    just in time.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -18742,10 +18840,31 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-    et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet.
+  m_text: 'The scientists have turned the medbay of our ship into their small laboratory.
+    No one can enter it anymore, not even two of my soldiers who fell ill after we
+    departed from the spaceport on Ildani.
+
+
+
+    One of my combat medics caught
+    a glimpse inside their makeshift laboratory, and judging by the look on his face
+    when he described it to me, we should be frightened.
+
+
+
+    He witnessed a deformed
+    creature with only faint remnants of human features, floating in one of the tanks
+    they brought along.
+
+
+
+    And during the silent nights of the ship, the creature''s
+    screams could be heard, muffled only by the water in the tank that contains it.
+
+
+
+    Whatever
+    they are creating in there, we must all remain vigilant for what is to come...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -19877,7 +19996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &483467048
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19918,11 +20037,29 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-    amet, '
+  m_text: 'My name is Han Kimura, Captain of the 3rd Engineer Support Battalion of
+    the Republican Space Corps. I am writing these log files for anyone who might
+    find them in case we don''t make it. And let''s face it, this fear is justified.
+
+
+
+    We
+    received the mission from high-ranking officials in the Republican government.
+    They are scared, and we all share that fear. The machines are on the verge of
+    taking over, and we have very little to offer in terms of resistance. Everyone
+    is desperately clinging to the last glimmer of hope.
+
+
+
+    They have some crazy
+    plan to create a superhuman race in the labs of a forgotten moon on the outer
+    rim of the galaxy. That''s what I could gather by eavesdropping on a conversation
+    between two of the scientists accompanying us.
+
+
+
+    I have a terrible feeling
+    about all of this..'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -25197,7 +25334,7 @@ MonoBehaviour:
   m_text: 'Sol 36
 
 
-    Lorem Ipsum'
+    Unleashing the beast'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -31880,7 +32017,7 @@ MonoBehaviour:
   m_text: 'Sol 34
 
 
-    Lorem Ipsum'
+    Mourning the dead'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -56509,7 +56646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1411013494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -56609,11 +56746,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headerTextField: {fileID: 1152848697}
   headings:
-  - Sol 23
-  - Sol 26
-  - Sol 33
-  - Sol 34
-  - Sol 36
+  - Sol 23 - A cursed mission
+  - Sol 26 - The menace from the bottom of a test tube
+  - Sol 33 - Exposed
+  - Sol 34 - Mourning the dead
+  - Sol 36 - Unleashing the beast
   logtexts:
   - {fileID: 483467047}
   - {fileID: 462874535}
@@ -59693,11 +59830,29 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet
-    doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet,
-    consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-    dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
-    exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea '
+  m_text: 'They have us...
+
+    
+
+    The godless machines have found a way into
+    our systems and shut down life support. Although we managed to restore it momentarily,
+    they launched a full-force attack while we were distracted.
+
+    
+
+    This
+    battle is hopeless; only a fraction of my men remain. Humans are no match for
+    the machines.
+
+    
+
+    The scientists are eager to unleash their creation
+    upon the enemy - the next stage of Homo Sapiens, as they call it.
+
+    
+
+    And
+    there isn''t much holding me back anymore from allowing them to do so...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -64811,7 +64966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1638889509
 RectTransform:
   m_ObjectHideFlags: 0
@@ -70860,7 +71015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1788198949
 RectTransform:
   m_ObjectHideFlags: 0
@@ -71542,7 +71697,9 @@ MonoBehaviour:
   m_text: 'Sol 26
 
 
-    Lorem Ipsum'
+    The menace from the bottom of a test tube
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -73722,6 +73879,21 @@ PrefabInstance:
       propertyPath: dialogEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 143294041}
+    - target: {fileID: 989395908340170055, guid: c49ccfa33136a44f885e0afe57be93c9,
+        type: 3}
+      propertyPath: debugSkip
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571387941080865377, guid: c49ccfa33136a44f885e0afe57be93c9,
+        type: 3}
+      propertyPath: debugSkip
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778356384720537913, guid: c49ccfa33136a44f885e0afe57be93c9,
+        type: 3}
+      propertyPath: debugSkip
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1837956395300874549, guid: c49ccfa33136a44f885e0afe57be93c9,
         type: 3}
       propertyPath: dialogEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -73756,6 +73928,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -256.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143797248362914164, guid: c49ccfa33136a44f885e0afe57be93c9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2452278048895695045, guid: c49ccfa33136a44f885e0afe57be93c9,
+        type: 3}
+      propertyPath: m_Name
+      value: Line04
       objectReference: {fileID: 0}
     - target: {fileID: 2453064350365948833, guid: c49ccfa33136a44f885e0afe57be93c9,
         type: 3}
@@ -73797,6 +73979,11 @@ PrefabInstance:
     - target: {fileID: 2839198573259040213, guid: c49ccfa33136a44f885e0afe57be93c9,
         type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093088000358061146, guid: c49ccfa33136a44f885e0afe57be93c9,
+        type: 3}
+      propertyPath: debugSkip
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3252504981897129735, guid: c49ccfa33136a44f885e0afe57be93c9,
@@ -73888,6 +74075,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 135.643
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565122825772097837, guid: c49ccfa33136a44f885e0afe57be93c9,
+        type: 3}
+      propertyPath: m_Name
+      value: Line05
       objectReference: {fileID: 0}
     - target: {fileID: 4574770104546132339, guid: c49ccfa33136a44f885e0afe57be93c9,
         type: 3}
@@ -74239,6 +74431,11 @@ PrefabInstance:
       propertyPath: dialogEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7236283558700137578, guid: c49ccfa33136a44f885e0afe57be93c9,
+        type: 3}
+      propertyPath: input
+      value: We should repair these robots, they know best how to fix this issue.
+      objectReference: {fileID: 0}
     - target: {fileID: 7448833134435763332, guid: c49ccfa33136a44f885e0afe57be93c9,
         type: 3}
       propertyPath: dialogEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -74283,6 +74480,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 388
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627308664885665352, guid: c49ccfa33136a44f885e0afe57be93c9,
+        type: 3}
+      propertyPath: debugSkip
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7924872642015426201, guid: c49ccfa33136a44f885e0afe57be93c9,
         type: 3}
@@ -88588,7 +88790,7 @@ MonoBehaviour:
   m_text: 'Sol 33
 
 
-    Lorem Ipsum'
+    Exposed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -89810,7 +90012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2133065851
 RectTransform:
   m_ObjectHideFlags: 0
@@ -90123,9 +90325,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-    consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan
-    et iusto odio dignissim qui blandit praesent luptatum '
+  m_text: 'The pirate gang lured us close to one of their new hideouts, an abandoned
+    space station located next to an asteroid field.
+
+
+
+    We managed to fend off
+    both the pirates outside and those who managed to breach our ship. The scientists
+    went into hiding in one of the concealed emergency rooms, taking their suspicious
+    tank with them. They survived...
+
+
+
+    However, we lost one-third of our men...
+    There is no time for a funeral out here in the wild expanse of space, so they
+    will rest eternally in the frigid vacuum...
+
+
+
+    Live to fight another day,
+    boys! You will be missed...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -113763,7 +113982,8 @@ MonoBehaviour:
   rendererRefs:
   - {fileID: 81358437393294168}
   objectImage: {fileID: 21300000, guid: d9400a42abe501e4e94e1449ea3f81b8, type: 3}
-  objectInfo: Looks like a dead medic. He must be dead for many days already.
+  objectInfo: A corpse inside a hazmat suit... That's not your typical outfit to
+    wear inside a medbay
   outlineScaleFactor: 1.4
 --- !u!135 &7010798859115667764
 SphereCollider:
@@ -116809,8 +117029,8 @@ MonoBehaviour:
   - {fileID: 8740025941845041795}
   - {fileID: 1582739880870833688}
   objectImage: {fileID: 21300000, guid: 9333f7612887a1e4ab0cff8917af3037, type: 3}
-  objectInfo: A pile of very big humanoid bones. Which creatures body did those bones
-    use to carry once? And why are they here?
+  objectInfo: A pile of very big humanoid bones. Even in the vast expanse of our
+    galaxy, we've never heard of giants existing for real. But those bones look real...
   outlineScaleFactor: 1.4
 --- !u!65 &7825820695441838570
 BoxCollider:
@@ -117025,7 +117245,8 @@ MonoBehaviour:
   rendererRefs:
   - {fileID: 609421826364134430}
   objectImage: {fileID: 21300000, guid: 754cf9c95e7fd854c8f98734677ce70a, type: 3}
-  objectInfo: Looks like a dead medic. He must be dead for many days already.
+  objectInfo: A corpse inside a hazmat suit... That's not your typical outfit to
+    wear inside a medbay
   outlineScaleFactor: 1.4
 --- !u!135 &7872554715431607658
 SphereCollider:
