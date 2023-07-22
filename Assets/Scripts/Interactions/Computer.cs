@@ -53,6 +53,7 @@ public class Computer : Decoration
     protected virtual void ExitCom(object sender, EventArgs e)
     {
         GameManager.Instance.playerControls.Player.Enable();
+        GameManager.Instance.playerControls.Player.ClickMove.Disable(); // Keep ClickMovement disabled, so player can't move while interacting with computer
         GameManager.Instance.playerControls.Computer.Disable();
     }
 

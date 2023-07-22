@@ -53,6 +53,9 @@ public class DebugRobotCode : Computer
         shoulderCam.SetActive(false);
         interactionInfo.SetActive(false);
         InteractableManager.Instance.LeaveInteractionZone();
+        InteractableManager.Instance.isInteractingWithCom = false;
+        InteractableManager.Instance.startInteraction -= OnStartInteraction;
+        InteractableManager.Instance.endInteraction -= OnEndInteraction;
         StartCoroutine(ResetBlendTime());
     }
 

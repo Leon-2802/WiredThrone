@@ -1,0 +1,646 @@
+fileFormatVersion: 2
+guid: 4600f2e0463af5c40bb20aaeb53c13a0
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: -5695956684833139887
+    second: robot_rotation_controller|Armature|Take 001|BaseLayer
+  - first:
+      74: 4077965883931603251
+    second: robot_rotation_controller|Box001|Take 001|BaseLayer
+  - first:
+      74: -2987764977467804466
+    second: robot_rotation_controller|Dummy003|Take 001|BaseLayer
+  - first:
+      74: 5581837195557731829
+    second: robot_rotation_controller|Dummy004|Take 001|BaseLayer
+  - first:
+      74: -3086228920801158469
+    second: robot_rotation_controller|Dummy005|Take 001|BaseLayer
+  - first:
+      74: 2855921952722460859
+    second: robot_rotation_controller|Dummy006|Take 001|BaseLayer
+  - first:
+      74: 2555609688538537845
+    second: robot_rotation_controller|Dummy007|Take 001|BaseLayer
+  - first:
+      74: 6735362757639851796
+    second: robot_rotation_controller|Finger_001|Take 001|BaseLayer
+  - first:
+      74: -5168759157561376727
+    second: robot_rotation_controller|Finger_005|Take 001|BaseLayer
+  - first:
+      74: -5426025857891915277
+    second: robot_rotation_controller|Finger_006|Take 001|BaseLayer
+  - first:
+      74: 7052608697519504034
+    second: robot_rotation_controller|Finger_007|Take 001|BaseLayer
+  - first:
+      74: -8277192181297328273
+    second: robot_rotation_controller|Finger_013|Take 001|BaseLayer
+  - first:
+      74: 4290386471935866546
+    second: robot_rotation_controller|Finger_014|Take 001|BaseLayer
+  - first:
+      74: 4000366406896928273
+    second: robot_rotation_controller|Finger_015|Take 001|BaseLayer
+  - first:
+      74: 3347176827165806061
+    second: robot_rotation_controller|Finger_016|Take 001|BaseLayer
+  - first:
+      74: -3974745791641186141
+    second: robot_rotation_controller|Finger_017|Take 001|BaseLayer
+  - first:
+      74: 3045574414419770490
+    second: robot_rotation_controller|Finger_018|Take 001|BaseLayer
+  - first:
+      74: -5836426968548479472
+    second: robot_rotation_controller|HUB|Take 001|BaseLayer
+  - first:
+      74: 9148917572805436828
+    second: robot_rotation_controller|Jump_controller|Take 001|BaseLayer
+  - first:
+      74: -4732174435431955754
+    second: robot_rotation_controller|R_Hand_002|Take 001|BaseLayer
+  - first:
+      74: -4832523862550462342
+    second: robot_rotation_controller|R_Hand_003|Take 001|BaseLayer
+  - first:
+      74: 7755046278297930027
+    second: robot_rotation_controller|R_Hand_004.001|Take 001|BaseLayer
+  - first:
+      74: -6552425126563559039
+    second: robot_rotation_controller|R_Hand_005|Take 001|BaseLayer
+  - first:
+      74: 4373275255524285422
+    second: robot_rotation_controller|R_Hand_007|Take 001|BaseLayer
+  - first:
+      74: 1731219679082471482
+    second: robot_rotation_controller|R_Hand_009|Take 001|BaseLayer
+  - first:
+      74: -7592054505156616651
+    second: robot_rotation_controller|R_Leg_003|Take 001|BaseLayer
+  - first:
+      74: 3178929994743171975
+    second: robot_rotation_controller|R_Leg_005|Take 001|BaseLayer
+  - first:
+      74: -6356878370632938992
+    second: robot_rotation_controller|R_Leg_006.001|Take 001|BaseLayer
+  - first:
+      74: -8453729046387482487
+    second: robot_rotation_controller|R_Leg_008|Take 001|BaseLayer
+  - first:
+      74: -7389069756308009375
+    second: robot_rotation_controller|R_Leg_011|Take 001|BaseLayer
+  - first:
+      74: 3639795771655380323
+    second: robot_rotation_controller|R_Leg_014|Take 001|BaseLayer
+  - first:
+      74: 1326818302751652689
+    second: robot_rotation_controller|robot_rotation_controller|Take 001|BaseLayer
+  - first:
+      74: -5913848342349725140
+    second: robot_rotation_controller|Root|Take 001|BaseLayer
+  - first:
+      74: -7100172086313031912
+    second: robot_rotation_controller|Shield_L_Mower|Take 001|BaseLayer
+  - first:
+      74: -4598300009101613675
+    second: robot_rotation_controller|Shield_R_Mower|Take 001|BaseLayer
+  - first:
+      74: 4198692255929179430
+    second: robot_rotation_controller|Taz_001|Take 001|BaseLayer
+  - first:
+      74: -6164018354470506282
+    second: robot_rotation_controller|Torso_HUB|Take 001|BaseLayer
+  - first:
+      74: 3209798262664950062
+    second: robot_rotation_controller|Torso_seg_001|Take 001|BaseLayer
+  - first:
+      74: -4900351961499548618
+    second: robot_rotation_controller|Torso_seg_002|Take 001|BaseLayer
+  - first:
+      74: 5167966545678166962
+    second: robot_rotation_controller|Torso_Shoulder_001|Take 001|BaseLayer
+  - first:
+      74: -4627771331379285235
+    second: robot_rotation_controller|Torso_Shoulder_002|Take 001|BaseLayer
+  - first:
+      74: -2399257206827779270
+    second: robot_rotation_controller|Torso_Shoulder_003|Take 001|BaseLayer
+  - first:
+      74: 8181845577856799373
+    second: robot_rotation_controller|Torso_Shoulder_004|Take 001|BaseLayer
+  - first:
+      74: -7232345120353564388
+    second: robot_rotation_controller|Torso_Shoulder_005|Take 001|BaseLayer
+  - first:
+      74: 347395410818350013
+    second: robot_rotation_controller|Torso_Shoulder_006|Take 001|BaseLayer
+  - first:
+      74: -4835950242030360559
+    second: Root|Armature|Take 001|BaseLayer
+  - first:
+      74: -8083326165820229805
+    second: Root|Box001|Take 001|BaseLayer
+  - first:
+      74: -5416083818354843197
+    second: Root|Dummy003|Take 001|BaseLayer
+  - first:
+      74: 3516879692590949670
+    second: Root|Dummy004|Take 001|BaseLayer
+  - first:
+      74: 6572357835625413875
+    second: Root|Dummy005|Take 001|BaseLayer
+  - first:
+      74: 7115992759402265549
+    second: Root|Dummy006|Take 001|BaseLayer
+  - first:
+      74: -7109032845940600044
+    second: Root|Dummy007|Take 001|BaseLayer
+  - first:
+      74: 8153235746027074307
+    second: Root|Finger_001|Take 001|BaseLayer
+  - first:
+      74: 2931499348585045802
+    second: Root|Finger_005|Take 001|BaseLayer
+  - first:
+      74: -5819906409492041672
+    second: Root|Finger_006|Take 001|BaseLayer
+  - first:
+      74: -7366876734599484271
+    second: Root|Finger_007|Take 001|BaseLayer
+  - first:
+      74: -6417956905563348423
+    second: Root|Finger_013|Take 001|BaseLayer
+  - first:
+      74: 4161773905153825768
+    second: Root|Finger_014|Take 001|BaseLayer
+  - first:
+      74: -7115000961182702301
+    second: Root|Finger_015|Take 001|BaseLayer
+  - first:
+      74: 4073870849082006822
+    second: Root|Finger_016|Take 001|BaseLayer
+  - first:
+      74: 2287571764217160349
+    second: Root|Finger_017|Take 001|BaseLayer
+  - first:
+      74: 6282079534386527169
+    second: Root|Finger_018|Take 001|BaseLayer
+  - first:
+      74: -2909921592181343801
+    second: Root|HUB|Take 001|BaseLayer
+  - first:
+      74: 2614038186602305900
+    second: Root|Jump_controller|Take 001|BaseLayer
+  - first:
+      74: -2315301900618494722
+    second: Root|R_Hand_002|Take 001|BaseLayer
+  - first:
+      74: 8332003200699222887
+    second: Root|R_Hand_003|Take 001|BaseLayer
+  - first:
+      74: -7449115157710456410
+    second: Root|R_Hand_004.001|Take 001|BaseLayer
+  - first:
+      74: -4932982800139359810
+    second: Root|R_Hand_005|Take 001|BaseLayer
+  - first:
+      74: -8666595764365875672
+    second: Root|R_Hand_007|Take 001|BaseLayer
+  - first:
+      74: -8800110149728067336
+    second: Root|R_Hand_009|Take 001|BaseLayer
+  - first:
+      74: -1866778681902766354
+    second: Root|R_Leg_003|Take 001|BaseLayer
+  - first:
+      74: -2932962091662946379
+    second: Root|R_Leg_005|Take 001|BaseLayer
+  - first:
+      74: -1927370590947496508
+    second: Root|R_Leg_006.001|Take 001|BaseLayer
+  - first:
+      74: 6395219177316497216
+    second: Root|R_Leg_008|Take 001|BaseLayer
+  - first:
+      74: 5863839042836509749
+    second: Root|R_Leg_011|Take 001|BaseLayer
+  - first:
+      74: 6588712609830724220
+    second: Root|R_Leg_014|Take 001|BaseLayer
+  - first:
+      74: -4838241409614518625
+    second: Root|robot_rotation_controller|Take 001|BaseLayer
+  - first:
+      74: -1833641857158553092
+    second: Root|Root|Take 001|BaseLayer
+  - first:
+      74: -5661108740354576490
+    second: Root|Shield_L_Mower|Take 001|BaseLayer
+  - first:
+      74: 8576997894990729711
+    second: Root|Shield_R_Mower|Take 001|BaseLayer
+  - first:
+      74: -4643471387709871913
+    second: Root|Taz_001|Take 001|BaseLayer
+  - first:
+      74: -1255405889162099448
+    second: Root|Torso_HUB|Take 001|BaseLayer
+  - first:
+      74: -4553093139755187034
+    second: Root|Torso_seg_001|Take 001|BaseLayer
+  - first:
+      74: 5684527879005950686
+    second: Root|Torso_seg_002|Take 001|BaseLayer
+  - first:
+      74: 3316268788439046696
+    second: Root|Torso_Shoulder_001|Take 001|BaseLayer
+  - first:
+      74: 3534519434933414183
+    second: Root|Torso_Shoulder_002|Take 001|BaseLayer
+  - first:
+      74: 9076456686757029100
+    second: Root|Torso_Shoulder_003|Take 001|BaseLayer
+  - first:
+      74: -2835819390610352773
+    second: Root|Torso_Shoulder_004|Take 001|BaseLayer
+  - first:
+      74: -3803600929432463596
+    second: Root|Torso_Shoulder_005|Take 001|BaseLayer
+  - first:
+      74: -5869885190367900047
+    second: Root|Torso_Shoulder_006|Take 001|BaseLayer
+  - first:
+      74: -5937110980518872522
+    second: R_Hand_009|Armature|Take 001|BaseLayer
+  - first:
+      74: 39458827780246748
+    second: R_Hand_009|Box001|Take 001|BaseLayer
+  - first:
+      74: 5805302440349990279
+    second: R_Hand_009|Dummy003|Take 001|BaseLayer
+  - first:
+      74: 641686115524906661
+    second: R_Hand_009|Dummy004|Take 001|BaseLayer
+  - first:
+      74: -4665890156089994963
+    second: R_Hand_009|Dummy005|Take 001|BaseLayer
+  - first:
+      74: 5488419358929384617
+    second: R_Hand_009|Dummy006|Take 001|BaseLayer
+  - first:
+      74: 8752919990494923629
+    second: R_Hand_009|Dummy007|Take 001|BaseLayer
+  - first:
+      74: -6174343763126350426
+    second: R_Hand_009|Finger_001|Take 001|BaseLayer
+  - first:
+      74: -8648368578855986518
+    second: R_Hand_009|Finger_005|Take 001|BaseLayer
+  - first:
+      74: 7037425499069924229
+    second: R_Hand_009|Finger_006|Take 001|BaseLayer
+  - first:
+      74: -6214671727815053615
+    second: R_Hand_009|Finger_007|Take 001|BaseLayer
+  - first:
+      74: 583386909586496109
+    second: R_Hand_009|Finger_013|Take 001|BaseLayer
+  - first:
+      74: -2989621707857619247
+    second: R_Hand_009|Finger_014|Take 001|BaseLayer
+  - first:
+      74: 9187606802521649854
+    second: R_Hand_009|Finger_015|Take 001|BaseLayer
+  - first:
+      74: -2166720814972130397
+    second: R_Hand_009|Finger_016|Take 001|BaseLayer
+  - first:
+      74: 20687362873913986
+    second: R_Hand_009|Finger_017|Take 001|BaseLayer
+  - first:
+      74: 3353191599865719225
+    second: R_Hand_009|Finger_018|Take 001|BaseLayer
+  - first:
+      74: 8177602337295831048
+    second: R_Hand_009|HUB|Take 001|BaseLayer
+  - first:
+      74: 1982028001593803837
+    second: R_Hand_009|Jump_controller|Take 001|BaseLayer
+  - first:
+      74: 6040067044307645006
+    second: R_Hand_009|R_Hand_002|Take 001|BaseLayer
+  - first:
+      74: 8853217528034375204
+    second: R_Hand_009|R_Hand_003|Take 001|BaseLayer
+  - first:
+      74: -2314120289070158307
+    second: R_Hand_009|R_Hand_004.001|Take 001|BaseLayer
+  - first:
+      74: 554792422205071139
+    second: R_Hand_009|R_Hand_005|Take 001|BaseLayer
+  - first:
+      74: 4981022591829673581
+    second: R_Hand_009|R_Hand_007|Take 001|BaseLayer
+  - first:
+      74: 7616876736627919255
+    second: R_Hand_009|R_Hand_009|Take 001|BaseLayer
+  - first:
+      74: -3926208718900480983
+    second: R_Hand_009|R_Leg_003|Take 001|BaseLayer
+  - first:
+      74: -2631673630793239297
+    second: R_Hand_009|R_Leg_005|Take 001|BaseLayer
+  - first:
+      74: -5288683294923844578
+    second: R_Hand_009|R_Leg_006.001|Take 001|BaseLayer
+  - first:
+      74: 1978813202857481690
+    second: R_Hand_009|R_Leg_008|Take 001|BaseLayer
+  - first:
+      74: -4486694364711351316
+    second: R_Hand_009|R_Leg_011|Take 001|BaseLayer
+  - first:
+      74: -8985379959521019951
+    second: R_Hand_009|R_Leg_014|Take 001|BaseLayer
+  - first:
+      74: 7189926009922896761
+    second: R_Hand_009|robot_rotation_controller|Take 001|BaseLayer
+  - first:
+      74: 3869461306158832594
+    second: R_Hand_009|Root|Take 001|BaseLayer
+  - first:
+      74: 811508308416362375
+    second: R_Hand_009|Shield_L_Mower|Take 001|BaseLayer
+  - first:
+      74: 2585155877120487471
+    second: R_Hand_009|Shield_R_Mower|Take 001|BaseLayer
+  - first:
+      74: 145065282053252322
+    second: R_Hand_009|Taz_001|Take 001|BaseLayer
+  - first:
+      74: 5052134621399188170
+    second: R_Hand_009|Torso_HUB|Take 001|BaseLayer
+  - first:
+      74: 1633681233009751435
+    second: R_Hand_009|Torso_seg_001|Take 001|BaseLayer
+  - first:
+      74: 7383809182057378167
+    second: R_Hand_009|Torso_seg_002|Take 001|BaseLayer
+  - first:
+      74: -7901808462401016612
+    second: R_Hand_009|Torso_Shoulder_001|Take 001|BaseLayer
+  - first:
+      74: -6096261342050803707
+    second: R_Hand_009|Torso_Shoulder_002|Take 001|BaseLayer
+  - first:
+      74: 127215505677374088
+    second: R_Hand_009|Torso_Shoulder_003|Take 001|BaseLayer
+  - first:
+      74: -2231726462275792051
+    second: R_Hand_009|Torso_Shoulder_004|Take 001|BaseLayer
+  - first:
+      74: 3674612740847631873
+    second: R_Hand_009|Torso_Shoulder_005|Take 001|BaseLayer
+  - first:
+      74: -3818576091660974616
+    second: R_Hand_009|Torso_Shoulder_006|Take 001|BaseLayer
+  - first:
+      74: 3099237648705026944
+    second: R_Hand_004.001|Armature|Take 001|BaseLayer
+  - first:
+      74: -6211211669658285070
+    second: R_Hand_004.001|Box001|Take 001|BaseLayer
+  - first:
+      74: 4383057334539732854
+    second: R_Hand_004.001|Dummy003|Take 001|BaseLayer
+  - first:
+      74: -2318068606843612655
+    second: R_Hand_004.001|Dummy004|Take 001|BaseLayer
+  - first:
+      74: 1447503289158747768
+    second: R_Hand_004.001|Dummy005|Take 001|BaseLayer
+  - first:
+      74: -3963603259407895697
+    second: R_Hand_004.001|Dummy006|Take 001|BaseLayer
+  - first:
+      74: -8836989642980754570
+    second: R_Hand_004.001|Dummy007|Take 001|BaseLayer
+  - first:
+      74: 3249143025601118166
+    second: R_Hand_004.001|Finger_001|Take 001|BaseLayer
+  - first:
+      74: 4989634134595699661
+    second: R_Hand_004.001|Finger_005|Take 001|BaseLayer
+  - first:
+      74: -6773971334185592648
+    second: R_Hand_004.001|Finger_006|Take 001|BaseLayer
+  - first:
+      74: 6862979853830026794
+    second: R_Hand_004.001|Finger_007|Take 001|BaseLayer
+  - first:
+      74: -4166229314487933819
+    second: R_Hand_004.001|Finger_013|Take 001|BaseLayer
+  - first:
+      74: 7371158460317264955
+    second: R_Hand_004.001|Finger_014|Take 001|BaseLayer
+  - first:
+      74: 1201389886121575863
+    second: R_Hand_004.001|Finger_015|Take 001|BaseLayer
+  - first:
+      74: 3321993039563840706
+    second: R_Hand_004.001|Finger_016|Take 001|BaseLayer
+  - first:
+      74: 827543260373416091
+    second: R_Hand_004.001|Finger_017|Take 001|BaseLayer
+  - first:
+      74: -580147584185776077
+    second: R_Hand_004.001|Finger_018|Take 001|BaseLayer
+  - first:
+      74: 4361932014057441976
+    second: R_Hand_004.001|HUB|Take 001|BaseLayer
+  - first:
+      74: 2236204006360061697
+    second: R_Hand_004.001|Jump_controller|Take 001|BaseLayer
+  - first:
+      74: -5213436562758029650
+    second: R_Hand_004.001|R_Hand_002|Take 001|BaseLayer
+  - first:
+      74: 9138649020016874125
+    second: R_Hand_004.001|R_Hand_003|Take 001|BaseLayer
+  - first:
+      74: 8076855569052519677
+    second: R_Hand_004.001|R_Hand_004.001|Take 001|BaseLayer
+  - first:
+      74: 445723338291138041
+    second: R_Hand_004.001|R_Hand_005|Take 001|BaseLayer
+  - first:
+      74: 1512344285576417700
+    second: R_Hand_004.001|R_Hand_007|Take 001|BaseLayer
+  - first:
+      74: -646480458921307695
+    second: R_Hand_004.001|R_Hand_009|Take 001|BaseLayer
+  - first:
+      74: 2596483544519892377
+    second: R_Hand_004.001|R_Leg_003|Take 001|BaseLayer
+  - first:
+      74: -8793256881195080137
+    second: R_Hand_004.001|R_Leg_005|Take 001|BaseLayer
+  - first:
+      74: -5365409679069724896
+    second: R_Hand_004.001|R_Leg_006.001|Take 001|BaseLayer
+  - first:
+      74: 8025804713078001073
+    second: R_Hand_004.001|R_Leg_008|Take 001|BaseLayer
+  - first:
+      74: -4470141766221091395
+    second: R_Hand_004.001|R_Leg_011|Take 001|BaseLayer
+  - first:
+      74: 3449682542798628801
+    second: R_Hand_004.001|R_Leg_014|Take 001|BaseLayer
+  - first:
+      74: -5984736787484221793
+    second: R_Hand_004.001|robot_rotation_controller|Take 001|BaseLayer
+  - first:
+      74: 8760212272735870825
+    second: R_Hand_004.001|Root|Take 001|BaseLayer
+  - first:
+      74: 5952604885533413323
+    second: R_Hand_004.001|Shield_L_Mower|Take 001|BaseLayer
+  - first:
+      74: 3165021611387717315
+    second: R_Hand_004.001|Shield_R_Mower|Take 001|BaseLayer
+  - first:
+      74: 2764602400955487344
+    second: R_Hand_004.001|Taz_001|Take 001|BaseLayer
+  - first:
+      74: -8383036622046937940
+    second: R_Hand_004.001|Torso_HUB|Take 001|BaseLayer
+  - first:
+      74: 3305488194519991215
+    second: R_Hand_004.001|Torso_seg_001|Take 001|BaseLayer
+  - first:
+      74: -8119914089920405675
+    second: R_Hand_004.001|Torso_seg_002|Take 001|BaseLayer
+  - first:
+      74: 3538925038381724278
+    second: R_Hand_004.001|Torso_Shoulder_001|Take 001|BaseLayer
+  - first:
+      74: 6879528107431263380
+    second: R_Hand_004.001|Torso_Shoulder_002|Take 001|BaseLayer
+  - first:
+      74: -913319662734377839
+    second: R_Hand_004.001|Torso_Shoulder_003|Take 001|BaseLayer
+  - first:
+      74: -5044247502746323266
+    second: R_Hand_004.001|Torso_Shoulder_004|Take 001|BaseLayer
+  - first:
+      74: 7431349186720537894
+    second: R_Hand_004.001|Torso_Shoulder_005|Take 001|BaseLayer
+  - first:
+      74: -2952999654948703526
+    second: R_Hand_004.001|Torso_Shoulder_006|Take 001|BaseLayer
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

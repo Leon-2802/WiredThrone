@@ -25,8 +25,8 @@ public class SaveLoadManager : MonoBehaviour
         // Checkpoint 02 in QuestManager.TerminalRepaired() Event
         StartCoroutine(PlayLoadAnim());
         PlayerPrefs.SetInt("Checkpoint", checkpoint);
-        SavePlayerPos();
-        SaveCompanionPos();
+        // SavePlayerPos(player.transform);
+        // SaveCompanionPos(companion.transform);
     }
     public void LoadCheckpoint(int num)
     {
@@ -50,12 +50,19 @@ public class SaveLoadManager : MonoBehaviour
         LoadCompanionPos();
     }
 
-    private void SavePlayerPos()
+    public void SavePlayerPos(Transform pos)
     {
-        PlayerPrefs.SetFloat("PlayerPosX", player.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerPosY", player.transform.position.y);
-        PlayerPrefs.SetFloat("PlayerPosZ", player.transform.position.z);
+        PlayerPrefs.SetFloat("PlayerPosX", pos.position.x);
+        PlayerPrefs.SetFloat("PlayerPosY", pos.position.y);
+        PlayerPrefs.SetFloat("PlayerPosZ", pos.position.z);
     }
+    public void SaveCompanionPos(Transform pos)
+    {
+        PlayerPrefs.SetFloat("CompanionPosX", pos.position.x);
+        PlayerPrefs.SetFloat("CompanionPosY", pos.position.y);
+        PlayerPrefs.SetFloat("CompanionPosZ", pos.position.z);
+    }
+
     private void LoadPlayerPos()
     {
         if (!PlayerPrefs.HasKey("PlayerPosX"))
@@ -72,12 +79,6 @@ public class SaveLoadManager : MonoBehaviour
         playerAgent.enabled = true;
     }
 
-    private void SaveCompanionPos()
-    {
-        PlayerPrefs.SetFloat("CompanionPosX", companion.transform.position.x);
-        PlayerPrefs.SetFloat("CompanionPosY", companion.transform.position.y);
-        PlayerPrefs.SetFloat("CompanionPosZ", companion.transform.position.z);
-    }
     private void LoadCompanionPos()
     {
         if (!PlayerPrefs.HasKey("CompanionPosX"))

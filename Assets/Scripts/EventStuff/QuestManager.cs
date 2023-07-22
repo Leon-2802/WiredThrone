@@ -85,6 +85,7 @@ public class QuestManager : MonoBehaviour
     public void DebuggedWorkerBots()
     {
         finishedQuests++;
+        SwitchGameplayManager.instance.debuggingDone = true;
         debuggedWorkerBots.Invoke();
         InvokeSetQuest(quests[3], 0);
     }
@@ -97,6 +98,16 @@ public class QuestManager : MonoBehaviour
     public void TerminalRepaired()
     {
         terminalRepaired.Invoke();
+    }
+
+    public void GoToRobobauwerke()
+    {
+        InvokeSetQuest("Follow the robot to the location", 0);
+    }
+
+    public void RepairRobotBuildPC()
+    {
+        InvokeSetQuest("Call the repair robot for help", 0);
     }
 
     public void InvokeSetQuest(string text, int taskIterations)

@@ -94,4 +94,9 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+
+    public void DestroyGameObject(GameObject go)
+    {
+        Destroy(go);
+    }
 }

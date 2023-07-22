@@ -3,6 +3,7 @@ using UnityEngine;
 public class SwitchGameplayManager : MonoBehaviour
 {
     public static SwitchGameplayManager instance;
+    public bool debuggingDone = false; // set to true inside QuestManager.DebuggedWorkerBots()
     [SerializeField] private Camera mainCamera;
     private Camera debugScreenCamera;
 
@@ -24,8 +25,11 @@ public class SwitchGameplayManager : MonoBehaviour
 
     public void SwitchToDebugCamera()
     {
-        mainCamera.enabled = false;
-        debugScreenCamera.enabled = true;
+        if (!debuggingDone) // block this function when debugging is done, bc for some reason it gets called still after the robots are disabled
+        {
+            mainCamera.enabled = false;
+            debugScreenCamera.enabled = true;
+        }
     }
     public void SwitchToMainCamera()
     {
