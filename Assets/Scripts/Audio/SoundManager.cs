@@ -4,6 +4,7 @@ public enum ESounds { SlidingDoor, Text, DoorError, Collect, RepairCompanion, We
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
+    [SerializeField] private AudioSource music;
     [SerializeField] private AudioSource slidingDoor;
     [SerializeField] private AudioSource text;
     [SerializeField] private AudioSource doorError;
@@ -19,6 +20,11 @@ public class SoundManager : MonoBehaviour
             Destroy(this.gameObject);
         else
             instance = this;
+    }
+
+    private void Start()
+    {
+        music.Play();
     }
 
     public void PlaySoundOneShot(ESounds soundName)

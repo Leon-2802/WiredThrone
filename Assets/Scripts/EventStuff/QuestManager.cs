@@ -14,6 +14,8 @@ public class QuestManager : MonoBehaviour
     public UnityEvent debuggedWorkerBots;
     public UnityEvent logComputerRepaired;
     public UnityEvent terminalRepaired;
+    public UnityEvent programmingTaskAvailable;
+    public UnityEvent roboterProgrammed;
     public event EventHandler<SetQuestText> setQuest;
     public class SetQuestText : EventArgs
     {
@@ -92,6 +94,7 @@ public class QuestManager : MonoBehaviour
 
     public void LogComputerRepaired()
     {
+        finishedQuests++;
         logComputerRepaired.Invoke();
     }
 
@@ -108,6 +111,20 @@ public class QuestManager : MonoBehaviour
     public void RepairRobotBuildPC()
     {
         InvokeSetQuest("Call the repair robot for help", 0);
+    }
+
+    public void ProgrammingTaskAvailable()
+    {
+        programmingTaskAvailable.Invoke();
+        InvokeSetQuest("Program and build combat robot", 2);
+        finishedQuests++;
+    }
+
+    public void RoboterProgrammed()
+    {
+        finishedQuests = 5;
+        roboterProgrammed.Invoke();
+        InvokeSetQuest("Choose a travel destination", 0);
     }
 
     public void InvokeSetQuest(string text, int taskIterations)

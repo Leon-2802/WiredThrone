@@ -294,8 +294,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: As long as there is no target, the code connected to the green wire is
-    executed, if there is no target, the code attached to the red wire is executed.
+  m_text: As long as there is no target, the code connected to the blue wire is executed,
+    if there is no target, the code attached to the red wire is executed.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -2425,7 +2425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Only executes the code connected via the green wire, if a target is given
+  m_text: Only executes the code connected via the blue wire, if a target is given
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -3703,8 +3703,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Only executes the code connected to the green wire of this block, if a
-    target exists.
+  m_text: Only executes the code connected to the blue wire of this block, if a target
+    exists.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
   m_sharedMaterial: {fileID: -4765910814055300583, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d,
@@ -4681,8 +4681,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSkip: 1
   textHolder: {fileID: 1981991239}
-  input: You have to connect the code blocks by dragging the blue wires from their
-    respective socket to the target block.
+  input: You have to connect the code blocks by dragging the wires from their respective
+    socket to the target block.
   delayBetweenLines: 1
 --- !u!1 &800538516
 GameObject:
@@ -8827,7 +8827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: As long as there is no target, the code connected via the green wire is
+  m_text: As long as there is no target, the code connected via the blue wire is
     being executed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
@@ -9594,7 +9594,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "An if statement will only execute the code attached to the green wire,
+  m_text: "An if statement will only execute the code attached to the blue wire,
     if the requirement is met (just like a while loop). \nBut it will only execute
     that code once, which differentiates it from a while loop. \nIf a red wire is
     part of the if-block, you can choose a code block to execute when the requirement
@@ -11346,7 +11346,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A while loop executes the code attached to the green wire as long as the
+  m_text: "A while loop executes the code attached to the blue wire as long as the
     requirement in the braces is met. \n'!= null' means something does exist, \n'==
     null' means the opposite. \nIf a red wire is part of the while-block, you can
     choose a code block to execute when the requirement is not met."
@@ -11697,7 +11697,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Only executes the code connected to the green wire, if the current target
+  m_text: Only executes the code connected to the blue wire, if the current target
     is reached
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}
@@ -12250,7 +12250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Only executes the code connected to the green wire of this block, if the
+  m_text: Only executes the code connected to the blue wire of this block, if the
     current target is reached.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6a9bcc9d5ce38b4e8bea5e870b85f3d, type: 2}

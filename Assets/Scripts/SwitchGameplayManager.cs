@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class SwitchGameplayManager : MonoBehaviour
 {
     public static SwitchGameplayManager instance;
     public bool debuggingDone = false; // set to true inside QuestManager.DebuggedWorkerBots()
+    public event EventHandler onProgrammingFinished;
     [SerializeField] private Camera mainCamera;
     private Camera debugScreenCamera;
 
@@ -35,5 +37,17 @@ public class SwitchGameplayManager : MonoBehaviour
     {
         debugScreenCamera.enabled = false;
         mainCamera.enabled = true;
+    }
+
+    public void SwitchToProgrammingGameplay()
+    {
+        GameManager.Instance.lockedToPc = true;
+        ProgrammingFinished();
+    }
+
+    public void ProgrammingFinished()
+    {
+        GameManager.Instance.lockedToPc = false;
+        onProgrammingFinished.Invoke(this, EventArgs.Empty);
     }
 }

@@ -71,6 +71,9 @@ public class GameManager : MonoBehaviour
                 case 2:
                     saveLoadManager.LoadCheckpoint(2);
                     break;
+                case 3:
+                    saveLoadManager.LoadCheckpoint(3);
+                    break;
             }
         }
         else

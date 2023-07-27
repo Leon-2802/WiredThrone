@@ -8,6 +8,7 @@ public class SaveLoadManager : MonoBehaviour
     [SerializeField] private UnityEvent loadCheckpointGeneral;
     [SerializeField] private UnityEvent loadCheckpoint01;
     [SerializeField] private UnityEvent loadCheckpoint02;
+    [SerializeField] private UnityEvent loadCheckpoint03;
     [SerializeField] private GameObject player;
     [SerializeField] private NavMeshAgent playerAgent;
     [SerializeField] private GameObject companion;
@@ -45,6 +46,13 @@ public class SaveLoadManager : MonoBehaviour
                 loadCheckpointGeneral.Invoke();
                 loadCheckpoint02.Invoke();
                 break;
+            case 3:
+                StartCoroutine(DelayedSetQuest(QuestManager.instance.quests[5], 0));
+                QuestManager.instance.finishedQuests = 5;
+                loadCheckpointGeneral.Invoke();
+                loadCheckpoint03.Invoke();
+                break;
+
         }
         LoadPlayerPos();
         LoadCompanionPos();

@@ -20,7 +20,7 @@ public class ShowClickControls : MonoBehaviour
     IEnumerator ShowClick()
     {
         yield return new WaitForSeconds(1.5f);
-        clickMovement.MovePlayerToDestination(destination);
+        // clickMovement.MovePlayerToDestination(destination);
         controlInfo.SetActive(true);
     }
 }

@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class WorkerBot01 : MonoBehaviour
 {
+    public event EventHandler repairFinised;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Transform idlePosition;
     [SerializeField] private GameObject repairEffect;
@@ -51,6 +53,7 @@ public class WorkerBot01 : MonoBehaviour
         agent.SetDestination(idlePosition.position);
         movingBackToIdlePos = true;
         enRoute = true;
+        repairFinised.Invoke(this, EventArgs.Empty);
     }
 
 }
