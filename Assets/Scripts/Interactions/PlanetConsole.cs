@@ -4,6 +4,7 @@ public class PlanetConsole : MonoBehaviour
 {
     [SerializeField] private CutSceneManager cutSceneManager;
     [SerializeField] private MeshRenderer mRenderer;
+    [SerializeField] private MeshRenderer holoRenderer;
     [SerializeField] private Material[] planetMats;
     [SerializeField] private GameObject canvasContent;
     [SerializeField] private GameObject planet00Text;
@@ -14,11 +15,14 @@ public class PlanetConsole : MonoBehaviour
     [SerializeField] private GameObject planet01Mesh;
     private int currentPlanetIndex = -1;
     private bool travellingPossible = false;
+    private float previousOutlineSize;
 
 
     public void InitConsole()
     {
         canvasContent.SetActive(true);
+        holoRenderer.enabled = false;
+        mRenderer.enabled = true;
         mRenderer.material = planetMats[0];
         currentPlanetIndex = 0;
     }
@@ -50,6 +54,9 @@ public class PlanetConsole : MonoBehaviour
         }
 
         mRenderer.material = planetMats[currentPlanetIndex];
+        previousOutlineSize = mRenderer.material.GetFloat("_OutlineSize");
+        mRenderer.material.SetFloat("_OutlineSize", previousOutlineSize * 1.4f);
+        mRenderer.material.SetColor("_OutlineColor", Color.white);
     }
 
     public void TravelToPlanet()

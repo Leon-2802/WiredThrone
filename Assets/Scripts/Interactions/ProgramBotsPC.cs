@@ -46,6 +46,7 @@ public class ProgramBotsPC : Computer
         InteractableManager.Instance.isInteractingWithCom = false;
         InteractableManager.Instance.startInteraction -= OnStartInteraction;
         InteractableManager.Instance.endInteraction -= OnEndInteraction;
+        InteractableManager.Instance.DeselectInteractable(rendererRefs, previousOutlineSizes[0]);
         StartCoroutine(ResetBlendTime());
     }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class SwitchGameplayManager : MonoBehaviour
@@ -42,12 +43,18 @@ public class SwitchGameplayManager : MonoBehaviour
     public void SwitchToProgrammingGameplay()
     {
         GameManager.Instance.lockedToPc = true;
-        ProgrammingFinished();
+        // StartCoroutine(DelayedProgrammingFinished());
     }
-
     public void ProgrammingFinished()
     {
         GameManager.Instance.lockedToPc = false;
         onProgrammingFinished.Invoke(this, EventArgs.Empty);
+    }
+
+
+    IEnumerator DelayedProgrammingFinished()
+    {
+        yield return new WaitForSeconds(2f);
+        ProgrammingFinished();
     }
 }

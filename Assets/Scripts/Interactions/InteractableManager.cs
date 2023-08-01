@@ -26,6 +26,15 @@ public class InteractableManager : MonoBehaviour
     }
 
 
+    public void DeselectInteractable(Renderer[] renderers, float previousOutlineSize)
+    {
+        foreach (MeshRenderer renderer in renderers)
+        {
+            renderer.materials[0].SetColor("_OutlineColor", Color.black);
+            renderer.materials[0].SetFloat("_OutlineSize", previousOutlineSize);
+        }
+    }
+
     public void EnterInteractionZone(bool isOneShotInteraction)
     {
         if (interactionAvailable)
