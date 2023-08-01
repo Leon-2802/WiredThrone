@@ -75,7 +75,8 @@ public class PlayerActions : MonoBehaviour
 
     private void ToggleInGameMenu(InputAction.CallbackContext context)
     {
-        GameManager.Instance.TogglePlayerControls(inGameMenu.activeInHierarchy);
+        if (!GameManager.Instance.lockedToPc)
+            GameManager.Instance.TogglePlayerControls(inGameMenu.activeInHierarchy);
         inGameMenu.SetActive(!inGameMenu.activeInHierarchy);
     }
 
