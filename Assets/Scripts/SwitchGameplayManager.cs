@@ -43,7 +43,7 @@ public class SwitchGameplayManager : MonoBehaviour
     public void SwitchToProgrammingGameplay()
     {
         GameManager.Instance.lockedToPc = true;
-        // StartCoroutine(DelayedProgrammingFinished());
+        StartCoroutine(DelayedProgrammingFinished()); // TODO: entfernen, ist nur  drin damit ich den Programmier-Szene Part überspringen konnte zum debuggen
     }
     public void ProgrammingFinished()
     {
