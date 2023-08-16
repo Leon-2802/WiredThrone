@@ -27,6 +27,7 @@ public class CutSceneManager : MonoBehaviour
     public void InitCompanionRepairedScene()
     {
         companion.SetActive(false);
+        player.SetActive(false);
         companionRepairedScene.SetActive(true);
         GameManager.Instance.playerControls.Disable();
         StartCoroutine(DisableCutscene(companionRepairedClip.duration, 1));
@@ -49,6 +50,7 @@ public class CutSceneManager : MonoBehaviour
             case 1:
                 companionRepairedScene.SetActive(false);
                 companion.SetActive(true);
+                player.SetActive(true);
                 QuestManager.instance.InvokeSetQuest(QuestManager.instance.quests[1], 0);
                 break;
         }
