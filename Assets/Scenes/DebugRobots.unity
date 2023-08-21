@@ -3562,7 +3562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eef7e26ece20438e620cabdad572a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugSkip: 1
+  debugSkip: 0
   textHolder: {fileID: 1981991239}
   input: He searched for things to repair (targets), and if he found something, he
     approached the target and repaired it
@@ -4679,7 +4679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eef7e26ece20438e620cabdad572a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugSkip: 1
+  debugSkip: 0
   textHolder: {fileID: 1981991239}
   input: You have to connect the code blocks by dragging the wires from their respective
     socket to the target block.
@@ -9531,7 +9531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eef7e26ece20438e620cabdad572a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugSkip: 1
+  debugSkip: 0
   textHolder: {fileID: 1981991239}
   input: Hang in there, if you can repair this robot, we will have another very helpful
     friend on our side.
