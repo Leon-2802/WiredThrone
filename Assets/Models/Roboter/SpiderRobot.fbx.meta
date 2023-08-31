@@ -1,0 +1,562 @@
+fileFormatVersion: 2
+guid: 02a40a0683fca47c895e3f6ffcd7670c
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: 4219266326801906582
+    second: Body|BodyAction
+  - first:
+      74: -1988840936455354759
+    second: Body|DisplayEyeL.Action
+  - first:
+      74: 7279967550101369192
+    second: Body|DisplayEyeRAction
+  - first:
+      74: 6042390227460793472
+    second: Body|GPencilAction
+  - first:
+      74: -6360014236433177508
+    second: Body|Plane.004Action
+  - first:
+      74: 991905650495325491
+    second: Body|Plane.005Action
+  - first:
+      74: -6417725246616141778
+    second: Body|Plane.006Action
+  - first:
+      74: 3834998851236064535
+    second: Body|PlaneAction
+  - first:
+      74: -610649943432392731
+    second: Body|RobotControllerAction.003
+  - first:
+      74: 4841003266067349596
+    second: Plane.001|BodyAction
+  - first:
+      74: 4279296146483719514
+    second: Plane.001|DisplayEyeL.Action
+  - first:
+      74: 2514718551069552042
+    second: Plane.001|DisplayEyeRAction
+  - first:
+      74: -54898593125039992
+    second: Plane.001|GPencilAction
+  - first:
+      74: -2858551162337178960
+    second: Plane.001|Plane.001Action
+  - first:
+      74: -6287438649780975003
+    second: Plane.001|Plane.004Action
+  - first:
+      74: 6675089407125312526
+    second: Plane.001|Plane.005Action
+  - first:
+      74: -5394002402298101321
+    second: Plane.001|Plane.006Action
+  - first:
+      74: -2193830699095671242
+    second: Plane.001|PlaneAction
+  - first:
+      74: 2007100323481568702
+    second: Plane.001|RobotControllerAction.003
+  - first:
+      74: -9098379978631401863
+    second: DisplayEyeL.|BodyAction
+  - first:
+      74: 7640031793251881967
+    second: DisplayEyeL.|DisplayEyeL.Action
+  - first:
+      74: 776196748314006247
+    second: DisplayEyeL.|DisplayEyeRAction
+  - first:
+      74: -3068930871773083190
+    second: DisplayEyeL.|GPencilAction
+  - first:
+      74: -6108309862753588154
+    second: DisplayEyeL.|Plane.004Action
+  - first:
+      74: 1271683132724839852
+    second: DisplayEyeL.|Plane.005Action
+  - first:
+      74: 5111362516108369054
+    second: DisplayEyeL.|Plane.006Action
+  - first:
+      74: -5399447864716862171
+    second: DisplayEyeL.|PlaneAction
+  - first:
+      74: 677127953583556974
+    second: DisplayEyeL.|RobotControllerAction.003
+  - first:
+      74: 8379267769380712791
+    second: DisplayEyeR|BodyAction
+  - first:
+      74: 6241426533703185460
+    second: DisplayEyeR|DisplayEyeL.Action
+  - first:
+      74: 1432531989465359591
+    second: DisplayEyeR|DisplayEyeRAction
+  - first:
+      74: -3019014370031096985
+    second: DisplayEyeR|GPencilAction
+  - first:
+      74: 2209950278823494887
+    second: DisplayEyeR|Plane.004Action
+  - first:
+      74: -2199758172163633418
+    second: DisplayEyeR|Plane.005Action
+  - first:
+      74: 1077990260442219292
+    second: DisplayEyeR|Plane.006Action
+  - first:
+      74: 252598771978925026
+    second: DisplayEyeR|PlaneAction
+  - first:
+      74: 7672921965426366384
+    second: DisplayEyeR|RobotControllerAction.003
+  - first:
+      74: 5656918066177633719
+    second: Plane|BodyAction
+  - first:
+      74: 6870089938751655485
+    second: Plane|DisplayEyeL.Action
+  - first:
+      74: -1521757603825990734
+    second: Plane|DisplayEyeRAction
+  - first:
+      74: -7435536195927069947
+    second: Plane|GPencilAction
+  - first:
+      74: 8425867028898396774
+    second: Plane|Plane.004Action
+  - first:
+      74: -97886529502071890
+    second: Plane|Plane.005Action
+  - first:
+      74: -2476548715160416648
+    second: Plane|Plane.006Action
+  - first:
+      74: -5187248419258813496
+    second: Plane|PlaneAction
+  - first:
+      74: -2264857060939662065
+    second: Plane|RobotControllerAction.003
+  - first:
+      74: -2787719428604926376
+    second: Plane.004|BodyAction
+  - first:
+      74: -2151194597773001960
+    second: Plane.004|DisplayEyeL.Action
+  - first:
+      74: 8984515550527135104
+    second: Plane.004|DisplayEyeRAction
+  - first:
+      74: 3594031174442663856
+    second: Plane.004|GPencilAction
+  - first:
+      74: 3291044285716752439
+    second: Plane.004|Plane.004Action
+  - first:
+      74: -569489110234000851
+    second: Plane.004|Plane.005Action
+  - first:
+      74: -93131845271990553
+    second: Plane.004|Plane.006Action
+  - first:
+      74: 2732433559783368663
+    second: Plane.004|PlaneAction
+  - first:
+      74: 4844345302181890327
+    second: Plane.004|RobotControllerAction.003
+  - first:
+      74: -5043817113134551306
+    second: Plane.005|BodyAction
+  - first:
+      74: -7904139298843974878
+    second: Plane.005|DisplayEyeL.Action
+  - first:
+      74: 1481524934985093157
+    second: Plane.005|DisplayEyeRAction
+  - first:
+      74: -1400429094296576785
+    second: Plane.005|GPencilAction
+  - first:
+      74: 704659365732197730
+    second: Plane.005|Plane.004Action
+  - first:
+      74: 4624265041913375413
+    second: Plane.005|Plane.005Action
+  - first:
+      74: -5112723058041662290
+    second: Plane.005|Plane.006Action
+  - first:
+      74: 1192810856221468815
+    second: Plane.005|PlaneAction
+  - first:
+      74: 522514731526834520
+    second: Plane.005|RobotControllerAction.003
+  - first:
+      74: 5403434932904669319
+    second: Plane.006|BodyAction
+  - first:
+      74: 8192335502553480810
+    second: Plane.006|DisplayEyeL.Action
+  - first:
+      74: 2485462308166222839
+    second: Plane.006|DisplayEyeRAction
+  - first:
+      74: 4316498274769972765
+    second: Plane.006|GPencilAction
+  - first:
+      74: -3784846390772882761
+    second: Plane.006|Plane.004Action
+  - first:
+      74: -2041368983900245707
+    second: Plane.006|Plane.005Action
+  - first:
+      74: 1837505092662289624
+    second: Plane.006|Plane.006Action
+  - first:
+      74: -3872399984482807170
+    second: Plane.006|PlaneAction
+  - first:
+      74: 3280535721546500649
+    second: Plane.006|RobotControllerAction.003
+  - first:
+      74: 6979402734144047709
+    second: Plane.002|BodyAction
+  - first:
+      74: 2645638483519931405
+    second: Plane.002|DisplayEyeL.Action
+  - first:
+      74: -4719345309797721900
+    second: Plane.002|DisplayEyeRAction
+  - first:
+      74: -929356907211756485
+    second: Plane.002|GPencilAction
+  - first:
+      74: 3014605971857321428
+    second: Plane.002|Plane.004Action
+  - first:
+      74: 3849797337993788079
+    second: Plane.002|Plane.005Action
+  - first:
+      74: -2201960337217255861
+    second: Plane.002|Plane.006Action
+  - first:
+      74: 2392506347608420488
+    second: Plane.002|PlaneAction
+  - first:
+      74: 5542732005607994210
+    second: Plane.002|RobotControllerAction.003
+  - first:
+      74: 6037725512522783857
+    second: Empty|BodyAction
+  - first:
+      74: -1342926024869761079
+    second: Empty|DisplayEyeL.Action
+  - first:
+      74: 8823045871117321074
+    second: Empty|DisplayEyeRAction
+  - first:
+      74: -4845242217290835157
+    second: Empty|GPencilAction
+  - first:
+      74: -3763650708874809214
+    second: Empty|Plane.004Action
+  - first:
+      74: -6276962714210949903
+    second: Empty|Plane.005Action
+  - first:
+      74: 2539088381464224263
+    second: Empty|Plane.006Action
+  - first:
+      74: 5716298791274398956
+    second: Empty|PlaneAction
+  - first:
+      74: -6384032808446863524
+    second: Empty|RobotControllerAction.003
+  - first:
+      74: 5059864838860260476
+    second: IK Target|BodyAction
+  - first:
+      74: -9085826304842762572
+    second: IK Target|DisplayEyeL.Action
+  - first:
+      74: 1239390573960548844
+    second: IK Target|DisplayEyeRAction
+  - first:
+      74: 6514444965587597098
+    second: IK Target|GPencilAction
+  - first:
+      74: 6390681798326889263
+    second: IK Target|IK TargetAction
+  - first:
+      74: -4124473633045377738
+    second: IK Target|IK TargetAction.001
+  - first:
+      74: -926888962766439120
+    second: IK Target|IK TargetAction.002
+  - first:
+      74: -5195145049585288273
+    second: IK Target|IK TargetAction.003
+  - first:
+      74: -7279143665838537574
+    second: IK Target|Plane.004Action
+  - first:
+      74: 3029763333787520626
+    second: IK Target|Plane.005Action
+  - first:
+      74: -2678535769116337276
+    second: IK Target|Plane.006Action
+  - first:
+      74: 2825884551318804166
+    second: IK Target|PlaneAction
+  - first:
+      74: -2767846786091563642
+    second: IK Target|RobotControllerAction.003
+  - first:
+      74: -2332621129805741274
+    second: IK Target.001|BodyAction
+  - first:
+      74: -4445623211521697894
+    second: IK Target.001|DisplayEyeL.Action
+  - first:
+      74: 3972212042108785570
+    second: IK Target.001|DisplayEyeRAction
+  - first:
+      74: 1875747398520796549
+    second: IK Target.001|GPencilAction
+  - first:
+      74: 860039920953928583
+    second: IK Target.001|IK TargetAction
+  - first:
+      74: 5348053225168103713
+    second: IK Target.001|IK TargetAction.001
+  - first:
+      74: 519922143025573431
+    second: IK Target.001|IK TargetAction.002
+  - first:
+      74: -9200598331157033730
+    second: IK Target.001|IK TargetAction.003
+  - first:
+      74: -1778995359650093849
+    second: IK Target.001|Plane.004Action
+  - first:
+      74: -3073321060605304603
+    second: IK Target.001|Plane.005Action
+  - first:
+      74: 3969354481837596656
+    second: IK Target.001|Plane.006Action
+  - first:
+      74: 5853013439174049894
+    second: IK Target.001|PlaneAction
+  - first:
+      74: 5283416076377995804
+    second: IK Target.001|RobotControllerAction.003
+  - first:
+      74: 5812419746780627681
+    second: IK Target.002|BodyAction
+  - first:
+      74: -5782705135720433330
+    second: IK Target.002|DisplayEyeL.Action
+  - first:
+      74: 2394469542655277107
+    second: IK Target.002|DisplayEyeRAction
+  - first:
+      74: -819009027501681160
+    second: IK Target.002|GPencilAction
+  - first:
+      74: 5634952758143241797
+    second: IK Target.002|IK TargetAction
+  - first:
+      74: -1311565352370204837
+    second: IK Target.002|IK TargetAction.001
+  - first:
+      74: 6967271902984682660
+    second: IK Target.002|IK TargetAction.002
+  - first:
+      74: 9113152162387226664
+    second: IK Target.002|IK TargetAction.003
+  - first:
+      74: 5147781325660808792
+    second: IK Target.002|Plane.004Action
+  - first:
+      74: 8943611150860681309
+    second: IK Target.002|Plane.005Action
+  - first:
+      74: 5384512150556321470
+    second: IK Target.002|Plane.006Action
+  - first:
+      74: 1864441037096676289
+    second: IK Target.002|PlaneAction
+  - first:
+      74: -4570852800011740068
+    second: IK Target.002|RobotControllerAction.003
+  - first:
+      74: 2039276755042703895
+    second: IK Target.003|BodyAction
+  - first:
+      74: -3782434630228590012
+    second: IK Target.003|DisplayEyeL.Action
+  - first:
+      74: 355687759193944945
+    second: IK Target.003|DisplayEyeRAction
+  - first:
+      74: -4058376484994483673
+    second: IK Target.003|GPencilAction
+  - first:
+      74: -330616215348149914
+    second: IK Target.003|IK TargetAction
+  - first:
+      74: 1291684675123157509
+    second: IK Target.003|IK TargetAction.001
+  - first:
+      74: 8413236803656685416
+    second: IK Target.003|IK TargetAction.002
+  - first:
+      74: 2860462646873508512
+    second: IK Target.003|IK TargetAction.003
+  - first:
+      74: 6516700126759618367
+    second: IK Target.003|Plane.004Action
+  - first:
+      74: -7058611889341208746
+    second: IK Target.003|Plane.005Action
+  - first:
+      74: -7312548054934314414
+    second: IK Target.003|Plane.006Action
+  - first:
+      74: -1264828553565942378
+    second: IK Target.003|PlaneAction
+  - first:
+      74: -6791666784807850492
+    second: IK Target.003|RobotControllerAction.003
+  - first:
+      74: -1793678608307701562
+    second: RobotController|BodyAction
+  - first:
+      74: -8601319173262091586
+    second: RobotController|DisplayEyeL.Action
+  - first:
+      74: -331707114252892964
+    second: RobotController|DisplayEyeRAction
+  - first:
+      74: -6876709047964729003
+    second: RobotController|GPencilAction
+  - first:
+      74: -4250745187568965819
+    second: RobotController|Plane.004Action
+  - first:
+      74: -2202908703336782605
+    second: RobotController|Plane.005Action
+  - first:
+      74: -1164030422056606127
+    second: RobotController|Plane.006Action
+  - first:
+      74: -8688350340169484518
+    second: RobotController|PlaneAction
+  - first:
+      74: -6882997428314889720
+    second: RobotController|RobotControllerAction.003
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

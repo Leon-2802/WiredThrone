@@ -13,6 +13,18 @@ TagManager:
   - Wall
   - Block
   - SidebarPanel
+  - SideConnection
+  - VariablePanel
+  - SideBarCanvas
+  - MoveBlock
+  - AttackBlock
+  - VariableBlock
+  - Robots
+  - EnemyRobot
+  - DebugCam
+  - BlockCam
+  - ModuleCam
+  - ProgrammingBlockCanvas
   layers:
   - Default
   - TransparentFX

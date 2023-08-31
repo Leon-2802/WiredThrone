@@ -1,15 +1,11 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Computer : Decoration
 {
-    public UnityEvent interactionStarted;
-    public UnityEvent interactionEnded;
     protected bool unavailable = false;
 
     [SerializeField] protected GameObject interactionInfo;
-    [SerializeField] protected GameObject computerCam;
 
     protected override void OnTriggerEnter(Collider other)
     {
@@ -37,7 +33,6 @@ public class Computer : Decoration
         InteractableManager.Instance.isInteractingWithCom = true;
         InteractableManager.Instance.startCom += StartCom;
         InteractableManager.Instance.endCom += ExitCom;
-        interactionStarted.Invoke();
     }
 
     protected override void OnEndInteraction(object sender, EventArgs e)
@@ -46,21 +41,19 @@ public class Computer : Decoration
         InteractableManager.Instance.isInteractingWithCom = false;
         InteractableManager.Instance.startCom -= StartCom;
         InteractableManager.Instance.endCom -= ExitCom;
-        interactionEnded.Invoke();
         CameraController.instance.ResetBlendTime(); //Safety measure, in case Computer was not exited properly
     }
 
     protected virtual void StartCom(object sender, EventArgs e)
     {
-        computerCam.SetActive(true);
         GameManager.Instance.playerControls.Player.Disable();
         GameManager.Instance.playerControls.Computer.Enable();
     }
 
     protected virtual void ExitCom(object sender, EventArgs e)
     {
-        computerCam.SetActive(false);
         GameManager.Instance.playerControls.Player.Enable();
+        GameManager.Instance.playerControls.Player.ClickMove.Disable(); // Keep ClickMovement disabled, so player can't move while interacting with computer
         GameManager.Instance.playerControls.Computer.Disable();
     }
 
@@ -68,8 +61,6 @@ public class Computer : Decoration
     {
         InteractableManager.Instance.endInteraction -= StartCom;
         InteractableManager.Instance.endCom -= ExitCom;
-        //just in case something goes wrong ----
-        computerCam.SetActive(false);
         GameManager.Instance.playerControls.Player.Enable();
         GameManager.Instance.playerControls.Computer.Disable();
         // -------------------------------------

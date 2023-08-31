@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Models/sketchfab/bobs_sniper-rifle/scene.bin.meta
 guid: 2fa4bded1d9873d4db2608ee46d0258d
+========
+guid: 1a93104dec8b84141982c49589b01991
+folderAsset: yes
+>>>>>>>> test:Assets/Models/Roboter/RoboTemplate.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

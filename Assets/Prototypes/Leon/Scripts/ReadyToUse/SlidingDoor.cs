@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SlidingDoor : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class SlidingDoor : MonoBehaviour
     [SerializeField] private ECharacterTypes acceptedCharacterType;
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private bool locked;
+    [SerializeField] private BoxCollider boxCollider;
+    [SerializeField] private NavMeshObstacle meshObstacle;
     private int timesOpened;
     private Material standardMaterial;
 
@@ -19,12 +22,16 @@ public class SlidingDoor : MonoBehaviour
     public void Unlock()
     {
         locked = false;
-        Open();
+        boxCollider.enabled = false;
+        meshObstacle.enabled = false;
+        Open(true);
     }
 
     public void SetLocked(bool locked)
     {
         this.locked = locked;
+        boxCollider.enabled = locked;
+        meshObstacle.enabled = locked;
     }
 
 
@@ -40,18 +47,25 @@ public class SlidingDoor : MonoBehaviour
                 return;
             }
 
-            Open();
+            bool playSound;
+            if (other.gameObject.GetComponent<Player>() || other.gameObject.GetComponent<CompanionAnims>())
+                playSound = true;
+            else
+                playSound = false;
+
+            Open(playSound);
         }
     }
 
-    private void Open()
+    private void Open(bool sound)
     {
         timesOpened++;
 
         if (timesOpened == 1)
         {
             anim.SetTrigger("open");
-            SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
+            if (sound)
+                SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
         }
     }
 
@@ -59,18 +73,25 @@ public class SlidingDoor : MonoBehaviour
     {
         if (other.gameObject.GetComponent<MovingCharacter>() && !locked)
         {
-            Close();
+            bool playSound;
+            if (other.gameObject.GetComponent<Player>() || other.gameObject.GetComponent<CompanionAnims>())
+                playSound = true;
+            else
+                playSound = false;
+
+            Close(playSound);
         }
     }
 
-    private void Close()
+    private void Close(bool sound)
     {
         timesOpened--;
 
         if (timesOpened == 0)
         {
             anim.SetTrigger("close");
-            SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
+            if (sound)
+                SoundManager.instance.PlaySoundOneShot(ESounds.SlidingDoor);
         }
 
     }

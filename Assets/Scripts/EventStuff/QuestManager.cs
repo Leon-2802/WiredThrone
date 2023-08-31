@@ -12,6 +12,10 @@ public class QuestManager : MonoBehaviour
     public UnityEvent repairedCompanion;
     public UnityEvent reachedWorkerBots;
     public UnityEvent debuggedWorkerBots;
+    public UnityEvent logComputerRepaired;
+    public UnityEvent terminalRepaired;
+    public UnityEvent programmingTaskAvailable;
+    public UnityEvent roboterProgrammed;
     public event EventHandler<SetQuestText> setQuest;
     public class SetQuestText : EventArgs
     {
@@ -68,8 +72,9 @@ public class QuestManager : MonoBehaviour
 
     public void ReachedWorkerBots()
     {
+        finishedQuests++;
         reachedWorkerBots.Invoke();
-        InvokeSetQuest("Debug the two worker robots", 2);
+        InvokeSetQuest(quests[2], 2);
     }
     public void DebuggedOneWokerBot(int counter)
     {
@@ -81,8 +86,45 @@ public class QuestManager : MonoBehaviour
 
     public void DebuggedWorkerBots()
     {
+        finishedQuests++;
+        SwitchGameplayManager.instance.debuggingDone = true;
         debuggedWorkerBots.Invoke();
-        InvokeSetQuest("New Task", 0);
+        InvokeSetQuest(quests[3], 0);
+    }
+
+    public void LogComputerRepaired()
+    {
+        finishedQuests++;
+        logComputerRepaired.Invoke();
+    }
+
+    public void TerminalRepaired()
+    {
+        terminalRepaired.Invoke();
+    }
+
+    public void GoToRobobauwerke()
+    {
+        InvokeSetQuest("Follow the robot to the location", 0);
+    }
+
+    public void RepairRobotBuildPC()
+    {
+        InvokeSetQuest("Call the repair robot for help", 0);
+    }
+
+    public void ProgrammingTaskAvailable()
+    {
+        programmingTaskAvailable.Invoke();
+        InvokeSetQuest("Program and build combat robot", 2);
+        finishedQuests++;
+    }
+
+    public void RoboterProgrammed()
+    {
+        finishedQuests = 5;
+        roboterProgrammed.Invoke();
+        InvokeSetQuest("Choose a travel destination", 0);
     }
 
     public void InvokeSetQuest(string text, int taskIterations)

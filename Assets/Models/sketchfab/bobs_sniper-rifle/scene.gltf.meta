@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Models/sketchfab/bobs_sniper-rifle/scene.gltf.meta
 guid: 262e6f170f788f34b9f491a610e731e1
+========
+guid: 2b60ef5f109982d488aa9d9472db2129
+folderAsset: yes
+>>>>>>>> test:Assets/Models/sketchfab/recharger-rifle/source/Materials.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

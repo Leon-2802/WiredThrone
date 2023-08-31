@@ -104,6 +104,7 @@ public class CompanionMovement : MonoBehaviour
     {
         eventTarget = e._target;
         disableFollowPlayer = true; //don't follow the player for time being
+        agent.speed = 5.1f;
 
         //check if optional object 
         if (e._target.gameObject.GetComponent<CompanionTarget>().optionalTarget == true)
@@ -116,6 +117,7 @@ public class CompanionMovement : MonoBehaviour
     //resets all arguments to default values -> follow player
     void FlyBackToPlayer(object sender, EventArgs e)
     {
+        agent.speed = 4f;
         movedBackToPlayer = false;
         disableFollowPlayer = false;
         checkDistanceToPlayer = false;

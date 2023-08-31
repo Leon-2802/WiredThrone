@@ -10,11 +10,12 @@ public class InteractableManager : MonoBehaviour
     public bool isOneShotInteraction = false;
     public bool isInteracting = false;
     public bool isInteractingWithCom = false;
+    public bool interatingWithPlanetConsole = false;
     public event EventHandler startInteraction;
     public event EventHandler endInteraction;
     public event EventHandler startCom;
     public event EventHandler endCom;
-    [SerializeField] private GameObject inGameUI;
+    [SerializeField] private GameObject hideWhenOnCom;
 
     private void Awake()
     {
@@ -24,6 +25,15 @@ public class InteractableManager : MonoBehaviour
             Instance = this;
     }
 
+
+    public void DeselectInteractable(Renderer[] renderers, float previousOutlineSize)
+    {
+        foreach (MeshRenderer renderer in renderers)
+        {
+            renderer.materials[0].SetColor("_OutlineColor", Color.black);
+            renderer.materials[0].SetFloat("_OutlineSize", previousOutlineSize);
+        }
+    }
 
     public void EnterInteractionZone(bool isOneShotInteraction)
     {
@@ -61,7 +71,7 @@ public class InteractableManager : MonoBehaviour
         {
             CameraController.instance.SetBlendTime(0); //set to 0, to prevent camera from exposing the position of WorlSpace Canvas
             startCom.Invoke(this, EventArgs.Empty);
-            inGameUI.SetActive(false);
+            hideWhenOnCom.SetActive(false);
         }
     }
     public void InvokeEndCom()
@@ -69,7 +79,16 @@ public class InteractableManager : MonoBehaviour
         if (isInteractingWithCom)
         {
             endCom.Invoke(this, EventArgs.Empty);
-            inGameUI.SetActive(true);
+            hideWhenOnCom.SetActive(true);
         }
+    }
+
+    public void StartInteractPlanetConsole()
+    {
+        interatingWithPlanetConsole = true;
+    }
+    public void EndInteractPlanetConsole()
+    {
+        interatingWithPlanetConsole = false;
     }
 }

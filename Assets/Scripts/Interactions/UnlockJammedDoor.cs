@@ -12,6 +12,7 @@ public class UnlockJammedDoor : MonoBehaviour
         if (other.GetComponent<CompanionAnims>() && !unlocked)
         {
             repairEffect.SetActive(true);
+            SoundManager.instance.PlaySoundOneShot(ESounds.Welding);
             StartCoroutine(disableClass());
         }
     }

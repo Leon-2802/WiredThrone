@@ -887,6 +887,8 @@ MonoBehaviour:
   acceptedCharacterType: 1
   meshRenderer: {fileID: 1236926672662991788}
   locked: 0
+  boxCollider: {fileID: 2186312132008199292}
+  meshObstacle: {fileID: 2186312132008199293}
 --- !u!1 &8660907756480553945
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,23 +1,34 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum ECharacterTypes { Character, MovingCharacter, NPC, Player, Robot };
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public PlayerControls playerControls;
+    public ClickMovement playerClickMovement;
     public bool playerIsRunning = false;
     public bool menuAccessible = false;
+    public bool lockedToPc = false; // set to true, if player has to do some task on a pc before proceeding with the normal gameplay (ie. debugging the code of the repair bots)
     [SerializeField] private GameObject player;
     [SerializeField] private SaveLoadManager saveLoadManager;
     [SerializeField] private int debugCheckpoint;
     [SerializeField] private bool debugLoadMode = false;
+    [SerializeField] private bool debugSceneLoaded = false;
+    [SerializeField] private bool blockSceneLoaded = false;
 
     public void TogglePlayerControls(bool enable)
     {
         if (enable)
+        {
             playerControls.Player.Enable();
+            playerClickMovement.enabled = true;
+        }
         else
+        {
             playerControls.Player.Disable();
+            playerClickMovement.enabled = false;
+        }
     }
 
     private void Awake()
@@ -26,6 +37,14 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         else
             Instance = this;
+
+        // Load the Debug Scene only if it is not already loaded (ie. after coming from Main Menu)
+        if (!debugSceneLoaded) {   
+            SceneManager.LoadScene("DebugRobots", LoadSceneMode.Additive);
+        }
+
+        if (!blockSceneLoaded)
+            SceneManager.LoadScene("BlocksScene", LoadSceneMode.Additive);
 
         playerControls = new PlayerControls();
         playerControls.Computer.Disable(); //Computer Controls are only enabled when player starts using one
@@ -54,6 +73,12 @@ public class GameManager : MonoBehaviour
                 case 1:
                     saveLoadManager.LoadCheckpoint(1);
                     break;
+                case 2:
+                    saveLoadManager.LoadCheckpoint(2);
+                    break;
+                case 3:
+                    saveLoadManager.LoadCheckpoint(3);
+                    break;
             }
         }
         else
@@ -72,6 +97,14 @@ public class GameManager : MonoBehaviour
             case 1:
                 saveLoadManager.LoadCheckpoint(1);
                 break;
+            case 2:
+                saveLoadManager.LoadCheckpoint(2);
+                break;
         }
+    }
+
+    public void DestroyGameObject(GameObject go)
+    {
+        Destroy(go);
     }
 }

@@ -11,8 +11,8 @@ public class DragDropHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     [SerializeField] private Vector3 _dragOffset;
     private void Awake()
     {
-        _canvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<Canvas>();
-        _cam = Camera.main;
+        _canvas = GameObject.FindGameObjectWithTag("ProgrammingBlockCanvas").GetComponent<Canvas>();
+        _cam = GameObject.FindGameObjectWithTag("BlockCam").GetComponent<Camera>();
     }
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {

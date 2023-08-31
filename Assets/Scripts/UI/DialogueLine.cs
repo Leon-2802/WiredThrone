@@ -8,15 +8,15 @@ public class DialogueLine : DialogueBaseClass
 
     [Header("Text Options")]
     [SerializeField] private string input;
-    [SerializeField] private Color textColor;
 
     [Header("Time Parameters")]
-    [SerializeField] private float delay = 0.1f;
-    [SerializeField] private float delayBetweenLines = 1f;
+    private float delay = 0.1f;
+    [SerializeField] private float delayBetweenLines = 1.5f;
 
 
     private void Start()
     {
-        StartCoroutine(WriteText(input, textHolder, textColor, delay, delayBetweenLines));
+        delay = ThemeManager.instance.dialogueSpeed;
+        StartCoroutine(WriteText(input, textHolder, textHolder.color, delay, delayBetweenLines));
     }
 }
