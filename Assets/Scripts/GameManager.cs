@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int debugCheckpoint;
     [SerializeField] private bool debugLoadMode = false;
     [SerializeField] private bool debugSceneLoaded = false;
+    [SerializeField] private bool blockSceneLoaded = false;
 
     public void TogglePlayerControls(bool enable)
     {
@@ -38,8 +39,12 @@ public class GameManager : MonoBehaviour
             Instance = this;
 
         // Load the Debug Scene only if it is not already loaded (ie. after coming from Main Menu)
-        if (!debugSceneLoaded)
+        if (!debugSceneLoaded) {   
             SceneManager.LoadScene("DebugRobots", LoadSceneMode.Additive);
+        }
+
+        if (!blockSceneLoaded)
+            SceneManager.LoadScene("BlocksScene", LoadSceneMode.Additive);
 
         playerControls = new PlayerControls();
         playerControls.Computer.Disable(); //Computer Controls are only enabled when player starts using one

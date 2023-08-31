@@ -8,6 +8,7 @@ public class BlockDragDropHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     [SerializeField] private Wire wireRef;
     [SerializeField] private RectTransform _sideConnection;
+    [SerializeField] private Camera _blocksCam;
 
     public RectTransform SideConnection
     {
@@ -19,10 +20,12 @@ public class BlockDragDropHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     private void Start()
     {
         wireRef = GetComponentInChildren<Wire>();
+        _blocksCam = GameObject.FindGameObjectWithTag("BlockCam").GetComponent<Camera>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("lool");
         if (wireRef != null)
         {
             if (Mouse.current.middleButton.IsPressed())
@@ -36,10 +39,10 @@ public class BlockDragDropHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (!_dragging)
         {
-            _clickOffset = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - GetComponent<RectTransform>().position;
+            _clickOffset = _blocksCam.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - GetComponent<RectTransform>().position;
             _dragging = true;
         }
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - _clickOffset;
+        Vector3 mousePos = _blocksCam.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - _clickOffset;
         mousePos.z = 0;
         transform.position = mousePos;
 

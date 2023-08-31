@@ -41,7 +41,7 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (_camera == null)
         {
-            _camera = Camera.main;
+            _camera = GameObject.FindGameObjectWithTag("BlockCam").GetComponent<Camera>();
         }
         _dist = 0f;
     }
@@ -80,7 +80,7 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (_connectionOut != null)
         {
-            GameObject canvas = GameObject.FindGameObjectWithTag("MainCanvas");
+            GameObject canvas = GameObject.FindGameObjectWithTag("ProgrammingBlockCanvas");
 
             Vector3 outBlockPivot = _connectionOut.GetComponentInChildren<Wire>().BlockWirePivot.position;
             var wireDraggableRt = GetComponent<RectTransform>();
@@ -113,7 +113,7 @@ public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
 
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
-        GameObject canvas = GameObject.FindGameObjectWithTag("MainCanvas");
+        GameObject canvas = GameObject.FindGameObjectWithTag("ProgrammingBlockCanvas");
 
         // Store mouse position and calculate distance to source of the wire.
         Vector3 mousePos = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());

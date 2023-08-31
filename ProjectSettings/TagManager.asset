@@ -21,6 +21,10 @@ TagManager:
   - VariableBlock
   - Robots
   - EnemyRobot
+  - DebugCam
+  - BlockCam
+  - ModuleCam
+  - ProgrammingBlockCanvas
   layers:
   - Default
   - TransparentFX

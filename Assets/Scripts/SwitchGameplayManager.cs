@@ -9,6 +9,8 @@ public class SwitchGameplayManager : MonoBehaviour
     public event EventHandler onProgrammingFinished;
     [SerializeField] private Camera mainCamera;
     private Camera debugScreenCamera;
+    private Camera blockScreenCamera;
+    private Canvas blockScreenSidebarCanvas;
 
     private void Awake()
     {
@@ -24,8 +26,6 @@ public class SwitchGameplayManager : MonoBehaviour
         if (debugCamObj)
             debugScreenCamera = debugCamObj.GetComponent<Camera>();
     }
-
-
     public void SwitchToDebugCamera()
     {
         if (!debuggingDone) // block this function when debugging is done, bc for some reason it gets called still after the robots are disabled
@@ -43,11 +43,15 @@ public class SwitchGameplayManager : MonoBehaviour
     public void SwitchToProgrammingGameplay()
     {
         GameManager.Instance.lockedToPc = true;
-        StartCoroutine(DelayedProgrammingFinished()); // TODO: entfernen, ist nur  drin damit ich den Programmier-Szene Part überspringen konnte zum debuggen
+        mainCamera.enabled = false;
+        debugScreenCamera.enabled = false;
+        BlockSceneManager.instance.SwitchToModuleView();
+        //StartCoroutine(DelayedProgrammingFinished()); // TODO: entfernen, ist nur  drin damit ich den Programmier-Szene Part überspringen konnte zum debuggen
     }
     public void ProgrammingFinished()
     {
         GameManager.Instance.lockedToPc = false;
+        mainCamera.enabled = true;
         onProgrammingFinished.Invoke(this, EventArgs.Empty);
     }
 

@@ -6,11 +6,11 @@ public class BlockSceneManager : MonoBehaviour
 {
     public static BlockSceneManager instance;
     private List<Block> _blocks;
-    [SerializeField] private GameObject _moduleCam;
-    [SerializeField] GameObject _moduleCanvas;
-    [SerializeField] private GameObject _mainCam;
-    [SerializeField] private GameObject _sidebarCanvas;
-    [SerializeField] private GameObject _blockCanvas;
+    [SerializeField] private Camera _mainCam;
+    [SerializeField] private Camera _moduleCam;
+    [SerializeField] private Canvas _moduleCanvas;
+    [SerializeField] private Canvas _sidebarCanvas;
+    [SerializeField] private Canvas _blockCanvas;
     [SerializeField] private int _blockcount;
 
 
@@ -25,7 +25,13 @@ public class BlockSceneManager : MonoBehaviour
             Destroy(this.gameObject);
         else
             instance = this;
-        SwitchToModuleView();
+        _mainCam = GameObject.FindGameObjectWithTag("BlockCam").GetComponent<Camera>();
+        _moduleCam = GameObject.FindGameObjectWithTag("ModuleCam").GetComponent<Camera>();
+
+        if (SwitchGameplayManager.instance == null)
+        {
+            SwitchToModuleView();
+        }
     }
 
     private void Update()
@@ -36,22 +42,28 @@ public class BlockSceneManager : MonoBehaviour
         }
     }
 
+    public void CloseBlockSceneView()
+    {
+        if (SwitchGameplayManager.instance != null)
+            SwitchGameplayManager.instance.SwitchToMainCamera();
+    }
+
     public void SwitchToModuleView()
     {
-        _mainCam.SetActive(false);
-        _sidebarCanvas.SetActive(false);
-        _blockCanvas.SetActive(false);
-        _moduleCanvas.SetActive(true);
-        _moduleCam.SetActive(true);
+        _mainCam.enabled = false;
+        _moduleCam.enabled = true;
+        _sidebarCanvas.enabled = false;
+        _blockCanvas.enabled = false;
+        _moduleCanvas.enabled = true;
     }
 
     public void SwitchToProgramView()
     {
-        _mainCam.SetActive(true);
-        _sidebarCanvas.SetActive(true);
-        _blockCanvas.SetActive(true);
-        _moduleCanvas.SetActive(false);
-        _moduleCam.SetActive(false);
+        _mainCam.enabled = true;
+        _moduleCam.enabled = false;
+        _sidebarCanvas.enabled = true;
+        _blockCanvas.enabled = true;
+        _moduleCanvas.enabled = false;
     }
 
 }

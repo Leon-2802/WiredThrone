@@ -9,7 +9,7 @@ public class SpawnBlock : MonoBehaviour
     {
         if (block != null)
         {
-            GameObject canvas = GameObject.FindGameObjectWithTag("MainCanvas");
+            GameObject canvas = GameObject.FindGameObjectWithTag("ProgrammingBlockCanvas");
             GameObject instantiatedPrefab = Instantiate(block);
 
             instantiatedPrefab.transform.SetParent(canvas.transform);
@@ -24,7 +24,7 @@ public class SpawnBlock : MonoBehaviour
 
     public void SpawnBlockFromPath(string path)
     {
-        GameObject canvas = GameObject.FindGameObjectWithTag("MainCanvas");
+        GameObject canvas = GameObject.FindGameObjectWithTag("ProgrammingBlockCanvas");
         GameObject objectAtPath = AssetDatabase.LoadAssetAtPath<GameObject>(path);
 
         GameObject instantiatedPrefab = Instantiate(objectAtPath);
