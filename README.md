@@ -1,5 +1,6 @@
 ## Video Game Prototype "Wired Throne" - Group Project during Semester 4 and 5 at Furtwangen University
 
+This project was initiated by Alexander Weibert (see contributors) and me.
 The prototype features the first chapter of a story-rich video game which helps the user learn programming basics by programming robots to aid them progress through the story.
 The story is situated in a mysterious anddark sci-fi universe, the player needs to uncover the mysteries by themself
 
